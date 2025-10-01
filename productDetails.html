@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIMC Thailand - Product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./img/logo.ico">
+    <style>
+        /* Alert styles */
+        .custom-alert {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 300px;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* Brochure Modal Styles */
+        .modal-content {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+        }
+        
+        .modal-header {
+            background-color: var(--cimc-blue);
+            color: white;
+            border-bottom: none;
+            padding: 15px 20px;
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .form-control {
+            border-radius: 6px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--cimc-blue);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+        }
+        
+        .btn-modal-primary {
+            background-color: var(--cimc-blue);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-modal-primary:hover {
+            background-color: #0a58ca;
+            transform: translateY(-2px);
+        }
+        
+        .btn-modal-outline {
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-modal-outline:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Loading animation for download */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .download-loading {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s ease infinite;
+            margin-right: 8px;
+        }
+        
+        .quote-loading {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s ease infinite;
+            margin-right: 8px;
+        }
+        
+        .required-field::after {
+            content: "*";
+            color: red;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Alert Container -->
+    <div id="alertContainer"></div>
+    
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="th">ไทย</button>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">
+                <i><img src="./img/logo.jpg" style="width:50px;height:50px;"></i>
+                <span id="brand">CIMC Thailand</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html#about" id="nav-about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./product.html" id="nav-products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html#newsevent" id="nav-news">News & Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./customer.html" id="nav-customers">Stakeholder Network</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html#contact" id="nav-contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Detail Content -->
+    <div class="product-detail-container">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html" id="breadcrumb-home">Home</a></li>
+                <li class="breadcrumb-item"><a href="./product.html" id="breadcrumb-products">Products</a></li>
+                <li class="breadcrumb-item"><a href="./productSeries.html" id="breadcrumb-series">Chassis Series</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="productNameBreadcrumb">Product Details</li>
+            </ol>
+        </nav>
+
+        <!-- Detail Card -->
+        <div class="detail-card">
+            <div class="detail-header">
+                <h1 class="detail-title" id="productTitle">Product Title</h1>
+            </div>
+
+            <div class="detail-content">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <!-- Image Gallery -->
+                        <div class="gallery-container">
+                            <img id="mainImage" src="./product/container.jpg" alt="Main Product Image" class="main-image">
+
+                            <div class="thumbnails" id="thumbnailContainer">
+                                <!-- Thumbnails will be dynamically added -->
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="description">
+                            <h3 class="mb-4" style="color: var(--cimc-blue);" id="overview-title">Product Overview</h3>
+                            <p id="productDescription" class="lead">Product description will be loaded here...</p>
+                            <div id="detailedDescription"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <!-- Specifications -->
+                        <div class="specifications">
+                            <h3 class="mb-4" style="color: var(--cimc-blue);" id="specs-title">Technical Specifications</h3>
+                            <table class="specs-table" id="specsTable">
+                                <!-- Specifications will be dynamically added -->
+                            </table>
+                        </div>
+
+                        <!-- Key Features -->
+                        <div class="key-features">
+                            <h3 class="mb-4" style="color: var(--cimc-blue);" id="features-title">Key Features</h3>
+                            <div class="features-grid" id="featuresGrid">
+                                <!-- Features will be dynamically added -->
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <a href="#" class="btn-brochure" id="btn-brochure" data-bs-toggle="modal" data-bs-target="#brochureModal">
+                                <i class="fas fa-download me-2"></i> Request Brochure
+                            </a>
+                            <button class="btn-quote-large" id="btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                                <i class="fas fa-file-invoice-dollar me-2"></i> Request Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-products">
+            <h2 class="related-title" id="related-title">Related Products</h2>
+            <div class="products-grid" id="relatedProducts">
+                <!-- Related products will be dynamically added -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Brochure Request Modal -->
+    <div class="modal fade" id="brochureModal" tabindex="-1" aria-labelledby="brochureModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="brochureModalLabel">Request Product Brochure</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="brochureForm">
+                        <div class="mb-3">
+                            <label for="brochureProduct" class="form-label">Product</label>
+                            <input type="text" class="form-control" id="brochureProduct" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brochureName" class="form-label required-field">Name/Company Name</label>
+                            <input type="text" class="form-control" id="brochureName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brochureEmail" class="form-label required-field">Email Address</label>
+                            <input type="email" class="form-control" id="brochureEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brochureMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="brochureMessage" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="brochureSubscribe">
+                            <label class="form-check-label" for="brochureSubscribe">Subscribe to our newsletter for updates</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-modal-outline" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-modal-primary" id="btnDownloadBrochure">Download Brochure</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quote Request Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quoteModalLabel">Request Product Quotation</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quoteForm">
+                        <div class="mb-3">
+                            <label for="quoteProduct" class="form-label">Product</label>
+                            <input type="text" class="form-control" id="quoteProduct" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteName" class="form-label required-field">Name/Company Name</label>
+                            <input type="text" class="form-control" id="quoteName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteEmail" class="form-label required-field">Email Address</label>
+                            <input type="email" class="form-control" id="quoteEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="quoteMessage" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-modal-outline" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-modal-primary" id="btnSubmitQuote">Quote</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">
+                        <img src="./img/logo.jpg" alt="CIMC Logo">
+                        <span id="footer-brand">CIMC Thailand</span>
+                    </div>
+                    <p id="footer-desc">Leading container manufacturing and logistics solutions provider in Southeast Asia, committed to quality, innovation, and customer satisfaction.</p>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/cimcthai" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/cimc-thailand/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@cimcth1805" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://line.me/R/ti/p/@cimcthailand" target="_blank"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="footer-title" id="footer-quick-links">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html"><i class="fas fa-chevron-right"></i> <span id="footer-home">Home</span></a>
+                        <a href="index.html#about"><i class="fas fa-chevron-right"></i> <span id="footer-about">About Us</span></a>
+                        <a href="product.html"><i class="fas fa-chevron-right"></i> <span id="footer-products">Products</span></a>
+                        <a href="index.html#newsevent"><i class="fas fa-chevron-right"></i> <span id="footer-news">News & Events</span></a>
+                        <a href="customer.html"><i class="fas fa-chevron-right"></i> <span id="footer-customers">Stakeholder Network</span></a>
+                        <a href="index.html#contact"><i class="fas fa-chevron-right"></i> <span id="footer-contact">Contact Us</span></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4 class="footer-title" id="footer-contact-title">Contact Information</h4>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="footer-location">7/258 Moo 6, Amata City Industrial Estate, Pluak Daeng, Rayong, Thailand 21140</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+66 86 303 0526</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <span>cimcth@gmail.com</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-clock"></i>
+                            <span id="footer-hours"><span id="footer-weekdays">Monday - Friday: 8:00 AM - 5:00 PM</span><br><span id="footer-saturday">Saturday: 8:00 AM - 12:00 PM</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 <span id="footer-copyright">CIMC Thailand</span>. <span id="footer-rights">All Rights Reserved.</span> | <span id="footer-design">Designed with</span> <i class="fas fa-heart text-danger"></i> <span id="footer-clients">for our clients</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="./js/translations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>        
+        // 初始化 EmailJS
+        (function() {
+            emailjs.init("g8vEAxauXT94G574W");
+        })();
+        
+        // Current language
+        let currentLang = 'en';
+
+        // Function to show alert message
+        function showAlert(message, type) {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertId = 'alert-' + Date.now();
+            const alert = document.createElement('div');
+            alert.id = alertId;
+            alert.className = `alert alert-${type} alert-dismissible fade show custom-alert`;
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            alertContainer.appendChild(alert);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                const alertElement = document.getElementById(alertId);
+                if (alertElement) {
+                    alertElement.remove();
+                }
+            }, 5000);
+        }
+
+        // Set language function
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            // Add/remove Thai font class
+            if (lang === 'th') {
+                document.body.classList.add('thai-lang');
+            } else {
+                document.body.classList.remove('thai-lang');
+            }
+
+            // Update all text elements
+            updateTextContent();
+
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Save preference
+            localStorage.setItem('preferredLang', lang);
+
+            // Reload product details if already loaded
+            if (window.productLoaded) {
+                loadProductDetails();
+            }
+        }
+
+        // Update text content
+        function updateTextContent() {
+            for (const key in translations[currentLang]) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[currentLang][key];
+                }
+            }
+            
+            // Update modal labels
+            const modalLabels = {
+                'brochureModalLabel': 'brochure-modal-title',
+                'btnDownloadBrochure': 'brochure-download'
+            };
+            
+            for (const [elementId, translationKey] of Object.entries(modalLabels)) {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.textContent = translations[currentLang][translationKey];
+                }
+            }
+        }
+
+        // Load product details
+        function loadProductDetails() {
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('productId');
+
+            // Load product data
+            const product = products[productId];
+
+            if (product) {
+                const langData = product.translations[currentLang] || product.translations.en;
+
+                // Update page content
+                document.title = `CIMC Thailand - ${langData.name}`;
+                document.getElementById('productTitle').textContent = langData.name;
+                document.getElementById('productNameBreadcrumb').textContent = langData.name;
+                document.getElementById('productDescription').textContent = langData.description;
+                document.getElementById('detailedDescription').innerHTML = langData.detailedDescription;
+
+                // Set main image
+                const mainImage = document.getElementById('mainImage');
+                mainImage.src = product.images[0];
+                mainImage.alt = langData.name;
+
+                // Create thumbnails
+                const thumbnailContainer = document.getElementById('thumbnailContainer');
+                thumbnailContainer.innerHTML = '';
+                product.images.forEach((img, index) => {
+                    const thumbnail = document.createElement('img');
+                    thumbnail.src = img;
+                    thumbnail.alt = `Thumbnail ${index + 1}`;
+                    thumbnail.className = 'thumbnail';
+                    if (index === 0) thumbnail.classList.add('active');
+
+                    thumbnail.addEventListener('click', () => {
+                        mainImage.src = img;
+                        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                        thumbnail.classList.add('active');
+                    });
+
+                    thumbnailContainer.appendChild(thumbnail);
+                });
+
+                // Create specifications table
+                const specsTable = document.getElementById('specsTable');
+                specsTable.innerHTML = '';
+                for (const [key, value] of Object.entries(langData.specifications)) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<th>${key}</th><td>${value}</td>`;
+                    specsTable.appendChild(row);
+                }
+
+                // Create features
+                const featuresGrid = document.getElementById('featuresGrid');
+                featuresGrid.innerHTML = '';
+                langData.features.forEach(feature => {
+                    const featureCard = document.createElement('div');
+                    featureCard.className = 'feature-card';
+                    featureCard.innerHTML = `
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <span>${feature}</span>
+                        </div>
+                    `;
+                    featuresGrid.appendChild(featureCard);
+                });
+
+                // Load related products
+                const relatedContainer = document.getElementById('relatedProducts');
+                relatedContainer.innerHTML = '';
+                if (product.related && product.related.length > 0) {
+                    product.related.forEach(relatedId => {
+                        const relatedProduct = products[relatedId];
+                        if (relatedProduct) {
+                            const relatedLangData = relatedProduct.translations[currentLang] || relatedProduct.translations.en;
+                            const productCard = document.createElement('div');
+                            productCard.className = 'product-card';
+                            productCard.innerHTML = `
+                                <img src="${relatedProduct.images[0]}"
+                                     alt="${relatedLangData.name}" class="product-image">
+                                <div class="product-content">
+                                    <h3 class="product-title">${relatedLangData.name}</h3>
+                                    <div class="product-actions">
+                                        <a href="./productDetails.html?productId=${relatedId}" class="btn-details">
+                                            ${currentLang === 'th' ? 'รายละเอียด' : 'View Details'}
+                                        </a>
+                                    </div>
+                                </div>
+                            `;
+                            relatedContainer.appendChild(productCard);
+                        }
+                    });
+                }
+            } else {
+                // Handle product not found
+                document.getElementById('productTitle').textContent = currentLang === 'th' ? "ไม่พบสินค้า" : "Product Not Found";
+                document.querySelector('.detail-content').innerHTML = `
+                    <div class="alert alert-danger m-4">
+                        <h4>${currentLang === 'th' ? "สินค้าไม่พร้อมจำหน่าย" : "Product Not Available"}</h4>
+                        <p>${currentLang === 'th' ? "ไม่พบสินค้าที่ร้องขอ กรุณากลับไปที่" : "The requested product could not be found. Please return to our"}
+                        <a href="./productSeries.html">${currentLang === 'th' ? "หน้าสินค้า" : "products page"}</a>
+                        ${currentLang === 'th' ? "เพื่อดูสินค้าของเรา" : "to browse our offerings"}.</p>
+                    </div>
+                `;
+            }
+
+            window.productLoaded = true;
+        }
+
+        // Function to download brochure PDF
+        function downloadBrochure(productId) {
+            const product = products[productId];
+            if (!product || !product.brochureUrl) {
+                showAlert(currentLang === 'th' ? 
+                    'ไม่พบโบรชัวร์สำหรับสินค้านี้' : 
+                    'Brochure not found for this product', 'danger');
+                return;
+            }
+
+            const brochureUrl = product.brochureUrl[currentLang] || product.brochureUrl.en;
+            
+            // Get form data
+            const name = document.getElementById('brochureName').value;
+            const email = document.getElementById('brochureEmail').value;
+            const message = document.getElementById('brochureMessage').value;
+            const subscribe = document.getElementById('brochureSubscribe').checked;
+            
+            // Validate required fields
+            if (!name || !email) {
+                showAlert(translations[currentLang]['brochure-error'], 'danger');
+                return;
+            }
+            
+            // Show loading state
+            const downloadBtn = document.getElementById('btnDownloadBrochure');
+            const originalText = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = `<span class="download-loading"></span>${translations[currentLang]['brochure-loading']}`;
+            downloadBtn.disabled = true;
+            
+            // Send email using EmailJS
+            emailjs.send('service_9q40ajp', 'template_p0lfuya', {
+                name: name,
+                email: email,
+                message: message,
+                subject: 'Brochure Request: ' + document.getElementById('brochureProduct').value
+            })
+            .then(function(response) {
+                // Success: trigger download
+                const a = document.createElement('a');
+                a.href = brochureUrl;
+                a.download = `CIMC_${products[productId].translations.en.name.replace(/\s+/g, '_')}_Brochure.pdf`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                // Show success message
+                showAlert(translations[currentLang]['brochure-success'], 'success');
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('brochureModal'));
+                modal.hide();
+                
+                // Reset form
+                document.getElementById('brochureForm').reset();
+            }, function(error) {
+                showAlert(currentLang === 'th' ? 
+                    'เกิดข้อผิดพลาดในการส่งอีเมล กรุณาลองใหม่อีกครั้ง' : 
+                    'Error sending email. Please try again.', 'danger');
+            })
+            .finally(function() {
+                // Reset button state
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+            });
+        }
+
+        // Function to submit quote request
+        function submitQuoteRequest(productId) {
+            const product = products[productId];
+            
+            // Get form data
+            const name = document.getElementById('quoteName').value;
+            const email = document.getElementById('quoteEmail').value;
+            const message = 'Quote Request: ' + document.getElementById('quoteMessage').value;
+            
+            // Validate required fields
+            if (!name || !email) {
+                showAlert(translations[currentLang]['quote-error'], 'danger');
+                return;
+            }
+            
+            // Show loading state
+            const quoteBtn = document.getElementById('btnSubmitQuote');
+            const originalText = quoteBtn.innerHTML;
+            quoteBtn.innerHTML = `<span class="quote-loading"></span>${translations[currentLang]['quote-loading'] || 'Submitting...'}`;
+            quoteBtn.disabled = true;
+            
+            // Send email using EmailJS
+            emailjs.send('service_9q40ajp', 'template_p0lfuya', {
+                name: name,
+                email: email,
+                message: message,
+                subject: document.getElementById('quoteProduct').value
+            })
+            .then(function(response) {
+                showAlert('Quotation Request Successfully', 'success');
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
+                modal.hide();
+                
+                // Reset form
+                document.getElementById('quoteForm').reset();
+            }, function(error) {
+                showAlert(currentLang === 'th' ? 
+                    'เกิดข้อผิดพลาดในการส่งอีเมล กรุณาลองใหม่อีกครั้ง' : 
+                    'Error sending email. Please try again.', 'danger');
+            })
+            .finally(function() {
+                // Reset button state
+                quoteBtn.innerHTML = originalText;
+                quoteBtn.disabled = false;
+            });
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            setLanguage(savedLang);
+
+            // Language switch events
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+
+            // Handle brochure modal show event
+            document.getElementById('brochureModal').addEventListener('show.bs.modal', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('productId');
+                const product = products[productId];
+                
+                if (product) {
+                    const langData = product.translations[currentLang] || product.translations.en;
+                    document.getElementById('brochureProduct').value = langData.name;
+                }
+            });
+
+            // Handle brochure download button click
+            document.getElementById('btnDownloadBrochure').addEventListener('click', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('productId');
+                
+                // Validate form
+                const form = document.getElementById('brochureForm');
+                if (!form.checkValidity()) {
+                    form.classList.add('was-validated');
+                    return;
+                }
+                
+                downloadBrochure(productId);
+            });
+
+            // Handle quote modal show event
+            document.getElementById('quoteModal').addEventListener('show.bs.modal', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('productId');
+                const product = products[productId];
+                
+                if (product) {
+                    const langData = product.translations[currentLang] || product.translations.en;
+                    document.getElementById('quoteProduct').value = langData.name;
+                }
+            });
+            
+            // Handle quote submission
+            document.getElementById('btnSubmitQuote').addEventListener('click', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('productId');
+                
+                // Validate form
+                const form = document.getElementById('quoteForm');
+                if (!form.checkValidity()) {
+                    form.classList.add('was-validated');
+                    return;
+                }
+                
+                submitQuoteRequest(productId);
+            });
+
+            // Load product details
+            loadProductDetails();
+        });
+    </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
