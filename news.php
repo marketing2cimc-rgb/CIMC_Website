@@ -1,0 +1,406 @@
+<?php
+/**
+ * news.php - Dynamic news page that displays content based on URL parameter
+ * Usage: news.php?id=26092025 or news.php?id=12062023
+ */
+
+// Define news articles data
+$news_articles = [
+    '26092025' => [
+        'title' => 'The Thailand-China Cooperation Expo 29 June 2025',
+        'breadcrumb_title' => 'Join Us at the Thailand-China Cooperation Expo 29 June 2025',
+        'images' => [
+            '../news/Expo_00.jpg',
+            '../news/Expo_01.jpg', 
+            '../news/Expo_02.jpg'
+        ],
+        'content_en' => '<p>More than just business, it is about building bridges. At the Thailand-China Expo, we are not just showcasing CIMC product; we are fostering a dialogue for growth and innovation between two vibrant cultures. Grateful for the shared vision and the warm welcome from our Thai partners! 🌏🙏</p>',
+        'content_th' => '<p>ไม่ใช่แค่ธุรกิจ แต่เป็นการสร้างสะพานเชื่อม ในงาน Thailand-China Expo เราไม่ได้แค่จัดแสดงผลิตภัณฑ์ CIMC เท่านั้น แต่เรายังส่งเสริมการพูดคุยเพื่อการเติบโตและนวัตกรรมระหว่างสองวัฒนธรรมที่เปี่ยมไปด้วยพลัง ขอขอบคุณสำหรับวิสัยทัศน์ร่วมกันและการต้อนรับอย่างอบอุ่นจากพันธมิตรชาวไทยของเรา</p>'
+    ],
+    '12062023' => [
+        'title' => 'Ceremony for second Anniversary of DS First Product Offline',
+        'breadcrumb_title' => 'Ceremony for second Anniversary of DS First Product Offline',
+        'images' => [
+            '../news/120623-1.jpg',
+            '../news/120623-3.png'
+        ],
+        'content_en' => '<p>We are proud to celebrate the second anniversary of DS First Product Offline. This milestone represents our commitment to excellence and innovation in the trailer and semi-trailer manufacturing industry.</p><p>The ceremony was attended by our valued partners, employees, and management team, all of whom have contributed to our success over the past two years.</p><p>We remain dedicated to providing high-quality products and services to our customers across Thailand and Southeast Asia.</p>',
+        'content_th' => '<p>เราภูมิใจที่ได้เฉลิมฉลองวาระครบรอบ 2 ปีของ DS First Product Offline เหตุการณ์สำคัญนี้แสดงถึงความมุ่งมั่นของเราต่อความเป็นเลิศและนวัตกรรมในอุตสาหกรรมการผลิตรถพ่วงและรถกึ่งพ่วง</p><p>พิธีนี้มีคู่ค้าที่ยิ่งใหญ่ พนักงาน และทีมจัดการของเราเข้าร่วม ซึ่งทุกคนมีส่วนช่วยในความสำเร็จของเราตลอดสองปีที่ผ่านมา</p><p>เรายังคงทุ่มเทเพื่อจัดหาผลิตภัณฑ์และบริการคุณภาพสูงให้กับลูกค้าของเราในประเทศไทยและทั่วภูมิภาคเอเชียตะวันออกเฉียงใต้</p>'
+    ]
+];
+
+// Get the article ID from URL parameter
+$article_id = $_GET['id'] ?? '26092025';
+
+// Validate article ID
+if (!array_key_exists($article_id, $news_articles)) {
+    http_response_code(404);
+    $article_id = '26092025'; // Default to first article if invalid
+}
+
+$article = $news_articles[$article_id];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIMC Thailand | News & Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/x-icon" href="../img/logo.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1030;
+        }
+        
+        .lang-btn {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 0 2px;
+            cursor: pointer;
+        }
+        
+        .lang-btn.active {
+            background: #007bff;
+        }
+        
+        /* Gallery grid layout */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Alert Container -->
+    <div id="alertContainer" aria-live="polite" aria-atomic="true"></div>
+    
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+        <button class="lang-btn" data-lang="th" aria-label="Switch to Thai">ไทย</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html" aria-label="CIMC Thailand Home">
+                <img src="../img/logo.jpg" alt="CIMC Logo" class="brand-logo">
+                <span id="brand">CIMC Thailand</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#about" id="nav-about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../product.html" id="nav-products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="news.php" id="nav-news" aria-current="page">News & Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../customer.html" id="nav-customers">Stakeholder Network</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact" id="nav-contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html" id="breadcrumb-home">Home</a></li>
+                    <li class="breadcrumb-item"><a href="news.php" id="breadcrumb-news">News & Events</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="news-title-breadcrumb"><?php echo htmlspecialchars($article['breadcrumb_title']); ?></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main content area -->
+    <main id="content" class="main-content">
+        <div class="container">
+            <div class="content-container">
+                <h1 class="section-title" id="news-title"><?php echo htmlspecialchars($article['title']); ?></h1>
+                
+                <div class="image-gallery mb-5">
+                    <?php foreach ($article['images'] as $image): ?>
+                    <div class="gallery-item">
+                        <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <article class="news-content">
+                            <div id="news-content">
+                                <!-- Content will be populated by JavaScript based on language -->
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">
+                        <img src="../img/logo.jpg" alt="CIMC Logo" class="brand-logo">
+                        <span id="footer-brand">CIMC Thailand</span>
+                    </div>
+                    <p id="footer-desc">Leading container manufacturing and logistics solutions provider in Southeast Asia, committed to quality, innovation, and customer satisfaction.</p>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/cimcthai" target="_blank" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/cimc-thailand/" target="_blank" aria-label="Visit our LinkedIn page"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@cimcth1805" target="_blank" aria-label="Visit our YouTube channel"><i class="fab fa-youtube"></i></a>
+                        <a href="https://line.me/R/ti/p/@cimcthailand" target="_blank" aria-label="Contact us on Line"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="footer-title" id="footer-quick-links">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="../index.html"><i class="fas fa-chevron-right"></i> <span id="footer-home">Home</span></a>
+                        <a href="../index.html#about"><i class="fas fa-chevron-right"></i> <span id="footer-about">About Us</span></a>
+                        <a href="../product.html"><i class="fas fa-chevron-right"></i> <span id="footer-products">Products</span></a>
+                        <a href="news.php"><i class="fas fa-chevron-right"></i> <span id="footer-news">News & Events</span></a>
+                        <a href="../customer.html"><i class="fas fa-chevron-right"></i> <span id="footer-customers">Our Customers</span></a>
+                        <a href="../index.html#contact"><i class="fas fa-chevron-right"></i> <span id="footer-contact">Contact Us</span></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4 class="footer-title" id="footer-contact-title">Contact Information</h4>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="footer-location">7/258 Moo 6, Amata City Industrial Estate, Pluak Daeng, Rayong, Thailand 21140</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+66 86 303 0526</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <span>cimcth@gmail.com</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-clock"></i>
+                            <span id="footer-hours">
+                                <span id="footer-weekdays">Monday - Friday: 8:00 AM - 5:00 PM</span><br>
+                                <span id="footer-saturday">Saturday: 8:00 AM - 12:00 PM</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 <span id="footer-copyright">CIMC Thailand</span>. <span id="footer-rights">All Rights Reserved.</span> | <span id="footer-design">Designed with</span> <i class="fas fa-heart text-danger" aria-hidden="true"></i> <span id="footer-clients">for our clients</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Language Management Module
+        const LanguageManager = (function() {
+            const translations = {
+                en: {
+                    'brand': 'CIMC Thailand',
+                    'nav-home': 'Home',
+                    'nav-about': 'About Us',
+                    'nav-products': 'Products',
+                    'nav-news': 'News & Events',
+                    'nav-customers': 'Stakeholder Network',
+                    'nav-contact': 'Contact Us',
+                    'breadcrumb-home': 'Home',
+                    'breadcrumb-news': 'News & Events',
+                    'news-title-breadcrumb': '<?php echo $article["breadcrumb_title"]; ?>',
+                    'news-title': '<?php echo $article["title"]; ?>',
+                    'news-content': `<?php echo $article["content_en"]; ?>`,
+                    'footer-brand': 'CIMC Thailand',
+                    'footer-desc': 'Leading container manufacturing and logistics solutions provider in Southeast Asia, committed to quality, innovation, and customer satisfaction.',
+                    'footer-quick-links': 'Quick Links',
+                    'footer-home': 'Home',
+                    'footer-about': 'About Us',
+                    'footer-products': 'Products',
+                    'footer-news': 'News & Events',
+                    'footer-customers': 'Stakeholder Network',
+                    'footer-contact': 'Contact Us',
+                    'footer-contact-title': 'Contact Information',
+                    'footer-location': '7/258 Moo 6, Amata City Industrial Estate, Pluak Daeng, Rayong, Thailand 21140',
+                    'footer-weekdays': 'Monday - Friday: 8:00 AM - 5:00 PM',
+                    'footer-saturday': 'Saturday: 8:00 AM - 12:00 PM',
+                    'footer-copyright': 'CIMC Thailand',
+                    'footer-rights': 'All Rights Reserved.',
+                    'footer-design': 'Designed with',
+                    'footer-clients': 'for our clients'
+                },
+                th: {
+                    'brand': 'ซีไอเอ็มซี ประเทศไทย',
+                    'nav-home': 'หน้าแรก',
+                    'nav-about': 'เกี่ยวกับเรา',
+                    'nav-products': 'ผลิตภัณฑ์',
+                    'nav-news': 'ข่าวและกิจกรรม',
+                    'nav-customers': 'ผู้มีส่วนได้ส่วนเสีย',
+                    'nav-contact': 'ติดต่อเรา',
+                    'breadcrumb-home': 'หน้าแรก',
+                    'breadcrumb-news': 'ข่าวและกิจกรรม',
+                    'news-title-breadcrumb': '<?php echo $article["breadcrumb_title"]; ?>',
+                    'news-title': '<?php echo $article["title"]; ?>',
+                    'news-content': `<?php echo $article["content_th"]; ?>`,
+                    'footer-brand': 'ซีไอเอ็มซี ประเทศไทย',
+                    'footer-desc': 'ผู้ให้บริการโซลูชั่นการผลิตตู้คอนเทนเนอร์และโลจิสติกส์ชั้นนำในเอเชียตะวันออกเฉียงใต้ มุ่งมั่นในคุณภาพ นวัตกรรม และความพึงพอใจของลูกค้า',
+                    'footer-quick-links': 'ลิงก์ด่วน',
+                    'footer-home': 'หน้าแรก',
+                    'footer-about': 'เกี่ยวกับเรา',
+                    'footer-products': 'ผลิตภัณฑ์',
+                    'footer-news': 'ข่าวและกิจกรรม',
+                    'footer-customers': 'ผู้มีส่วนได้ส่วนเสีย',
+                    'footer-contact': 'ติดต่อเรา',
+                    'footer-contact-title': 'ข้อมูลติดต่อ',
+                    'footer-location': '7/258 หมู่ 6 นิคมอุตสาหกรรมอมตะซิตี้ อ.ปลวกแดง จ.ระยอง 21140',
+                    'footer-weekdays': 'จันทร์ - ศุกร์: 8:00 - 17:00 น.',
+                    'footer-saturday': 'เสาร์: 8:00 - 12:00 น.',
+                    'footer-copyright': 'ซีไอเอ็มซี ประเทศไทย',
+                    'footer-rights': 'สงวนลิขสิทธิ์',
+                    'footer-design': 'ออกแบบด้วย',
+                    'footer-clients': 'สำหรับลูกค้าของเรา'
+                }
+            };
+
+            let currentLang = 'en';
+
+            function updateTextContent() {
+                for (const key in translations[currentLang]) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        element.innerHTML = translations[currentLang][key];
+                    }
+                }
+            }
+
+            function setLanguage(lang) {
+                currentLang = lang;
+                document.documentElement.lang = lang;
+
+                // Add/remove Thai font class
+                if (lang === 'th') {
+                    document.body.classList.add('thai-lang');
+                } else {
+                    document.body.classList.remove('thai-lang');
+                }
+
+                updateTextContent();
+
+                // Update active language button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                });
+
+                // Save preference
+                localStorage.setItem('preferredLang', lang);
+            }
+
+            function init() {
+                // Initialize language
+                const savedLang = localStorage.getItem('preferredLang') || 'en';
+                setLanguage(savedLang);
+
+                // Language switch events
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const lang = this.getAttribute('data-lang');
+                        setLanguage(lang);
+                    });
+                });
+            }
+
+            return {
+                init: init
+            };
+        })();
+
+        // Alert Management Module
+        const AlertManager = (function() {
+            function showAlert(message, type = 'info') {
+                const alertContainer = document.getElementById('alertContainer');
+                const alertId = 'alert-' + Date.now();
+                const alert = document.createElement('div');
+                
+                alert.id = alertId;
+                alert.className = `alert alert-${type} alert-dismissible fade show custom-alert`;
+                alert.innerHTML = `
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                
+                alertContainer.appendChild(alert);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    const alertElement = document.getElementById(alertId);
+                    if (alertElement) {
+                        alertElement.remove();
+                    }
+                }, 5000);
+            }
+
+            return {
+                showAlert: showAlert
+            };
+        })();
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            LanguageManager.init();
+        });
+    </script>
+</body>
+</html>
