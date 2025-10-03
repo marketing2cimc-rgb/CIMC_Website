@@ -91,7 +91,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.95)),
-                        url('../img/bg01.png');
+                        url('../img/bg.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1106,17 +1106,12 @@
 
         /* Unique styles for language switcher */
         .lang-switcher {
-			position: fixed;
-			top: 0;
-			right: 0;
-			z-index: 1030;
-			background: #fff;
-			padding: 5px 10px;
-			border-bottom-left-radius: 5px;
-			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-			height: 40px;
-			display: flex;
-			align-items: center;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1050;
+            display: flex;
+            gap: 8px;
         }
 
         .lang-btn {
