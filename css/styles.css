@@ -1106,12 +1106,17 @@
 
         /* Unique styles for language switcher */
         .lang-switcher {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 1050;
-            display: flex;
-            gap: 8px;
+			position: fixed;
+			top: 0;
+			right: 0;
+			z-index: 1030;
+			background: #fff;
+			padding: 5px 10px;
+			border-bottom-left-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			height: 40px;
+			display: flex;
+			align-items: center;
         }
 
         .lang-btn {
