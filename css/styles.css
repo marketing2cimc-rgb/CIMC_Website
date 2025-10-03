@@ -91,7 +91,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.95)),
-                        url('../img/bg.png');
+                        url('../img/bg01.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
