@@ -528,26 +528,6 @@
             }
         }
 
-
-/*index.html*/
-        .btn-cimc {
-            background-color: var(--cimc-gold);
-            color: var(--cimc-blue);
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            border: none;
-        }
-
-        .btn-cimc:hover {
-            background-color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
         /* ???? */
         .about-section {
             padding: 100px 0;
