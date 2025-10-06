@@ -430,6 +430,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
         // 初始化 EmailJS
         (function() {
@@ -448,6 +450,7 @@
                 "nav-contact": "Contact Us",
                 "banner-title": "Global strength & Local expertise",
                 "banner-subtitle": "Experience excellence in every detail",
+                "banner-button": "Learn More",
                 "about-title": "About CIMC Vehicles Thailand",
                 "about-p1": "CIMC Vehicles Thailand is a subsidiary of China International Marine Containers (Group) Co., Ltd., the world's leading supplier of logistics and energy equipment.",
                 "about-p2": "With over 30 years of experience in container manufacturing, we provide innovative solutions for shipping, logistics, and specialized container applications across Southeast Asia.",
@@ -520,6 +523,7 @@
                 "nav-contact": "ติดต่อเรา",
                 "banner-title": "ความแข็งแกร่งระดับโลกและความเชี่ยวชาญระดับท้องถิ่น",
                 "banner-subtitle": "สัมผัสความเป็นเลิศในทุกๆ รายละเอียด",
+                "banner-button": "เรียนรู้เพิ่มเติม",
                 "about-title": "เกี่ยวกับซีไอเอ็มซี ประเทศไทย",
                 "about-p1": "ซีไอเอ็มซี ประเทศไทย เป็นบริษัทในเครือ CIMC Group. ผู้ผลิตอุปกรณ์ด้านลอจิสติกส์และพลังงานชั้นนำของโลก",
                 "about-p2": "ด้วยประสบการณ์กว่า 30 ปีในการผลิตตู้คอนเทนเนอร์ เรานำเสนอโซลูชันที่ทันสมัยสำหรับการขนส่งทางเรือ ลอจิสติกส์ และการใช้งานคอนเทนเนอร์เฉพาะทางทั่วภูมิภาคเอเชียตะวันออกเฉียงใต้",
@@ -636,8 +640,8 @@
                     el.setAttribute('placeholder', translations[currentLang][key]);
                 });
             }
-			
-			// Only update footer translations if FooterTranslations is defined
+            
+            // Only update footer translations if FooterTranslations is defined
             if (typeof FooterTranslations !== 'undefined') {
                 for (const key in FooterTranslations[currentLang]) {
                     const element = document.getElementById(key);
@@ -657,6 +661,7 @@
                     <div class="container text-center">
                         <h1 id="banner-title">Global strength & Local Thai expertise</h1>
                         <p id="banner-subtitle">Experience excellence in every detail</p>
+                        <a href="#about" class="btn btn-cimc" id="banner-button">Learn More</a>
                     </div>
                 </section>
 
@@ -956,9 +961,6 @@
                         </div>
                     </div>
                 </section>
-
-				<!-- Footer will be inserted here -->
-				<div id="footer-container"></div>
             `;
 
             // 更新文本内容
@@ -967,6 +969,7 @@
 
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer first
             Promise.all([
                 fetch('./header.html').then(response => response.text()),
                 fetch('./footer.html').then(response => response.text())
@@ -976,139 +979,139 @@
                 
                 // Insert footer
                 document.getElementById('footer-container').innerHTML = footerData;
-				
-            // 生成页面内容
-            generatePageContent();
+                
+                // Now generate the main content
+                generatePageContent();
 
-            // 初始化语言
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            setLanguage(savedLang);
+                // Initialize language after everything is loaded
+                const savedLang = localStorage.getItem('preferredLang') || 'en';
+                setLanguage(savedLang);
 
-            // 语言切换事件
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    setLanguage(lang);
-                });
-            });
-
-            // 平滑滚动
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Track internal link clicks in Google Analytics
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'internal_link_click', {
-                                'link_url': targetId,
-                                'link_text': this.textContent
-                            });
-                        }
-                    }
-                });
-            });
-
-            // 导航栏滚动效果
-            window.addEventListener('scroll', function() {
-                const nav = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    nav.style.padding = '10px 0';
-                    nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                } else {
-                    nav.style.padding = '15px 0';
-                    nav.style.boxShadow = 'none';
-                }
-            });
-
-            // 表单提交处理
-            const contactForm = document.querySelector('.contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    // 获取表单数据
-                    const formData = new FormData(contactForm);
-                    const data = {
-                        name: formData.get('name'),
-                        email: formData.get('email'),
-                        subject: formData.get('subject'),
-                        message: formData.get('message')
-                    };
-
-                    // 显示加载状态
-                    const submitBtn = contactForm.querySelector('button[type="submit"]');
-                    const originalBtnText = submitBtn.innerHTML;
-                    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> ' + (currentLang === 'th' ? 'กำลังส่ง...' : 'Sending...');
-                    submitBtn.disabled = true;
-
-                    // 使用EmailJS发送邮件
-                    emailjs.send('service_9q40ajp', 'template_p0lfuya', {
-                        name: data.name,
-                        email: data.email,
-                        subject: data.subject,
-                        message: data.message
-                    })
-                    .then(function(response) {
-                        showAlert(currentLang === 'th' ? 'ส่งข้อความสำเร็จ!' : 'Message sent successfully!', 'success');
-                        contactForm.reset();
-                        
-                        // Track form submission in Google Analytics
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'contact_form_submission', {
-                                'event_category': 'Contact',
-                                'event_label': 'Contact Form'
-                            });
-                        }
-                    }, function(error) {
-                        showAlert(currentLang === 'th' ? 'ส่งข้อความไม่สำเร็จ กรุณาลองใหม่ในภายหลัง' :  'Failed to send message. Please try again later.', 'danger');
-                    })
-                    .finally(function() {
-                        // 恢复按钮状态
-                        submitBtn.innerHTML = originalBtnText;
-                        submitBtn.disabled = false;
+                // 语言切换事件
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const lang = this.getAttribute('data-lang');
+                        setLanguage(lang);
                     });
                 });
-            }
 
-            function showAlert(message, type) {
-                // 创建或更新提示元素
-                let alertDiv = document.getElementById('form-alert');
-                if (!alertDiv) {
-                    alertDiv = document.createElement('div');
-                    alertDiv.id = 'form-alert';
-                    alertDiv.className = `alert alert-${type}`;
-                    alertDiv.setAttribute('role', 'alert');
-                    contactForm.parentNode.insertBefore(alertDiv, contactForm);
-                } else {
-                    alertDiv.className = `alert alert-${type}`;
+                // 平滑滚动
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Track internal link clicks in Google Analytics
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'internal_link_click', {
+                                    'link_url': targetId,
+                                    'link_text': this.textContent
+                                });
+                            }
+                        }
+                    });
+                });
+
+                // 导航栏滚动效果
+                window.addEventListener('scroll', function() {
+                    const nav = document.querySelector('.navbar');
+                    if (window.scrollY > 50) {
+                        nav.style.padding = '10px 0';
+                        nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                    } else {
+                        nav.style.padding = '15px 0';
+                        nav.style.boxShadow = 'none';
+                    }
+                });
+
+                // 表单提交处理
+                const contactForm = document.querySelector('.contact-form');
+                if (contactForm) {
+                    contactForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        // 获取表单数据
+                        const formData = new FormData(contactForm);
+                        const data = {
+                            name: formData.get('name'),
+                            email: formData.get('email'),
+                            subject: formData.get('subject'),
+                            message: formData.get('message')
+                        };
+
+                        // 显示加载状态
+                        const submitBtn = contactForm.querySelector('button[type="submit"]');
+                        const originalBtnText = submitBtn.innerHTML;
+                        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> ' + (currentLang === 'th' ? 'กำลังส่ง...' : 'Sending...');
+                        submitBtn.disabled = true;
+
+                        // 使用EmailJS发送邮件
+                        emailjs.send('service_9q40ajp', 'template_p0lfuya', {
+                            name: data.name,
+                            email: data.email,
+                            subject: data.subject,
+                            message: data.message
+                        })
+                        .then(function(response) {
+                            showAlert(currentLang === 'th' ? 'ส่งข้อความสำเร็จ!' : 'Message sent successfully!', 'success');
+                            contactForm.reset();
+                            
+                            // Track form submission in Google Analytics
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'contact_form_submission', {
+                                    'event_category': 'Contact',
+                                    'event_label': 'Contact Form'
+                                });
+                            }
+                        }, function(error) {
+                            showAlert(currentLang === 'th' ? 'ส่งข้อความไม่สำเร็จ กรุณาลองใหม่ในภายหลัง' :  'Failed to send message. Please try again later.', 'danger');
+                        })
+                        .finally(function() {
+                            // 恢复按钮状态
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        });
+                    });
                 }
 
-                alertDiv.textContent = message;
-                alertDiv.style.display = 'block';
+                function showAlert(message, type) {
+                    // 创建或更新提示元素
+                    let alertDiv = document.getElementById('form-alert');
+                    if (!alertDiv) {
+                        alertDiv = document.createElement('div');
+                        alertDiv.id = 'form-alert';
+                        alertDiv.className = `alert alert-${type}`;
+                        alertDiv.setAttribute('role', 'alert');
+                        contactForm.parentNode.insertBefore(alertDiv, contactForm);
+                    } else {
+                        alertDiv.className = `alert alert-${type}`;
+                    }
 
-                // 5秒后自动隐藏
-                setTimeout(() => {
-                    alertDiv.style.display = 'none';
-                }, 5000);
-            }
-            
-            // Track page view in Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'page_view', {
-                    'page_title': document.title,
-                    'page_location': window.location.href,
-                    'page_path': window.location.pathname
-                });
-            }
-        }).catch(error => {
+                    alertDiv.textContent = message;
+                    alertDiv.style.display = 'block';
+
+                    // 5秒后自动隐藏
+                    setTimeout(() => {
+                        alertDiv.style.display = 'none';
+                    }, 5000);
+                }
+                
+                // Track page view in Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'page_view', {
+                        'page_title': document.title,
+                        'page_location': window.location.href,
+                        'page_path': window.location.pathname
+                    });
+                }
+            }).catch(error => {
                 console.error('Error loading components:', error);
                 // If loading fails, still generate the main content
                 generatePageContent();
