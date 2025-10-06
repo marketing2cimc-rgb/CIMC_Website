@@ -651,7 +651,6 @@
                     if (element) {
                         element.textContent = FooterTranslations[currentLang][key];
                     }
-					showAlert(FooterTranslations[currentLang][key],"test");
                 }
             }
         }
@@ -1020,6 +1019,9 @@
                                 });
                             }
                         }
+						
+						// Dispatch event for other components
+						window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
                     });
                 });
 
