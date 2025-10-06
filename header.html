@@ -147,12 +147,6 @@
 <body>
     <!-- Skip to content link for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="th">ไทย</button>
-    </div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
@@ -213,49 +207,8 @@
             }
         };
 
-        // Set header language function
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-            
-            // Update all text elements
-            for (const key in Translations[lang]) {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = Translations[lang][key];
-                }
-            }
-            
-            // Update active language button
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            // Add/remove Thai font class
-            if (lang === 'th') {
-                document.body.classList.add('thai-lang');
-            } else {
-                document.body.classList.remove('thai-lang');
-            }
-        }
-
         // Initialize header
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize language
-            // 初始化语言
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            setLanguage(savedLang);
-
-            // 语言切换事件
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    setLanguage(lang);
-                });
-            });
             
             // Navigation scroll effect
             window.addEventListener('scroll', function() {

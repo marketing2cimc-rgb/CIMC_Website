@@ -414,6 +414,12 @@
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="th">ไทย</button>
+    </div>
+	
     <!-- Header will be inserted here -->
     <div id="header-container"></div>
 	
@@ -955,6 +961,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             // 生成页面内容
             generatePageContent();
+			
+            // 初始化语言
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            setLanguage(savedLang);
+
+            // 语言切换事件
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
 			
             // Load header
             fetch('../header.html')
