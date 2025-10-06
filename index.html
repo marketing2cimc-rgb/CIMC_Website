@@ -633,7 +633,7 @@
         function setLanguage(lang) {
             currentLang = lang;
             document.documentElement.lang = lang;
-
+showAlert(lang,'alert');
             // 添加/移除泰文字体类
             if (lang === 'th') {
                 document.body.classList.add('thai-lang');
@@ -1025,7 +1025,6 @@
 
             // 语言切换事件
             document.querySelectorAll('.lang-btn').forEach(btn => {
-				showAlert('fdsfsdfsfd','alert');
                 btn.addEventListener('click', function() {
                     const lang = this.getAttribute('data-lang');
                     setLanguage(lang);
