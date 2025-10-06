@@ -636,6 +636,12 @@
                     el.setAttribute('placeholder', translations[currentLang][key]);
                 });
             }
+            for (const key in FooterTranslations[currentLang]) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = FooterTranslations[currentLang][key];
+                }
+			}
         }
 
         // 生成页面内容
