@@ -214,14 +214,14 @@
         };
 
         // Set header language function
-        function setHeaderLanguage(lang) {
+        function setLanguage(lang) {
             document.documentElement.lang = lang;
             
             // Update all text elements
-            for (const key in headerTranslations[lang]) {
+            for (const key in Translations[lang]) {
                 const element = document.getElementById(key);
                 if (element) {
-                    element.textContent = headerTranslations[lang][key];
+                    element.textContent = Translations[lang][key];
                 }
             }
             
