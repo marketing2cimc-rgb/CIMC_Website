@@ -484,10 +484,10 @@
             productData.forEach(product => {
                 const langData = product.translations[currentLang] || product.translations.en;
 
-                const productCard = `
+                const productCard = '
                     <div class="col-lg-4 col-md-6">
                         <div class="product-card">
-                            ${langData.badge ? `<div class="product-badge">${langData.badge}</div>` : ''}
+                            ${langData.badge ? '<div class="product-badge">${langData.badge}</div>' : ''}
                             <div class="product-img-container">
                                 <img src="${product.image}"
                                      alt="${langData.name}" class="product-img">
@@ -531,7 +531,7 @@
                             </div>
                         </div>
                     </div>
-                `;
+                ';
 
                 container.innerHTML += productCard;
             });
@@ -539,6 +539,21 @@
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
+			// Load header
+            fetch('./header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    // Reinitialize any header scripts if needed
+                });
+            
+            // Load footer
+            fetch('./footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    // Reinitialize any footer scripts if needed
+                });		
             // Initialize language
             const savedLang = localStorage.getItem('preferredLang') || 'en';
             setLanguage(savedLang);
