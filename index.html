@@ -636,12 +636,16 @@
                     el.setAttribute('placeholder', translations[currentLang][key]);
                 });
             }
-            for (const key in FooterTranslations[currentLang]) {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = FooterTranslations[currentLang][key];
+			
+			// Only update footer translations if FooterTranslations is defined
+            if (typeof FooterTranslations !== 'undefined') {
+                for (const key in FooterTranslations[currentLang]) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        element.textContent = FooterTranslations[currentLang][key];
+                    }
                 }
-			}
+            }
         }
 
         // 生成页面内容
@@ -963,21 +967,15 @@
 
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
-			// Load header
-            fetch('./header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                    // Reinitialize any header scripts if needed
-                });
-            
-            // Load footer
-            fetch('./footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                    // Reinitialize any footer scripts if needed
-                });
+            Promise.all([
+                fetch('./header.html').then(response => response.text()),
+                fetch('./footer.html').then(response => response.text())
+            ]).then(([headerData, footerData]) => {
+                // Insert header
+                document.getElementById('header-container').innerHTML = headerData;
+                
+                // Insert footer
+                document.getElementById('footer-container').innerHTML = footerData;
 				
             // 生成页面内容
             generatePageContent();
