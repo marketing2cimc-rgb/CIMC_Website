@@ -627,6 +627,9 @@
                     'language': lang
                 });
             }
+            
+            // Dispatch language change event for footer
+            window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
         }
 
         // 更新文本内容
@@ -642,16 +645,6 @@
                 placeholderElements.forEach(el => {
                     el.setAttribute('placeholder', translations[currentLang][key]);
                 });
-            }
-            
-            // Only update footer translations if FooterTranslations is defined
-            if (typeof FooterTranslations !== 'undefined') {
-                for (const key in FooterTranslations[currentLang]) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        element.textContent = FooterTranslations[currentLang][key];
-                    }
-                }
             }
         }
 
@@ -1019,9 +1012,6 @@
                                 });
                             }
                         }
-						
-						// Dispatch event for other components
-						window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
                     });
                 });
 
