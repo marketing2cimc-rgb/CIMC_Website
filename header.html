@@ -245,18 +245,15 @@
         // Initialize header
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize language
+            // 初始化语言
             const savedLang = localStorage.getItem('preferredLang') || 'en';
-            setHeaderLanguage(savedLang);
-            
-            // Language switch events
+            setLanguage(savedLang);
+
+            // 语言切换事件
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const lang = this.getAttribute('data-lang');
-                    setHeaderLanguage(lang);
-                    localStorage.setItem('preferredLang', lang);
-                    
-                    // Dispatch event for other components
-                    window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
+                    setLanguage(lang);
                 });
             });
             

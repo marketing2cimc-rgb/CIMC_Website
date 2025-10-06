@@ -541,15 +541,20 @@
                 "value3-desc": "กระบวนการผลิตที่เป็นมิตรต่อสิ่งแวดล้อมและใช้วัสดุที่ยั่งยืนช่วยลดผลกระทบต่อสิ่งแวดล้อมในการดำเนินงานทั้งหมด",
                 "value4-title": "มุ่งเน้นลูกค้า",
                 "value4-desc": "โซลูชันที่ปรับแต่งตามความต้องการและการบริการที่รวดเร็วสร้างความร่วมมือที่ยั่งยืนกับลูกค้าของเรา",
+				
                 "news-title": "ข่าวสารและกิจกรรม",
                 "news1-date": "26-28 กันยายน 2568",
                 "news1-title": "Thailand-China Cooperation Expo 2025",
+				
                 "news2-date": "29 มิถุนายน 2568",
                 "news2-title": "ได้รับการยอมรับในฐานะผู้ส่งออกหลักของไทย",
+				
                 "news3-date": "12 มิถุนายน 2566",
                 "news3-title": "พิธีครบรอบ 2 ปี ผลิตภัณฑ์แรกของ DS",
+				
                 "news4-date": "26 พฤศจิกายน 2564",
                 "news4-title": "การจัดซื้อที่ดิน",
+				
                 "products-title": "ผลิตภัณฑ์ของเรา",
                 "product1-title": "พ่วงแบบแบน",
                 "product1-desc": "สามารถบรรทุกได้สูงสุด 35 ตัน",
@@ -967,17 +972,6 @@
                     // Reinitialize any footer scripts if needed
                 });
 				
-            // 初始化语言
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            setLanguage(savedLang);
-
-            // 语言切换事件
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    setLanguage(lang);
-                });
-            });
 
             // 平滑滚动
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
