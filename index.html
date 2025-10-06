@@ -976,7 +976,7 @@
                 
                 // Insert footer
                 document.getElementById('footer-container').innerHTML = footerData;
-				}
+				
             // 生成页面内容
             generatePageContent();
 
@@ -1108,6 +1108,13 @@
                     'page_path': window.location.pathname
                 });
             }
+        }).catch(error => {
+                console.error('Error loading components:', error);
+                // If loading fails, still generate the main content
+                generatePageContent();
+                const savedLang = localStorage.getItem('preferredLang') || 'en';
+                setLanguage(savedLang);
+            });
         });
     </script>
 </body>
