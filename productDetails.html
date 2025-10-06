@@ -131,39 +131,8 @@
         <button class="lang-btn" data-lang="th">ไทย</button>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="./index.html">
-                <i><img src="./img/logo.png" style="width:100px;height:50px;"></i>
-                <span id="brand">CIMC Vehicles Thailand</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html" id="nav-home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html#about" id="nav-about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="./product.html" id="nav-products">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html#newsevent" id="nav-news">News & Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./customer.html" id="nav-customers">Stakeholder Network</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html#contact" id="nav-contact">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Header will be inserted here -->
+    <div id="header-container"></div>
 
     <!-- Product Detail Content -->
     <div class="product-detail-container">
@@ -319,66 +288,9 @@
         </div>
     </div>    
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="footer-logo">
-                        <img src="./img/logo.png" alt="CIMC Logo"  style="width:100px;height:50px;">
-                        <span id="footer-brand">CIMC Vehicles Thailand</span>
-                    </div>
-                    <p id="footer-desc">Leading container manufacturing and logistics solutions provider in Southeast Asia, committed to quality, innovation, and customer satisfaction.</p>
-
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/cimcthai" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/company/cimc-thailand/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/@cimcth1805" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://line.me/R/ti/p/@cimcthailand" target="_blank"><i class="fab fa-line"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="footer-title" id="footer-quick-links">Quick Links</h4>
-                    <div class="footer-links">
-                        <a href="index.html"><i class="fas fa-chevron-right"></i> <span id="footer-home">Home</span></a>
-                        <a href="index.html#about"><i class="fas fa-chevron-right"></i> <span id="footer-about">About Us</span></a>
-                        <a href="product.html"><i class="fas fa-chevron-right"></i> <span id="footer-products">Products</span></a>
-                        <a href="index.html#newsevent"><i class="fas fa-chevron-right"></i> <span id="footer-news">News & Events</span></a>
-                        <a href="customer.html"><i class="fas fa-chevron-right"></i> <span id="footer-customers">Stakeholder Network</span></a>
-                        <a href="index.html#contact"><i class="fas fa-chevron-right"></i> <span id="footer-contact">Contact Us</span></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <h4 class="footer-title" id="footer-contact-title">Contact Information</h4>
-                    <div class="contact-info">
-                        <p>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span id="footer-location">7/258 Moo 6, Amata City Industrial Estate, Pluak Daeng, Rayong, Thailand 21140</span>
-                        </p>
-                        <p>
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+66 86 303 0526</span>
-                        </p>
-                        <p>
-                            <i class="fas fa-envelope"></i>
-                            <span>cimcth@gmail.com</span>
-                        </p>
-                        <p>
-                            <i class="fas fa-clock"></i>
-                            <span id="footer-hours"><span id="footer-weekdays">Monday - Friday: 8:00 AM - 5:00 PM</span><br><span id="footer-saturday">Saturday: 8:00 AM - 12:00 PM</span></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="copyright">
-                <p>&copy; 2025 <span id="footer-copyright">CIMC Vehicles Thailand</span>. <span id="footer-rights">All Rights Reserved.</span> | <span id="footer-design">Designed with</span> <i class="fas fa-heart text-danger"></i> <span id="footer-clients">for our clients</span></p>
-            </div>
-        </div>
-    </footer>
-    
+	<!-- Footer will be inserted here -->
+	<div id="footer-container"></div>
+	
     <script src="./js/translations.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>        
@@ -695,6 +607,22 @@
         
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
+			// Load header
+            fetch('./header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    // Reinitialize any header scripts if needed
+                });
+            
+            // Load footer
+            fetch('./footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    // Reinitialize any footer scripts if needed
+                });		
+				
             // Initialize language
             const savedLang = localStorage.getItem('preferredLang') || 'en';
             setLanguage(savedLang);
