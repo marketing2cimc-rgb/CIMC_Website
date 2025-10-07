@@ -314,7 +314,6 @@
 
         // Function to set footer language
         function setFooterLanguage(lang) {
-		footer-products.textContent = lang + 'fdsfd';
             for (const key in FooterTranslations[lang]) {
                 const element = document.getElementById(key);
                 if (element) {
@@ -322,6 +321,11 @@
                 }
             }
         }
+
+		// Set the footer language on initial load if currentLang is available
+		if (window.currentLang) {
+			setFooterLanguage(window.currentLang);
+		}
 
         // Listen for language change events
         window.addEventListener('languageChange', function(e) {
