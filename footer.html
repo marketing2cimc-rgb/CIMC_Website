@@ -324,7 +324,7 @@
 
         // Listen for language change events
         window.addEventListener('languageChange', function(e) {
-            setFooterLanguage(e.detail);
+            setFooterLanguage(window.currentLang);
         });
 
 		// Set initial footer language based on current document language
