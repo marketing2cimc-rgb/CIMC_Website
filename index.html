@@ -721,10 +721,12 @@
 
         // 当前语言
         let currentLang = 'en';
-
+		window.currentLang = currentLang; // Make it globally available
+		
         // 设置语言函数
         function setLanguage(lang) {
             currentLang = lang;
+			window.currentLang = currentLang; 
             document.documentElement.lang = lang;
 
             // 添加/移除泰文字体类
@@ -758,6 +760,13 @@
             
             // Dispatch language change event for footer
             window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
+			window.dispatchEvent(languageChangeEvent);
+			
+			// Also trigger footer update directly if possible
+			if (window.setFooterLanguage) {
+				window.setFooterLanguage(lang);
+			}
+			
         }
 
         // 更新文本内容
