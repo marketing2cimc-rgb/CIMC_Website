@@ -759,8 +759,7 @@
             }
             
             // Dispatch language change event for footer
-            window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
-			window.dispatchEvent(languageChangeEvent);
+			window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
 			
 			// Also trigger footer update directly if possible
 			if (window.setFooterLanguage) {
