@@ -312,22 +312,30 @@
             }
         };
 
-        // Function to set footer language
-        function setFooterLanguage(lang) {
-            for (const key in FooterTranslations[lang]) {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = FooterTranslations[lang][key];
-                }
-            }
-        }
+		// Function to set footer language
+		function setFooterLanguage(lang) {
+			const translations = FooterTranslations[lang] || FooterTranslations.en;
+			for (const key in translations) {
+				const element = document.getElementById(key);
+				if (element) {
+					element.textContent = translations[key];
+				}
+			}
+		}
 
-		// Make it global
+		// Make function globally available
 		window.setFooterLanguage = setFooterLanguage;
 
-		// Listen for language change events
+		// Listen for language change events from main page
 		window.addEventListener('languageChange', function(e) {
 			setFooterLanguage(e.detail);
+		});
+
+		// Set initial footer language when loaded
+		document.addEventListener('DOMContentLoaded', function() {
+			// Use global currentLang if available, otherwise use document language
+			const lang = window.currentLang || document.documentElement.lang || 'en';
+			setFooterLanguage(lang);
 		});
 	</script>
 
