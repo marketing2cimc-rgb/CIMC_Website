@@ -1119,6 +1119,11 @@
                 const savedLang = localStorage.getItem('preferredLang') || 'en';
                 setLanguage(savedLang);
 
+				// Also, set the footer language if the function is available
+				if (window.setFooterLanguage) {
+					window.setFooterLanguage(savedLang);
+				}
+		
                 // 语言切换事件
                 document.querySelectorAll('.lang-btn').forEach(btn => {
                     btn.addEventListener('click', function() {
