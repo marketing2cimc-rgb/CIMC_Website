@@ -1169,6 +1169,23 @@
                 fetch('./header.html').then(response => response.text()),
                 fetch('./footer.html').then(response => response.text())
             ]).then(([headerData, footerData]) => {
+				// Check if we need to scroll to a specific section
+				const scrollToSection = localStorage.getItem('scrollToSection');
+				const urlHash = window.location.hash.substring(1);
+				
+				const targetSection = scrollToSection || urlHash;
+				
+				if (targetSection) {
+					setTimeout(() => {
+						const element = document.getElementById(targetSection);
+						if (element) {
+							element.scrollIntoView({ behavior: 'smooth' });
+						}
+						// Clean up
+						localStorage.removeItem('scrollToSection');
+					}, 500); // Delay to ensure page is fully loaded
+				}
+	
                 // Insert header
                 document.getElementById('header-container').innerHTML = headerData;
                 
