@@ -308,6 +308,25 @@
         .estimator-features {
             margin-top: 60px;
         }
+		
+		.nav-tabs {
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 25px;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            color: #666;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--cimc-blue);
+            background-color: white;
+            border-bottom: 3px solid var(--cimc-blue);
+        }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -743,63 +762,15 @@
                             <h4 id="save-title">Save Your Estimate</h4>
                             <p id="save-desc">Register to save your cost estimates and compare different scenarios for your business.</p>
                             <div class="text-center">
-                                <button class="btn btn-cimc w-100 mb-2" id="save-button">
-                                    <i class="fas fa-save me-2"></i>
-                                    <span id="save-text">Save Estimate</span>
-                                </button>
-                                <button class="btn btn-cimc outline w-100" id="print-button">
+                                <button class="btn-cimc w-100" id="print-button">
                                     <i class="fas fa-print me-2"></i>
                                     <span id="print-text">Print Report</span>
                                 </button>
-                                <button class="btn btn-cimc outline w-100 mt-2" id="export-button">
-                                    <i class="fas fa-file-export me-2"></i>
-                                    <span id="export-text">Export to PDF</span>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="estimator-card">
-                            <h4 id="comparison-title">Compare Scenarios</h4>
-                            <p id="comparison-desc">Save different configurations to compare costs and make the best decision for your business.</p>
-                            <div class="text-center">
-                                <button class="btn btn-cimc outline w-100" id="scenario-button">
-                                    <i class="fas fa-chart-line me-2"></i>
-                                    <span id="scenario-text">Manage Scenarios</span>
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="estimator-features">
-                    <h2 class="section-title text-center mb-5" id="features-title">More Business Tools</h2>
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-calculator"></i>
-                            </div>
-                            <h3 id="feature1-title">Capacity Calculator</h3>
-                            <p id="feature1-desc">Calculate optimal load capacity for your trailers based on dimensions and weight limits.</p>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-road"></i>
-                            </div>
-                            <h3 id="feature2-title">Route Planner</h3>
-                            <p id="feature2-desc">Plan optimal routes considering road restrictions and trailer dimensions.</p>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-file-invoice-dollar"></i>
-                            </div>
-                            <h3 id="feature3-title">ROI Calculator</h3>
-                            <p id="feature3-desc">Calculate return on investment for your trailer fleet and equipment upgrades.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+		  </div>
         </div>
     </main>
 
@@ -1106,10 +1077,7 @@
         function initializeEstimator() {
             const calculateBtn = document.getElementById('calculate-button');
             const resetBtn = document.getElementById('reset-button');
-            const saveBtn = document.getElementById('save-button');
             const printBtn = document.getElementById('print-button');
-            const exportBtn = document.getElementById('export-button');
-            const scenarioBtn = document.getElementById('scenario-button');
             
             // Calculate button event
             calculateBtn.addEventListener('click', calculateCosts);
@@ -1117,17 +1085,8 @@
             // Reset button event
             resetBtn.addEventListener('click', resetEstimator);
             
-            // Save button event
-            saveBtn.addEventListener('click', saveEstimate);
-            
             // Print button event
             printBtn.addEventListener('click', printReport);
-            
-            // Export button event
-            exportBtn.addEventListener('click', exportToPDF);
-            
-            // Scenario button event
-            scenarioBtn.addEventListener('click', manageScenarios);
             
             // Initial calculation
             calculateCosts();
@@ -1363,57 +1322,12 @@
             }
         }
         
-        function saveEstimate() {
-            // In a real implementation, this would save to a database
-            // For now, we'll just show an alert and track the event
-            alert(currentLang === 'th' ? 
-                "คุณต้องลงทะเบียนเพื่อบันทึกการประมาณการของคุณ" : 
-                "You need to register to save your estimates");
-                
-            // Track save attempt in Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'save_estimate_attempt', {
-                    'event_category': 'Cost Estimator'
-                });
-            }
-        }
-        
         function printReport() {
             window.print();
             
             // Track print in Google Analytics
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'print_estimate_report', {
-                    'event_category': 'Cost Estimator'
-                });
-            }
-        }
-        
-        function exportToPDF() {
-            // In a real implementation, this would generate a PDF
-            // For now, we'll just show an alert and track the event
-            alert(currentLang === 'th' ? 
-                "คุณต้องลงทะเบียนเพื่อส่งออกรายงานเป็น PDF" : 
-                "You need to register to export reports as PDF");
-                
-            // Track export attempt in Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'export_pdf_attempt', {
-                    'event_category': 'Cost Estimator'
-                });
-            }
-        }
-        
-        function manageScenarios() {
-            // In a real implementation, this would open a scenario management modal
-            // For now, we'll just show an alert and track the event
-            alert(currentLang === 'th' ? 
-                "คุณต้องลงทะเบียนเพื่อจัดการสถานการณ์ต่างๆ" : 
-                "You need to register to manage scenarios");
-                
-            // Track scenario management in Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'scenario_management', {
                     'event_category': 'Cost Estimator'
                 });
             }
