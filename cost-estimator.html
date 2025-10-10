@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Cost Estimator | CIMC Vehicles Thailand</title>
+    <meta name="description" content="Free transportation cost estimator tool from CIMC Vehicles Thailand. Calculate total costs including fuel, maintenance, tolls, and more for your trailer operations.">
+    <meta name="keywords" content="cost estimator, transportation costs, fuel calculator, maintenance costs, trailer operating expenses, CIMC Thailand">
+    <meta name="author" content="CIMC Vehicles Thailand">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cimcthailand.co.th/cost-estimator.html">
+    <meta property="og:title" content="Transportation Cost Estimator | CIMC Vehicles Thailand">
+    <meta property="og:description" content="Free transportation cost estimator tool from CIMC Vehicles Thailand.">
+    <meta property="og:image" content="https://www.cimcthailand.com/img/cost-estimator-og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.cimcthailand.co.th/cost-estimator.html">
+    <meta property="twitter:title" content="Transportation Cost Estimator | CIMC Vehicles Thailand">
+    <meta property="twitter:description" content="Free transportation cost estimator tool from CIMC Vehicles Thailand.">
+    <meta property="twitter:image" content="https://www.cimcthailand.com/img/cost-estimator-twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.cimcthailand.co.th/cost-estimator.html">
+    
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Transportation Cost Estimator",
+      "url": "https://www.cimcthailand.co.th/cost-estimator.html",
+      "description": "Free transportation cost estimator tool from CIMC Vehicles Thailand",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "permissions": "browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CIMC Vehicles Thailand",
+        "url": "https://www.cimcthailand.co.th/"
+      }
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/x-icon" href="./img/logo.ico">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJXJ5GL2GR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QJXJ5GL2GR');
+    </script>
+    
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --cimc-blue: #0056b3;
+            --cimc-blue-dark: #004494;
+            --cimc-accent: #ffc107;
+            --cimc-dark: #333;
+            --cimc-light: #f8f9fa;
+            --transition: all 0.3s ease;
+        }
+
+        /* CIMC Button Styles */
+        .btn-cimc {
+            background: linear-gradient(135deg, var(--cimc-blue) 0%, var(--cimc-blue-dark) 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cimc:hover {
+            background: white;
+            color: var(--cimc-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
+        }
+
+        .btn-cimc:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn-cimc:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
+        }
+
+        /* Cost Estimator specific styles */
+        .estimator-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0,86,179,0.05) 0%, rgba(255,255,255,1) 100%);
+        }
+
+        .estimator-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .estimator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .estimator-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .estimator-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--cimc-dark);
+        }
+
+        .estimator-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--cimc-dark);
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px 15px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--cimc-blue);
+            box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
+        }
+
+        .input-group-text {
+            background-color: var(--cimc-light);
+            border: 2px solid #e9ecef;
+            border-left: none;
+            color: var(--cimc-dark);
+        }
+
+        .input-group .form-control {
+            border-right: none;
+        }
+
+        .results-card {
+            background: var(--cimc-blue);
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .results-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .results-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .results-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .result-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .cost-breakdown {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .breakdown-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .breakdown-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--cimc-dark);
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-item.total {
+            font-weight: 700;
+            color: var(--cimc-blue);
+            font-size: 1.1rem;
+            border-top: 2px solid var(--cimc-blue);
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        .cost-visualization {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .estimator-tips {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .tip-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .tip-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .tip-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0,86,179,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .tip-icon i {
+            color: var(--cimc-blue);
+            font-size: 1.2rem;
+        }
+
+        .estimator-features {
+            margin-top: 60px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0,86,179,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: var(--cimc-blue);
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--cimc-dark);
+        }
+
+        .feature-item p {
+            color: #666;
+        }
+
+        .nav-tabs {
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 25px;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            color: #666;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--cimc-blue);
+            background-color: white;
+            border-bottom: 3px solid var(--cimc-blue);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .estimator-header h1 {
+                font-size: 2rem;
+            }
+            
+            .estimator-card {
+                padding: 20px;
+            }
+            
+            .results-card {
+                padding: 20px;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="th">ไทย</button>
+    </div>
+
+    <!-- Header will be inserted here -->
+    <div id="header-container"></div>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="estimator-section">
+            <div class="container">
+                <div class="estimator-header">
+                    <h1 id="estimator-title">Transportation Cost Estimator</h1>
+                    <p id="estimator-description">Calculate total transportation costs for your trailer operations including fuel, maintenance, tolls, and more. Make informed decisions with our comprehensive cost analysis tool.</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="estimator-card">
+                            <ul class="nav nav-tabs" id="costTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="route-tab" data-bs-toggle="tab" data-bs-target="#route" type="button" role="tab" aria-controls="route" aria-selected="true" id="route-tab-text">Route & Vehicle</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="operating-tab" data-bs-toggle="tab" data-bs-target="#operating" type="button" role="tab" aria-controls="operating" aria-selected="false" id="operating-tab-text">Operating Costs</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false" id="financial-tab-text">Financial Factors</button>
+                                </li>
+                            </ul>
+                            
+                            <div class="tab-content" id="costTabsContent">
+                                <!-- Route & Vehicle Tab -->
+                                <div class="tab-pane fade show active" id="route" role="tabpanel" aria-labelledby="route-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="trailer-type" class="form-label" id="trailer-type-label">Trailer Type</label>
+                                                <select class="form-control" id="trailer-type">
+                                                    <option value="flatbed" id="option-flatbed">Flatbed Semi-Trailer</option>
+                                                    <option value="container" id="option-container">Container Semi-Trailer</option>
+                                                    <option value="skeleton" id="option-skeleton">Skeleton Trailer</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="cargo-type" class="form-label" id="cargo-type-label">Cargo Type</label>
+                                                <select class="form-control" id="cargo-type">
+                                                    <option value="general" id="option-general">General Goods</option>
+                                                    <option value="bulk" id="option-bulk">Bulk Materials</option>
+                                                    <option value="heavy" id="option-heavy">Heavy Machinery</option>
+                                                    <option value="perishable" id="option-perishable">Perishable Goods</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="distance" class="form-label" id="distance-label">Distance (km)</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="distance" min="1" max="10000" step="1" value="500">
+                                                    <span class="input-group-text">km</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="trips" class="form-label" id="trips-label">Trips per Month</label>
+                                                <input type="number" class="form-control" id="trips" min="1" max="100" step="1" value="10">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="fuel-efficiency" class="form-label" id="fuel-efficiency-label">Fuel Efficiency</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="fuel-efficiency" min="1" max="50" step="0.1" value="3.5">
+                                                    <span class="input-group-text">km/l</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="fuel-price" class="form-label" id="fuel-price-label">Fuel Price</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="fuel-price" min="1" max="100" step="0.1" value="32.5">
+                                                    <span class="input-group-text">/liter</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Operating Costs Tab -->
+                                <div class="tab-pane fade" id="operating" role="tabpanel" aria-labelledby="operating-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="maintenance" class="form-label" id="maintenance-label">Monthly Maintenance</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="maintenance" min="0" max="100000" step="100" value="5000">
+                                                    <span class="input-group-text">/month</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="tires" class="form-label" id="tires-label">Tire Replacement Cost</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="tires" min="0" max="500000" step="1000" value="80000">
+                                                    <span class="input-group-text">/set</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="tire-interval" class="form-label" id="tire-interval-label">Tire Replacement Interval</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="tire-interval" min="1000" max="500000" step="1000" value="100000">
+                                                    <span class="input-group-text">km</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="insurance" class="form-label" id="insurance-label">Monthly Insurance</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="insurance" min="0" max="50000" step="100" value="3000">
+                                                    <span class="input-group-text">/month</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="tolls" class="form-label" id="tolls-label">Toll Costs per Trip</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="tolls" min="0" max="10000" step="10" value="500">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="driver-wage" class="form-label" id="driver-wage-label">Driver Wage per Trip</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="driver-wage" min="0" max="20000" step="100" value="2500">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Financial Factors Tab -->
+                                <div class="tab-pane fade" id="financial" role="tabpanel" aria-labelledby="financial-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="trailer-price" class="form-label" id="trailer-price-label">Trailer Purchase Price</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="trailer-price" min="0" max="10000000" step="1000" value="1500000">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="depreciation" class="form-label" id="depreciation-label">Depreciation Period</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="depreciation" min="1" max="20" step="1" value="7">
+                                                    <span class="input-group-text">years</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="financing" class="form-label" id="financing-label">Financing Amount</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="financing" min="0" max="10000000" step="1000" value="1000000">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="interest-rate" class="form-label" id="interest-rate-label">Interest Rate</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="interest-rate" min="0" max="20" step="0.1" value="5.5">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="loan-term" class="form-label" id="loan-term-label">Loan Term</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="loan-term" min="1" max="10" step="1" value="5">
+                                                    <span class="input-group-text">years</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="taxes" class="form-label" id="taxes-label">Annual Taxes & Fees</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">฿</span>
+                                                    <input type="number" class="form-control" id="taxes" min="0" max="100000" step="100" value="15000">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <button type="button" class="btn btn-cimc btn-lg" id="calculate-button">
+                                    <i class="fas fa-calculator me-2"></i>
+                                    <span id="calculate-text">Calculate Costs</span>
+                                </button>
+                                <button type="reset" class="btn btn-cimc outline btn-lg ms-2" id="reset-button">
+                                    <i class="fas fa-redo me-2"></i>
+                                    <span id="reset-text">Reset</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="results-card" id="results-section" style="display: none;">
+                            <div class="results-header">
+                                <div class="results-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <h3 id="results-title">Cost Estimation Results</h3>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="result-item">
+                                        <div class="result-label" id="monthly-cost-label">Monthly Operating Cost</div>
+                                        <div class="result-value" id="monthly-cost-result">฿0</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-label" id="cost-per-km-label">Cost per Kilometer</div>
+                                        <div class="result-value" id="cost-per-km-result">฿0</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="result-item">
+                                        <div class="result-label" id="cost-per-trip-label">Cost per Trip</div>
+                                        <div class="result-value" id="cost-per-trip-result">฿0</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-label" id="annual-cost-label">Annual Total Cost</div>
+                                        <div class="result-value" id="annual-cost-result">฿0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cost-breakdown">
+                            <div class="breakdown-header">
+                                <h4 class="breakdown-title" id="breakdown-title">Monthly Cost Breakdown</h4>
+                            </div>
+                            
+                            <div class="breakdown-item">
+                                <span id="fuel-cost-label">Fuel Cost</span>
+                                <span id="fuel-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span id="maintenance-cost-label">Maintenance</span>
+                                <span id="maintenance-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span id="tire-cost-label">Tire Replacement</span>
+                                <span id="tire-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span id="insurance-cost-label">Insurance</span>
+                                <span id="insurance-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span id="toll-cost-label">Toll Fees</span>
+                                <span id="toll-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span id="driver-cost-label">Driver Wages</span>
+                                <span id="driver-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span id="depreciation-cost-label">Depreciation</span>
+                                <span id="depreciation-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span id="financing-cost-label">Financing Cost</span>
+                                <span id="financing-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span id="tax-cost-label">Taxes & Fees</span>
+                                <span id="tax-cost-value">฿0</span>
+                            </div>
+                            <div class="breakdown-item total">
+                                <span id="total-cost-label">Total Monthly Cost</span>
+                                <span id="total-cost-value">฿0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cost-visualization">
+                            <h4 id="visualization-title">Cost Distribution</h4>
+                            <div class="chart-container" id="cost-chart">
+                                <canvas id="costPieChart"></canvas>
+                            </div>
+                            <div class="chart-legend" id="chart-legend">
+                                <!-- Legend will be generated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="estimator-tips">
+                            <h4 id="tips-title">Cost Saving Tips</h4>
+                            
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-gas-pump"></i>
+                                </div>
+                                <div>
+                                    <h5 id="tip1-title">Optimize Fuel Efficiency</h5>
+                                    <p id="tip1-desc">Regular maintenance, proper tire pressure, and efficient driving techniques can improve fuel economy by up to 15%.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-route"></i>
+                                </div>
+                                <div>
+                                    <h5 id="tip2-title">Plan Efficient Routes</h5>
+                                    <p id="tip2-desc">Use route planning software to minimize distance, avoid traffic, and reduce idle time.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div>
+                                    <h5 id="tip3-title">Preventive Maintenance</h5>
+                                    <p id="tip3-desc">Regular maintenance prevents costly breakdowns and extends vehicle lifespan.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <div>
+                                    <h5 id="tip4-title">Monitor Tire Wear</h5>
+                                    <p id="tip4-desc">Properly inflated and aligned tires can last up to 20% longer and improve fuel efficiency.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="estimator-card">
+                            <h4 id="save-title">Save Your Estimate</h4>
+                            <p id="save-desc">Register to save your cost estimates and compare different scenarios for your business.</p>
+                            <div class="text-center">
+                                <button class="btn btn-cimc w-100 mb-2" id="save-button">
+                                    <i class="fas fa-save me-2"></i>
+                                    <span id="save-text">Save Estimate</span>
+                                </button>
+                                <button class="btn btn-cimc outline w-100" id="print-button">
+                                    <i class="fas fa-print me-2"></i>
+                                    <span id="print-text">Print Report</span>
+                                </button>
+                                <button class="btn btn-cimc outline w-100 mt-2" id="export-button">
+                                    <i class="fas fa-file-export me-2"></i>
+                                    <span id="export-text">Export to PDF</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="estimator-card">
+                            <h4 id="comparison-title">Compare Scenarios</h4>
+                            <p id="comparison-desc">Save different configurations to compare costs and make the best decision for your business.</p>
+                            <div class="text-center">
+                                <button class="btn btn-cimc outline w-100" id="scenario-button">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    <span id="scenario-text">Manage Scenarios</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="estimator-features">
+                    <h2 class="section-title text-center mb-5" id="features-title">More Business Tools</h2>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3 id="feature1-title">Capacity Calculator</h3>
+                            <p id="feature1-desc">Calculate optimal load capacity for your trailers based on dimensions and weight limits.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-road"></i>
+                            </div>
+                            <h3 id="feature2-title">Route Planner</h3>
+                            <p id="feature2-desc">Plan optimal routes considering road restrictions and trailer dimensions.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <h3 id="feature3-title">ROI Calculator</h3>
+                            <p id="feature3-desc">Calculate return on investment for your trailer fleet and equipment upgrades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be inserted here -->
+    <div id="footer-container"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        // Bilingual content for cost estimator page
+        const estimatorTranslations = {
+            en: {
+                "estimator-title": "Transportation Cost Estimator",
+                "estimator-description": "Calculate total transportation costs for your trailer operations including fuel, maintenance, tolls, and more. Make informed decisions with our comprehensive cost analysis tool.",
+                "route-tab-text": "Route & Vehicle",
+                "operating-tab-text": "Operating Costs",
+                "financial-tab-text": "Financial Factors",
+                "trailer-type-label": "Trailer Type",
+                "option-flatbed": "Flatbed Semi-Trailer",
+                "option-container": "Container Semi-Trailer",
+                "option-skeleton": "Skeleton Trailer",
+                "cargo-type-label": "Cargo Type",
+                "option-general": "General Goods",
+                "option-bulk": "Bulk Materials",
+                "option-heavy": "Heavy Machinery",
+                "option-perishable": "Perishable Goods",
+                "distance-label": "Distance (km)",
+                "trips-label": "Trips per Month",
+                "fuel-efficiency-label": "Fuel Efficiency",
+                "fuel-price-label": "Fuel Price",
+                "maintenance-label": "Monthly Maintenance",
+                "tires-label": "Tire Replacement Cost",
+                "tire-interval-label": "Tire Replacement Interval",
+                "insurance-label": "Monthly Insurance",
+                "tolls-label": "Toll Costs per Trip",
+                "driver-wage-label": "Driver Wage per Trip",
+                "trailer-price-label": "Trailer Purchase Price",
+                "depreciation-label": "Depreciation Period",
+                "financing-label": "Financing Amount",
+                "interest-rate-label": "Interest Rate",
+                "loan-term-label": "Loan Term",
+                "taxes-label": "Annual Taxes & Fees",
+                "calculate-text": "Calculate Costs",
+                "reset-text": "Reset",
+                "results-title": "Cost Estimation Results",
+                "monthly-cost-label": "Monthly Operating Cost",
+                "cost-per-km-label": "Cost per Kilometer",
+                "cost-per-trip-label": "Cost per Trip",
+                "annual-cost-label": "Annual Total Cost",
+                "breakdown-title": "Monthly Cost Breakdown",
+                "fuel-cost-label": "Fuel Cost",
+                "maintenance-cost-label": "Maintenance",
+                "tire-cost-label": "Tire Replacement",
+                "insurance-cost-label": "Insurance",
+                "toll-cost-label": "Toll Fees",
+                "driver-cost-label": "Driver Wages",
+                "depreciation-cost-label": "Depreciation",
+                "financing-cost-label": "Financing Cost",
+                "tax-cost-label": "Taxes & Fees",
+                "total-cost-label": "Total Monthly Cost",
+                "visualization-title": "Cost Distribution",
+                "tips-title": "Cost Saving Tips",
+                "tip1-title": "Optimize Fuel Efficiency",
+                "tip1-desc": "Regular maintenance, proper tire pressure, and efficient driving techniques can improve fuel economy by up to 15%.",
+                "tip2-title": "Plan Efficient Routes",
+                "tip2-desc": "Use route planning software to minimize distance, avoid traffic, and reduce idle time.",
+                "tip3-title": "Preventive Maintenance",
+                "tip3-desc": "Regular maintenance prevents costly breakdowns and extends vehicle lifespan.",
+                "tip4-title": "Monitor Tire Wear",
+                "tip4-desc": "Properly inflated and aligned tires can last up to 20% longer and improve fuel efficiency.",
+                "save-title": "Save Your Estimate",
+                "save-desc": "Register to save your cost estimates and compare different scenarios for your business.",
+                "save-text": "Save Estimate",
+                "print-text": "Print Report",
+                "export-text": "Export to PDF",
+                "comparison-title": "Compare Scenarios",
+                "comparison-desc": "Save different configurations to compare costs and make the best decision for your business.",
+                "scenario-text": "Manage Scenarios",
+                "features-title": "More Business Tools",
+                "feature1-title": "Capacity Calculator",
+                "feature1-desc": "Calculate optimal load capacity for your trailers based on dimensions and weight limits.",
+                "feature2-title": "Route Planner",
+                "feature2-desc": "Plan optimal routes considering road restrictions and trailer dimensions.",
+                "feature3-title": "ROI Calculator",
+                "feature3-desc": "Calculate return on investment for your trailer fleet and equipment upgrades."
+            },
+            th: {
+                "estimator-title": "เครื่องคำนวณต้นทุนการขนส่ง",
+                "estimator-description": "คำนวณต้นทุนการขนส่งทั้งหมดสำหรับการดำเนินงานรถพ่วงของคุณ รวมถึงน้ำมันเชื้อเพลิง การบำรุงรักษา ค่าผ่านทาง และอื่นๆ ตัดสินใจอย่างมีข้อมูลด้วยเครื่องมือวิเคราะห์ต้นทุนที่ครอบคลุมของเรา",
+                "route-tab-text": "เส้นทางและยานพาหนะ",
+                "operating-tab-text": "ต้นทุนการดำเนินงาน",
+                "financial-tab-text": "ปัจจัยทางการเงิน",
+                "trailer-type-label": "ประเภทรถพ่วง",
+                "option-flatbed": "พ่วงแบบแบน",
+                "option-container": "พ่วงคอนเทนเนอร์",
+                "option-skeleton": "พ่วงโครงกระดูก",
+                "cargo-type-label": "ประเภทสินค้า",
+                "option-general": "สินค้าทั่วไป",
+                "option-bulk": "วัสดุจำนวนมาก",
+                "option-heavy": "เครื่องจักรหนัก",
+                "option-perishable": "สินค้าเสียง่าย",
+                "distance-label": "ระยะทาง (กม.)",
+                "trips-label": "เที่ยวต่อเดือน",
+                "fuel-efficiency-label": "ประสิทธิภาพน้ำมันเชื้อเพลิง",
+                "fuel-price-label": "ราคาน้ำมันเชื้อเพลิง",
+                "maintenance-label": "ค่าบำรุงรักษารายเดือน",
+                "tires-label": "ค่าเปลี่ยนยาง",
+                "tire-interval-label": "ระยะเปลี่ยนยาง",
+                "insurance-label": "ค่าประกันรายเดือน",
+                "tolls-label": "ค่าผ่านทางต่อเที่ยว",
+                "driver-wage-label": "ค่าแรงคนขับต่อเที่ยว",
+                "trailer-price-label": "ราคาซื้อรถพ่วง",
+                "depreciation-label": "ระยะเวลาค่าเสื่อมราคา",
+                "financing-label": "จำนวนเงินกู้",
+                "interest-rate-label": "อัตราดอกเบี้ย",
+                "loan-term-label": "ระยะเวลากู้",
+                "taxes-label": "ภาษีและค่าธรรมเนียมรายปี",
+                "calculate-text": "คำนวณต้นทุน",
+                "reset-text": "รีเซ็ต",
+                "results-title": "ผลการประมาณการต้นทุน",
+                "monthly-cost-label": "ต้นทุนการดำเนินงานรายเดือน",
+                "cost-per-km-label": "ต้นทุนต่อกิโลเมตร",
+                "cost-per-trip-label": "ต้นทุนต่อเที่ยว",
+                "annual-cost-label": "ต้นทุนรวมรายปี",
+                "breakdown-title": "รายละเอียดต้นทุนรายเดือน",
+                "fuel-cost-label": "ค่าน้ำมันเชื้อเพลิง",
+                "maintenance-cost-label": "การบำรุงรักษา",
+                "tire-cost-label": "การเปลี่ยนยาง",
+                "insurance-cost-label": "ประกัน",
+                "toll-cost-label": "ค่าผ่านทาง",
+                "driver-cost-label": "ค่าแรงคนขับ",
+                "depreciation-cost-label": "ค่าเสื่อมราคา",
+                "financing-cost-label": "ต้นทุนการเงิน",
+                "tax-cost-label": "ภาษีและค่าธรรมเนียม",
+                "total-cost-label": "ต้นทุนรวมรายเดือน",
+                "visualization-title": "การกระจายต้นทุน",
+                "tips-title": "เคล็ดลับการประหยัดต้นทุน",
+                "tip1-title": "เพิ่มประสิทธิภาพการใช้เชื้อเพลิง",
+                "tip1-desc": "การบำรุงรักษาสม่ำเสมอ ความดันลมยางที่เหมาะสม และเทคนิคการขับขี่ที่มีประสิทธิภาพสามารถปรับปรุงเศรษฐกิจเชื้อเพลิงได้สูงสุด 15%",
+                "tip2-title": "วางแผนเส้นทางที่มีประสิทธิภาพ",
+                "tip2-desc": "ใช้ซอฟต์แวร์วางแผนเส้นทางเพื่อลดระยะทาง หลีกเลี่ยงการจราจร และลดเวลารถจอด",
+                "tip3-title": "การบำรุงรักษาเชิงป้องกัน",
+                "tip3-desc": "การบำรุงรักษาสม่ำเสมอป้องกันการเสียหายที่มีค่าใช้จ่ายสูงและยืดอายุการใช้งานของยานพาหนะ",
+                "tip4-title": "ตรวจสอบการสึกหรอของยาง",
+                "tip4-desc": "ยางที่มีการสูบลมและจัดแนวที่เหมาะสมสามารถใช้งานได้นานขึ้นถึง 20% และปรับปรุงประสิทธิภาพการใช้เชื้อเพลิง",
+                "save-title": "บันทึกการประมาณการของคุณ",
+                "save-desc": "ลงทะเบียนเพื่อบันทึกการประมาณการต้นทุนของคุณและเปรียบเทียบสถานการณ์ต่างๆ สำหรับธุรกิจของคุณ",
+                "save-text": "บันทึกการประมาณการ",
+                "print-text": "พิมพ์รายงาน",
+                "export-text": "ส่งออกเป็น PDF",
+                "comparison-title": "เปรียบเทียบสถานการณ์",
+                "comparison-desc": "บันทึกการตั้งค่าต่างๆ เพื่อเปรียบเทียบต้นทุนและตัดสินใจที่ดีที่สุดสำหรับธุรกิจของคุณ",
+                "scenario-text": "จัดการสถานการณ์",
+                "features-title": "เครื่องมือธุรกิจเพิ่มเติม",
+                "feature1-title": "เครื่องคำนวณความจุ",
+                "feature1-desc": "คำนวณความจุการบรรทุกที่เหมาะสมสำหรับรถพ่วงของคุณตามขนาดและขีดจำกัดน้ำหนัก",
+                "feature2-title": "ผู้วางแผนเส้นทาง",
+                "feature2-desc": "วางแผนเส้นทางที่ดีที่สุดโดยคำนึงถึงข้อจำกัดของถนนและขนาดของรถพ่วง",
+                "feature3-title": "เครื่องคำนวณ ROI",
+                "feature3-desc": "คำนวณผลตอบแทนจากการลงทุนสำหรับกองยานพาหนะรถพ่วงและการอัพเกรดอุปกรณ์"
+            }
+        };
+
+        // Current language
+        let currentLang = 'en';
+        let costChart = null;
+        
+        // Set language function
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            // Add/remove Thai font class
+            if (lang === 'th') {
+                document.body.classList.add('thai-lang');
+            } else {
+                document.body.classList.remove('thai-lang');
+            }
+
+            // Update all text elements
+            updateEstimatorTextContent();
+
+            // Update active language button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Save language preference
+            localStorage.setItem('preferredLang', lang);
+            
+            // Track language change in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'language_change', {
+                    'language': lang
+                });
+            }
+        }
+
+        // Update estimator text content
+        function updateEstimatorTextContent() {
+            for (const key in estimatorTranslations[currentLang]) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = estimatorTranslations[currentLang][key];
+                }
+            }
+        }
+
+        // Estimator functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer
+            Promise.all([
+                fetch('./header.html').then(response => response.text()),
+                fetch('./footer.html').then(response => response.text())
+            ]).then(([headerData, footerData]) => {
+                // Insert header
+                document.getElementById('header-container').innerHTML = headerData;
+                
+                // Insert footer
+                document.getElementById('footer-container').innerHTML = footerData;
+                
+                // Initialize language
+                const savedLang = localStorage.getItem('preferredLang') || 'en';
+                setLanguage(savedLang);
+
+                // Language switcher event
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const lang = this.getAttribute('data-lang');
+                        setLanguage(lang);
+                    });
+                });
+
+                // Initialize estimator
+                initializeEstimator();
+            }).catch(error => {
+                console.error('Error loading components:', error);
+                // Initialize estimator even if header/footer fail to load
+                initializeEstimator();
+                const savedLang = localStorage.getItem('preferredLang') || 'en';
+                setLanguage(savedLang);
+            });
+        });
+
+        function initializeEstimator() {
+            const calculateBtn = document.getElementById('calculate-button');
+            const resetBtn = document.getElementById('reset-button');
+            const saveBtn = document.getElementById('save-button');
+            const printBtn = document.getElementById('print-button');
+            const exportBtn = document.getElementById('export-button');
+            const scenarioBtn = document.getElementById('scenario-button');
+            
+            // Calculate button event
+            calculateBtn.addEventListener('click', calculateCosts);
+            
+            // Reset button event
+            resetBtn.addEventListener('click', resetEstimator);
+            
+            // Save button event
+            saveBtn.addEventListener('click', saveEstimate);
+            
+            // Print button event
+            printBtn.addEventListener('click', printReport);
+            
+            // Export button event
+            exportBtn.addEventListener('click', exportToPDF);
+            
+            // Scenario button event
+            scenarioBtn.addEventListener('click', manageScenarios);
+            
+            // Initial calculation
+            calculateCosts();
+        }
+        
+        function calculateCosts() {
+            // Get input values
+            const distance = parseFloat(document.getElementById('distance').value) || 0;
+            const trips = parseFloat(document.getElementById('trips').value) || 0;
+            const fuelEfficiency = parseFloat(document.getElementById('fuel-efficiency').value) || 0;
+            const fuelPrice = parseFloat(document.getElementById('fuel-price').value) || 0;
+            const maintenance = parseFloat(document.getElementById('maintenance').value) || 0;
+            const tireCost = parseFloat(document.getElementById('tires').value) || 0;
+            const tireInterval = parseFloat(document.getElementById('tire-interval').value) || 0;
+            const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+            const tolls = parseFloat(document.getElementById('tolls').value) || 0;
+            const driverWage = parseFloat(document.getElementById('driver-wage').value) || 0;
+            const trailerPrice = parseFloat(document.getElementById('trailer-price').value) || 0;
+            const depreciationYears = parseFloat(document.getElementById('depreciation').value) || 0;
+            const financingAmount = parseFloat(document.getElementById('financing').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+            const loanTerm = parseFloat(document.getElementById('loan-term').value) || 0;
+            const taxes = parseFloat(document.getElementById('taxes').value) || 0;
+            
+            // Calculate monthly distances
+            const monthlyDistance = distance * trips;
+            
+            // Calculate fuel costs
+            const fuelConsumption = monthlyDistance / fuelEfficiency;
+            const monthlyFuelCost = fuelConsumption * fuelPrice;
+            
+            // Calculate tire costs
+            const monthlyTireCost = (monthlyDistance / tireInterval) * tireCost;
+            
+            // Calculate financing costs
+            const monthlyInterestRate = interestRate / 100 / 12;
+            const numberOfPayments = loanTerm * 12;
+            let monthlyFinancingCost = 0;
+            
+            if (financingAmount > 0 && loanTerm > 0 && interestRate > 0) {
+                monthlyFinancingCost = (financingAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
+                                      (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+            }
+            
+            // Calculate depreciation
+            const monthlyDepreciation = trailerPrice / (depreciationYears * 12);
+            
+            // Calculate other costs
+            const monthlyTollCost = tolls * trips;
+            const monthlyDriverCost = driverWage * trips;
+            const monthlyTaxCost = taxes / 12;
+            
+            // Calculate totals
+            const totalMonthlyCost = monthlyFuelCost + maintenance + monthlyTireCost + insurance + 
+                                   monthlyTollCost + monthlyDriverCost + monthlyDepreciation + 
+                                   monthlyFinancingCost + monthlyTaxCost;
+            
+            const costPerKm = totalMonthlyCost / monthlyDistance;
+            const costPerTrip = totalMonthlyCost / trips;
+            const annualCost = totalMonthlyCost * 12;
+            
+            // Update results
+            document.getElementById('monthly-cost-result').textContent = `฿${totalMonthlyCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('cost-per-km-result').textContent = `฿${costPerKm.toLocaleString('en-US', {maximumFractionDigits: 2})}`;
+            document.getElementById('cost-per-trip-result').textContent = `฿${costPerTrip.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('annual-cost-result').textContent = `฿${annualCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            
+            // Update breakdown
+            document.getElementById('fuel-cost-value').textContent = `฿${monthlyFuelCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('maintenance-cost-value').textContent = `฿${maintenance.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('tire-cost-value').textContent = `฿${monthlyTireCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('insurance-cost-value').textContent = `฿${insurance.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('toll-cost-value').textContent = `฿${monthlyTollCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('driver-cost-value').textContent = `฿${monthlyDriverCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('depreciation-cost-value').textContent = `฿${monthlyDepreciation.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('financing-cost-value').textContent = `฿${monthlyFinancingCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('tax-cost-value').textContent = `฿${monthlyTaxCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('total-cost-value').textContent = `฿${totalMonthlyCost.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            
+            // Show results section
+            document.getElementById('results-section').style.display = 'block';
+            
+            // Update visualization
+            updateCostVisualization({
+                fuel: monthlyFuelCost,
+                maintenance: maintenance,
+                tires: monthlyTireCost,
+                insurance: insurance,
+                tolls: monthlyTollCost,
+                driver: monthlyDriverCost,
+                depreciation: monthlyDepreciation,
+                financing: monthlyFinancingCost,
+                taxes: monthlyTaxCost
+            });
+            
+            // Track calculation in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'cost_estimation', {
+                    'trailer_type': document.getElementById('trailer-type').value,
+                    'monthly_cost': totalMonthlyCost.toFixed(0),
+                    'cost_per_km': costPerKm.toFixed(2)
+                });
+            }
+        }
+        
+        function updateCostVisualization(costData) {
+            const ctx = document.getElementById('costPieChart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (costChart) {
+                costChart.destroy();
+            }
+            
+            // Prepare data for chart
+            const labels = [
+                currentLang === 'th' ? 'น้ำมันเชื้อเพลิง' : 'Fuel',
+                currentLang === 'th' ? 'บำรุงรักษา' : 'Maintenance',
+                currentLang === 'th' ? 'ยาง' : 'Tires',
+                currentLang === 'th' ? 'ประกัน' : 'Insurance',
+                currentLang === 'th' ? 'ค่าผ่านทาง' : 'Tolls',
+                currentLang === 'th' ? 'คนขับ' : 'Driver',
+                currentLang === 'th' ? 'ค่าเสื่อมราคา' : 'Depreciation',
+                currentLang === 'th' ? 'การเงิน' : 'Financing',
+                currentLang === 'th' ? 'ภาษี' : 'Taxes'
+            ];
+            
+            const data = [
+                costData.fuel,
+                costData.maintenance,
+                costData.tires,
+                costData.insurance,
+                costData.tolls,
+                costData.driver,
+                costData.depreciation,
+                costData.financing,
+                costData.taxes
+            ];
+            
+            const backgroundColors = [
+                '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
+                '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0'
+            ];
+            
+            // Create new chart
+            costChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ฿${value.toLocaleString('en-US', {maximumFractionDigits: 0})} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Update legend
+            updateChartLegend(labels, data, backgroundColors);
+        }
+        
+        function updateChartLegend(labels, data, colors) {
+            const legendContainer = document.getElementById('chart-legend');
+            legendContainer.innerHTML = '';
+            
+            const total = data.reduce((a, b) => a + b, 0);
+            
+            labels.forEach((label, index) => {
+                const value = data[index];
+                const percentage = total > 0 ? Math.round((value / total) * 100) : 0;
+                
+                const legendItem = document.createElement('div');
+                legendItem.className = 'legend-item';
+                
+                legendItem.innerHTML = `
+                    <div class="legend-color" style="background-color: ${colors[index]}"></div>
+                    <div>
+                        <div style="font-size: 0.9rem; font-weight: 600;">${label}</div>
+                        <div style="font-size: 0.8rem; color: #666;">฿${value.toLocaleString('en-US', {maximumFractionDigits: 0})} (${percentage}%)</div>
+                    </div>
+                `;
+                
+                legendContainer.appendChild(legendItem);
+            });
+        }
+        
+        function resetEstimator() {
+            // Reset form values to defaults
+            document.getElementById('distance').value = 500;
+            document.getElementById('trips').value = 10;
+            document.getElementById('fuel-efficiency').value = 3.5;
+            document.getElementById('fuel-price').value = 32.5;
+            document.getElementById('maintenance').value = 5000;
+            document.getElementById('tires').value = 80000;
+            document.getElementById('tire-interval').value = 100000;
+            document.getElementById('insurance').value = 3000;
+            document.getElementById('tolls').value = 500;
+            document.getElementById('driver-wage').value = 2500;
+            document.getElementById('trailer-price').value = 1500000;
+            document.getElementById('depreciation').value = 7;
+            document.getElementById('financing').value = 1000000;
+            document.getElementById('interest-rate').value = 5.5;
+            document.getElementById('loan-term').value = 5;
+            document.getElementById('taxes').value = 15000;
+            
+            // Recalculate
+            calculateCosts();
+            
+            // Track reset in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'estimator_reset', {
+                    'event_category': 'Cost Estimator'
+                });
+            }
+        }
+        
+        function saveEstimate() {
+            // In a real implementation, this would save to a database
+            // For now, we'll just show an alert and track the event
+            alert(currentLang === 'th' ? 
+                "คุณต้องลงทะเบียนเพื่อบันทึกการประมาณการของคุณ" : 
+                "You need to register to save your estimates");
+                
+            // Track save attempt in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'save_estimate_attempt', {
+                    'event_category': 'Cost Estimator'
+                });
+            }
+        }
+        
+        function printReport() {
+            window.print();
+            
+            // Track print in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'print_estimate_report', {
+                    'event_category': 'Cost Estimator'
+                });
+            }
+        }
+        
+        function exportToPDF() {
+            // In a real implementation, this would generate a PDF
+            // For now, we'll just show an alert and track the event
+            alert(currentLang === 'th' ? 
+                "คุณต้องลงทะเบียนเพื่อส่งออกรายงานเป็น PDF" : 
+                "You need to register to export reports as PDF");
+                
+            // Track export attempt in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'export_pdf_attempt', {
+                    'event_category': 'Cost Estimator'
+                });
+            }
+        }
+        
+        function manageScenarios() {
+            // In a real implementation, this would open a scenario management modal
+            // For now, we'll just show an alert and track the event
+            alert(currentLang === 'th' ? 
+                "คุณต้องลงทะเบียนเพื่อจัดการสถานการณ์ต่างๆ" : 
+                "You need to register to manage scenarios");
+                
+            // Track scenario management in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'scenario_management', {
+                    'event_category': 'Cost Estimator'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
