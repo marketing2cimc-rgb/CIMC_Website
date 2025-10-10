@@ -356,4 +356,685 @@
 
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0,86,179,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: var(--cimc-blue);
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--cimc-dark);
+        }
+
+        .feature-item p {
+            color: #666;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .calculator-header h1 {
+                font-size: 2rem;
+            }
+            
+            .calculator-card {
+                padding: 20px;
+            }
+            
+            .results-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="th">ไทย</button>
+    </div>
+
+    <!-- Header will be inserted here -->
+    <div id="header-container"></div>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="calculator-section">
+            <div class="container">
+                <div class="calculator-header">
+                    <h1 id="calculator-title">Trailer Capacity Calculator</h1>
+                    <p id="calculator-description">Calculate the optimal load capacity for your trailer based on dimensions, weight limits, and cargo type. Ensure safe and efficient transportation with our free tool.</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="calculator-card">
+                            <h3 id="input-title">Trailer Specifications</h3>
+                            <form id="capacity-calculator">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="trailer-type" class="form-label" id="trailer-type-label">Trailer Type</label>
+                                            <select class="form-control" id="trailer-type">
+                                                <option value="flatbed" id="option-flatbed">Flatbed Semi-Trailer</option>
+                                                <option value="container" id="option-container">Container Semi-Trailer</option>
+                                                <option value="skeleton" id="option-skeleton">Skeleton Trailer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="cargo-type" class="form-label" id="cargo-type-label">Cargo Type</label>
+                                            <select class="form-control" id="cargo-type">
+                                                <option value="general" id="option-general">General Goods</option>
+                                                <option value="bulk" id="option-bulk">Bulk Materials</option>
+                                                <option value="heavy" id="option-heavy">Heavy Machinery</option>
+                                                <option value="liquid" id="option-liquid">Liquid Containers</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="length" class="form-label" id="length-label">Length (meters)</label>
+                                            <input type="number" class="form-control" id="length" min="1" max="20" step="0.1" value="13.6">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="width" class="form-label" id="width-label">Width (meters)</label>
+                                            <input type="number" class="form-control" id="width" min="1" max="3" step="0.1" value="2.5">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="height" class="form-label" id="height-label">Height (meters)</label>
+                                            <input type="number" class="form-control" id="height" min="1" max="4" step="0.1" value="2.7">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="max-weight" class="form-label" id="max-weight-label">Maximum Weight (tons)</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="max-weight" min="1" max="100" step="0.1" value="35">
+                                                <span class="input-group-text">tons</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="cargo-weight" class="form-label" id="cargo-weight-label">Cargo Weight (tons)</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="cargo-weight" min="0.1" max="100" step="0.1" value="20">
+                                                <span class="input-group-text">tons</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="cargo-density" class="form-label" id="density-label">Cargo Density (kg/m³)</label>
+                                    <input type="range" class="form-range" id="cargo-density" min="100" max="2000" value="500">
+                                    <div class="d-flex justify-content-between">
+                                        <small id="density-low">Low Density</small>
+                                        <small id="density-medium">Medium Density</small>
+                                        <small id="density-high">High Density</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center mt-4">
+                                    <button type="button" class="btn btn-cimc btn-lg" id="calculate-button">
+                                        <i class="fas fa-calculator me-2"></i>
+                                        <span id="calculate-text">Calculate Capacity</span>
+                                    </button>
+                                    <button type="reset" class="btn btn-cimc outline btn-lg ms-2" id="reset-button">
+                                        <i class="fas fa-redo me-2"></i>
+                                        <span id="reset-text">Reset</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="results-card" id="results-section" style="display: none;">
+                            <div class="results-header">
+                                <div class="results-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <h3 id="results-title">Calculation Results</h3>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="result-item">
+                                        <div class="result-label" id="volume-label">Total Volume Capacity</div>
+                                        <div class="result-value" id="volume-result">0 m³</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-label" id="weight-label">Weight Capacity Used</div>
+                                        <div class="result-value" id="weight-result">0%</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="result-item">
+                                        <div class="result-label" id="efficiency-label">Load Efficiency</div>
+                                        <div class="result-value" id="efficiency-result">0%</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-label" id="recommendation-label">Recommendation</div>
+                                        <div class="result-value" id="recommendation-result">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="trailer-visualization">
+                            <h4 id="visualization-title">Load Visualization</h4>
+                            <div class="visualization-container">
+                                <div class="trailer-base"></div>
+                                <div class="trailer-body" id="trailer-body"></div>
+                                <div class="load-indicator" id="load-indicator"></div>
+                                <div class="capacity-marker"></div>
+                                <div class="capacity-label" style="bottom: 20px;">0%</div>
+                                <div class="capacity-label" style="bottom: 50%; transform: translateY(50%);">50%</div>
+                                <div class="capacity-label" style="top: 20px;">100%</div>
+                            </div>
+                            <div class="text-center">
+                                <small id="visualization-note">Visual representation of your trailer's load capacity utilization</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="calculator-tips">
+                            <h4 id="tips-title">Optimization Tips</h4>
+                            
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div>
+                                    <h5 id="tip1-title">Weight Distribution</h5>
+                                    <p id="tip1-desc">Ensure even weight distribution across the trailer to maintain stability and safety during transport.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-ruler-combined"></i>
+                                </div>
+                                <div>
+                                    <h5 id="tip2-title">Dimensional Limits</h5>
+                                    <p id="tip2-desc">Check local regulations for maximum allowable dimensions to avoid legal issues on the road.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <div>
+                                    <h5 id="tip3-title">Load Efficiency</h5>
+                                    <p id="tip3-desc">Aim for 80-90% capacity utilization for optimal fuel efficiency and transportation economics.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-item">
+                                <div class="tip-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div>
+                                    <h5 id="tip4-title">Safety First</h5>
+                                    <p id="tip4-desc">Never exceed the maximum weight capacity of your trailer, as this can lead to dangerous situations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-card">
+                            <h4 id="save-title">Save Your Calculation</h4>
+                            <p id="save-desc">Register to save your calculations and access them anytime from your account.</p>
+                            <div class="text-center">
+                                <button class="btn btn-cimc w-100 mb-2" id="save-button">
+                                    <i class="fas fa-save me-2"></i>
+                                    <span id="save-text">Save Calculation</span>
+                                </button>
+                                <button class="btn btn-cimc outline w-100" id="print-button">
+                                    <i class="fas fa-print me-2"></i>
+                                    <span id="print-text">Print Results</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-features">
+                    <h2 class="section-title text-center mb-5" id="features-title">More Calculation Tools</h2>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-gas-pump"></i>
+                            </div>
+                            <h3 id="feature1-title">Fuel Calculator</h3>
+                            <p id="feature1-desc">Calculate fuel consumption and costs for your transportation routes.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-road"></i>
+                            </div>
+                            <h3 id="feature2-title">Route Planner</h3>
+                            <p id="feature2-desc">Plan optimal routes considering road restrictions and trailer dimensions.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <h3 id="feature3-title">Cost Estimator</h3>
+                            <p id="feature3-desc">Estimate total transportation costs including tolls, fuel, and maintenance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be inserted here -->
+    <div id="footer-container"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Bilingual content for calculator page
+        const calculatorTranslations = {
+            en: {
+                "calculator-title": "Trailer Capacity Calculator",
+                "calculator-description": "Calculate the optimal load capacity for your trailer based on dimensions, weight limits, and cargo type. Ensure safe and efficient transportation with our free tool.",
+                "input-title": "Trailer Specifications",
+                "trailer-type-label": "Trailer Type",
+                "option-flatbed": "Flatbed Semi-Trailer",
+                "option-container": "Container Semi-Trailer",
+                "option-skeleton": "Skeleton Trailer",
+                "cargo-type-label": "Cargo Type",
+                "option-general": "General Goods",
+                "option-bulk": "Bulk Materials",
+                "option-heavy": "Heavy Machinery",
+                "option-liquid": "Liquid Containers",
+                "length-label": "Length (meters)",
+                "width-label": "Width (meters)",
+                "height-label": "Height (meters)",
+                "max-weight-label": "Maximum Weight (tons)",
+                "cargo-weight-label": "Cargo Weight (tons)",
+                "density-label": "Cargo Density (kg/m³)",
+                "density-low": "Low Density",
+                "density-medium": "Medium Density",
+                "density-high": "High Density",
+                "calculate-text": "Calculate Capacity",
+                "reset-text": "Reset",
+                "results-title": "Calculation Results",
+                "volume-label": "Total Volume Capacity",
+                "weight-label": "Weight Capacity Used",
+                "efficiency-label": "Load Efficiency",
+                "recommendation-label": "Recommendation",
+                "visualization-title": "Load Visualization",
+                "visualization-note": "Visual representation of your trailer's load capacity utilization",
+                "tips-title": "Optimization Tips",
+                "tip1-title": "Weight Distribution",
+                "tip1-desc": "Ensure even weight distribution across the trailer to maintain stability and safety during transport.",
+                "tip2-title": "Dimensional Limits",
+                "tip2-desc": "Check local regulations for maximum allowable dimensions to avoid legal issues on the road.",
+                "tip3-title": "Load Efficiency",
+                "tip3-desc": "Aim for 80-90% capacity utilization for optimal fuel efficiency and transportation economics.",
+                "tip4-title": "Safety First",
+                "tip4-desc": "Never exceed the maximum weight capacity of your trailer, as this can lead to dangerous situations.",
+                "save-title": "Save Your Calculation",
+                "save-desc": "Register to save your calculations and access them anytime from your account.",
+                "save-text": "Save Calculation",
+                "print-text": "Print Results",
+                "features-title": "More Calculation Tools",
+                "feature1-title": "Fuel Calculator",
+                "feature1-desc": "Calculate fuel consumption and costs for your transportation routes.",
+                "feature2-title": "Route Planner",
+                "feature2-desc": "Plan optimal routes considering road restrictions and trailer dimensions.",
+                "feature3-title": "Cost Estimator",
+                "feature3-desc": "Estimate total transportation costs including tolls, fuel, and maintenance."
+            },
+            th: {
+                "calculator-title": "เครื่องคำนวณความจุรถพ่วง",
+                "calculator-description": "คำนวณความจุการบรรทุกที่เหมาะสมสำหรับรถพ่วงของคุณตามขนาด ขีดจำกัดน้ำหนัก และประเภทสินค้า รับประกันการขนส่งที่ปลอดภัยและมีประสิทธิภาพด้วยเครื่องมือฟรีของเรา",
+                "input-title": "ข้อมูลจำเพาะของรถพ่วง",
+                "trailer-type-label": "ประเภทรถพ่วง",
+                "option-flatbed": "พ่วงแบบแบน",
+                "option-container": "พ่วงคอนเทนเนอร์",
+                "option-skeleton": "พ่วงโครงกระดูก",
+                "cargo-type-label": "ประเภทสินค้า",
+                "option-general": "สินค้าทั่วไป",
+                "option-bulk": "วัสดุจำนวนมาก",
+                "option-heavy": "เครื่องจักรหนัก",
+                "option-liquid": "ตู้คอนเทนเนอร์ของเหลว",
+                "length-label": "ความยาว (เมตร)",
+                "width-label": "ความกว้าง (เมตร)",
+                "height-label": "ความสูง (เมตร)",
+                "max-weight-label": "น้ำหนักสูงสุด (ตัน)",
+                "cargo-weight-label": "น้ำหนักสินค้า (ตัน)",
+                "density-label": "ความหนาแน่นของสินค้า (กก./ลบ.ม.)",
+                "density-low": "ความหนาแน่นต่ำ",
+                "density-medium": "ความหนาแน่นปานกลาง",
+                "density-high": "ความหนาแน่นสูง",
+                "calculate-text": "คำนวณความจุ",
+                "reset-text": "รีเซ็ต",
+                "results-title": "ผลการคำนวณ",
+                "volume-label": "ความจุปริมาตรรวม",
+                "weight-label": "การใช้ความจุน้ำหนัก",
+                "efficiency-label": "ประสิทธิภาพการบรรทุก",
+                "recommendation-label": "คำแนะนำ",
+                "visualization-title": "การแสดงภาพการบรรทุก",
+                "visualization-note": "การแสดงภาพการใช้ความจุการบรรทุกของรถพ่วงของคุณ",
+                "tips-title": "เคล็ดลับการเพิ่มประสิทธิภาพ",
+                "tip1-title": "การกระจายน้ำหนัก",
+                "tip1-desc": "ตรวจสอบให้แน่ใจว่ามีการกระจายน้ำหนักอย่างสม่ำเสมอบนรถพ่วงเพื่อรักษาความมั่นคงและความปลอดภัยระหว่างการขนส่ง",
+                "tip2-title": "ข้อจำกัดด้านขนาด",
+                "tip2-desc": "ตรวจสอบข้อบังคับท้องถิ่นสำหรับขนาดสูงสุดที่อนุญาตเพื่อหลีกเลี่ยงปัญหาทางกฎหมายบนท้องถนน",
+                "tip3-title": "ประสิทธิภาพการบรรทุก",
+                "tip3-desc": "ตั้งเป้าใช้ความจุ 80-90% เพื่อประสิทธิภาพการใช้เชื้อเพลิงและเศรษฐศาสตร์การขนส่งที่เหมาะสมที่สุด",
+                "tip4-title": "ปลอดภัยไว้ก่อน",
+                "tip4-desc": "อย่าเกินขีดจำกัดน้ำหนักสูงสุดของรถพ่วงของคุณ เพราะอาจนำไปสู่สถานการณ์อันตราย",
+                "save-title": "บันทึกการคำนวณของคุณ",
+                "save-desc": "ลงทะเบียนเพื่อบันทึกการคำนวณของคุณและเข้าถึงได้ทุกเมื่อจากบัญชีของคุณ",
+                "save-text": "บันทึกการคำนวณ",
+                "print-text": "พิมพ์ผลลัพธ์",
+                "features-title": "เครื่องมือคำนวณเพิ่มเติม",
+                "feature1-title": "เครื่องคำนวณน้ำมันเชื้อเพลิง",
+                "feature1-desc": "คำนวณการใช้น้ำมันเชื้อเพลิงและค่าใช้จ่ายสำหรับเส้นทางการขนส่งของคุณ",
+                "feature2-title": "ผู้วางแผนเส้นทาง",
+                "feature2-desc": "วางแผนเส้นทางที่ดีที่สุดโดยคำนึงถึงข้อจำกัดของถนนและขนาดของรถพ่วง",
+                "feature3-title": "เครื่องมือประมาณการค่าใช้จ่าย",
+                "feature3-desc": "ประมาณการค่าใช้จ่ายในการขนส่งทั้งหมดรวมถึงค่าผ่านทาง น้ำมันเชื้อเพลิง และการบำรุงรักษา"
+            }
+        };
+
+        // Current language
+        let currentLang = 'en';
+        
+        // Set language function
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            // Add/remove Thai font class
+            if (lang === 'th') {
+                document.body.classList.add('thai-lang');
+            } else {
+                document.body.classList.remove('thai-lang');
+            }
+
+            // Update all text elements
+            updateCalculatorTextContent();
+
+            // Update active language button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Save language preference
+            localStorage.setItem('preferredLang', lang);
+            
+            // Track language change in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'language_change', {
+                    'language': lang
+                });
+            }
+        }
+
+        // Update calculator text content
+        function updateCalculatorTextContent() {
+            for (const key in calculatorTranslations[currentLang]) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = calculatorTranslations[currentLang][key];
+                }
+            }
+        }
+
+        // Calculator functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer
+            Promise.all([
+                fetch('./header.html').then(response => response.text()),
+                fetch('./footer.html').then(response => response.text())
+            ]).then(([headerData, footerData]) => {
+                // Insert header
+                document.getElementById('header-container').innerHTML = headerData;
+                
+                // Insert footer
+                document.getElementById('footer-container').innerHTML = footerData;
+                
+                // Initialize language
+                const savedLang = localStorage.getItem('preferredLang') || 'en';
+                setLanguage(savedLang);
+
+                // Language switcher event
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const lang = this.getAttribute('data-lang');
+                        setLanguage(lang);
+                    });
+                });
+
+                // Initialize calculator
+                initializeCalculator();
+            }).catch(error => {
+                console.error('Error loading components:', error);
+                // Initialize calculator even if header/footer fail to load
+                initializeCalculator();
+                const savedLang = localStorage.getItem('preferredLang') || 'en';
+                setLanguage(savedLang);
+            });
+        });
+
+        function initializeCalculator() {
+            const calculateBtn = document.getElementById('calculate-button');
+            const resetBtn = document.getElementById('reset-button');
+            const saveBtn = document.getElementById('save-button');
+            const printBtn = document.getElementById('print-button');
+            const densitySlider = document.getElementById('cargo-density');
+            
+            // Calculate button event
+            calculateBtn.addEventListener('click', calculateCapacity);
+            
+            // Reset button event
+            resetBtn.addEventListener('click', resetCalculator);
+            
+            // Save button event
+            saveBtn.addEventListener('click', saveCalculation);
+            
+            // Print button event
+            printBtn.addEventListener('click', printResults);
+            
+            // Density slider event
+            densitySlider.addEventListener('input', updateDensityLabels);
+            
+            // Initial calculation
+            calculateCapacity();
+            updateDensityLabels();
+        }
+        
+        function updateDensityLabels() {
+            const density = document.getElementById('cargo-density').value;
+            const lowLabel = document.getElementById('density-low');
+            const mediumLabel = document.getElementById('density-medium');
+            const highLabel = document.getElementById('density-high');
+            
+            if (density < 500) {
+                lowLabel.style.fontWeight = 'bold';
+                mediumLabel.style.fontWeight = 'normal';
+                highLabel.style.fontWeight = 'normal';
+            } else if (density < 1500) {
+                lowLabel.style.fontWeight = 'normal';
+                mediumLabel.style.fontWeight = 'bold';
+                highLabel.style.fontWeight = 'normal';
+            } else {
+                lowLabel.style.fontWeight = 'normal';
+                mediumLabel.style.fontWeight = 'normal';
+                highLabel.style.fontWeight = 'bold';
+            }
+        }
+        
+        function calculateCapacity() {
+            // Get input values
+            const length = parseFloat(document.getElementById('length').value) || 0;
+            const width = parseFloat(document.getElementById('width').value) || 0;
+            const height = parseFloat(document.getElementById('height').value) || 0;
+            const maxWeight = parseFloat(document.getElementById('max-weight').value) || 0;
+            const cargoWeight = parseFloat(document.getElementById('cargo-weight').value) || 0;
+            const density = parseFloat(document.getElementById('cargo-density').value) || 0;
+            
+            // Calculate volume capacity
+            const volumeCapacity = length * width * height;
+            
+            // Calculate weight capacity percentage
+            const weightCapacityPercent = (cargoWeight / maxWeight) * 100;
+            
+            // Calculate volume needed based on cargo weight and density
+            // density is in kg/m³, cargoWeight is in tons (1000 kg = 1 ton)
+            const volumeNeeded = (cargoWeight * 1000) / density;
+            
+            // Calculate load efficiency (how well the cargo fits in the available space)
+            const loadEfficiency = Math.min((volumeNeeded / volumeCapacity) * 100, 100);
+            
+            // Determine recommendation
+            let recommendation = "";
+            if (weightCapacityPercent > 100) {
+                recommendation = currentLang === 'th' ? 
+                    "เกินขีดจำกัดน้ำหนัก! ลดน้ำหนักบรรทุก" : 
+                    "Over weight limit! Reduce cargo weight";
+            } else if (weightCapacityPercent > 90) {
+                recommendation = currentLang === 'th' ? 
+                    "ใกล้ถึงขีดจำกัดน้ำหนัก ตรวจสอบการกระจายน้ำหนัก" : 
+                    "Approaching weight limit. Check weight distribution";
+            } else if (loadEfficiency > 90) {
+                recommendation = currentLang === 'th' ? 
+                    "ใช้พื้นที่ได้อย่างมีประสิทธิภาพ" : 
+                    "Efficient use of space";
+            } else if (loadEfficiency < 50) {
+                recommendation = currentLang === 'th' ? 
+                    "พิจารณาเพิ่มปริมาณการบรรทุก" : 
+                    "Consider increasing cargo volume";
+            } else {
+                recommendation = currentLang === 'th' ? 
+                    "การบรรทุกอยู่ในระดับที่ดี" : 
+                    "Good loading level";
+            }
+            
+            // Update results
+            document.getElementById('volume-result').textContent = `${volumeCapacity.toFixed(2)} m³`;
+            document.getElementById('weight-result').textContent = `${weightCapacityPercent.toFixed(1)}%`;
+            document.getElementById('efficiency-result').textContent = `${loadEfficiency.toFixed(1)}%`;
+            document.getElementById('recommendation-result').textContent = recommendation;
+            
+            // Show results section
+            document.getElementById('results-section').style.display = 'block';
+            
+            // Update visualization
+            updateVisualization(loadEfficiency, weightCapacityPercent);
+            
+            // Track calculation in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'calculator_used', {
+                    'trailer_type': document.getElementById('trailer-type').value,
+                    'cargo_type': document.getElementById('cargo-type').value,
+                    'weight_percent': weightCapacityPercent.toFixed(1),
+                    'efficiency_percent': loadEfficiency.toFixed(1)
+                });
+            }
+        }
+        
+        function updateVisualization(efficiency, weightPercent) {
+            const loadIndicator = document.getElementById('load-indicator');
+            const trailerBody = document.getElementById('trailer-body');
+            
+            // Set height based on efficiency (volume usage)
+            const loadHeight = Math.min(efficiency, 100);
+            loadIndicator.style.height = `${loadHeight}%`;
+            trailerBody.style.height = `${100 - loadHeight}%`;
+            
+            // Change color based on weight percentage
+            if (weightPercent > 100) {
+                loadIndicator.style.background = 'linear-gradient(to top, #dc3545, #e35d6a)';
+            } else if (weightPercent > 90) {
+                loadIndicator.style.background = 'linear-gradient(to top, #ffc107, #ffcd39)';
+            } else {
+                loadIndicator.style.background = 'linear-gradient(to top, #28a745, #20c997)';
+            }
+        }
+        
+        function resetCalculator() {
+            document.getElementById('length').value = 13.6;
+            document.getElementById('width').value = 2.5;
+            document.getElementById('height').value = 2.7;
+            document.getElementById('max-weight').value = 35;
+            document.getElementById('cargo-weight').value = 20;
+            document.getElementById('cargo-density').value = 500;
+            
+            updateDensityLabels();
+            calculateCapacity();
+            
+            // Track reset in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'calculator_reset', {
+                    'event_category': 'Calculator'
+                });
+            }
+        }
+        
+        function saveCalculation() {
+            // In a real implementation, this would save to a database
+            // For now, we'll just show an alert and track the event
+            alert(currentLang === 'th' ? 
+                "คุณต้องลงทะเบียนเพื่อบันทึกการคำนวณของคุณ" : 
+                "You need to register to save your calculations");
+                
+            // Track save attempt in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'save_attempt', {
+                    'event_category': 'Calculator'
+                });
+            }
+        }
+        
+        function printResults() {
+            window.print();
+            
+            // Track print in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'print_results', {
+                    'event_category': 'Calculator'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
