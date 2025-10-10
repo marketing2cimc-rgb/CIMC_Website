@@ -85,114 +85,6 @@
             --transition: all 0.3s ease;
         }
 
-        /* CIMC Button Styles */
-        .btn-cimc {
-            background: linear-gradient(135deg, var(--cimc-gold) 100%, var(--cimc-blue-dark) 0%);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-cimc:hover {
-            background: white;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
-        }
-
-        .btn-cimc:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 10px rgba(0, 86, 179, 0.3);
-        }
-
-        .btn-cimc:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
-        }
-
-        /* Button with accent color variation */
-        .btn-cimc.accent {
-            background: linear-gradient(135deg, var(--cimc-accent) 0%, #e6a800 100%);
-            color: var(--cimc-dark);
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
-        }
-
-        .btn-cimc.accent:hover {
-            background: linear-gradient(135deg, #e6a800 0%, var(--cimc-accent) 100%);
-            color: var(--cimc-dark);
-            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
-        }
-
-        .btn-cimc.accent:focus {
-            box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3);
-        }
-
-        /* Outline button variation */
-        .btn-cimc.outline {
-            background: transparent;
-            color: var(--cimc-blue);
-            border: 2px solid var(--cimc-blue);
-            box-shadow: none;
-        }
-
-        .btn-cimc.outline:hover {
-            background: var(--cimc-blue);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3);
-        }
-
-        /* Small button */
-        .btn-cimc.btn-sm {
-            padding: 8px 20px;
-            font-size: 0.875rem;
-        }
-
-        /* Large button */
-        .btn-cimc.btn-lg {
-            padding: 15px 40px;
-            font-size: 1.125rem;
-        }
-
-        /* Full width button */
-        .btn-cimc.w-100 {
-            text-align: center;
-        }
-
-        /* Button with icon */
-        .btn-cimc i {
-            margin-right: 8px;
-        }
-
-        /* Button loading state */
-        .btn-cimc.loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-
-        .btn-cimc.loading::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 50%;
-            left: 50%;
-            margin-left: -10px;
-            margin-top: -10px;
-            border: 2px solid transparent;
-            border-top: 2px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -506,10 +398,6 @@
                 font-size: 2rem;
             }
 
-            .btn-cimc {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
         }
         
         /* SEO improvements */
@@ -844,7 +732,7 @@
                     <div class="container text-center">
                         <h1 id="banner-title">Global strength & Local Thai expertise</h1>
                         <p id="banner-subtitle">Experience excellence in every detail</p>
-                        <a href="#about" class="btn btn-cimc" id="banner-button">Learn More</a>
+                        <a href="#about" class="btn-cimc" id="banner-button">Learn More</a>
                     </div>
                 </section>
 
@@ -1069,7 +957,7 @@
                             </div>
                         </div>
                         <div class="text-center mt-5">
-                            <a href="#" class="btn btn-cimc" id="products-button">View All Products</a>
+                            <a href="#" class="btn-cimc" id="products-button">View All Products</a>
                         </div>
                     </div>
                 </section>
@@ -1107,7 +995,7 @@
                                     </div>
                                     <input type="text" name="subject" class="form-control" placeholder="Subject" data-placeholder="subject-placeholder" required>
                                     <textarea name="message" class="form-control" rows="5" placeholder="Your Message" data-placeholder="message-placeholder" required></textarea>
-                                    <button type="submit" class="btn btn-cimc w-100" id="send-button">Send Message</button>
+                                    <button type="submit" class="btn-cimc w-100" id="send-button">Send Message</button>
                                 </form>
                             </div>
 
