@@ -860,8 +860,8 @@
         .feature-item {
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
 
         .btn-outline-cimc {
