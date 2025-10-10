@@ -329,27 +329,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2 col-sm-4 col-6 mb-3">
-                    <a href="#customers" class="category-link">
-						<div class="feature-icon">
+						<div class="category-icon">
 							<i class="fas fa-gas-pump"></i>
 						</div>
                         <span id="category-1">Trailer Capacity</span>
-                    </a>
-                </div>
-                <div class="col-md-2 col-sm-4 col-6 mb-3">
-                    <a href="#after-sales" class="category-link">
-                        <div class="category-icon">
-                            <i class="fas fa-gas-pump"></i>
-                        </div>
-                        <span id="category-2">Fuel Calculator</span>
-                    </a>
                 </div>
                 <div class="col-md-2 col-sm-4 col-6 mb-3">
                     <a href="#partners" class="category-link">
                         <div class="category-icon">
                             <i class="fas fa-file-invoice-dollar"></i>
                         </div>
-                        <span id="category-3">Cost Estimator</span>
+                        <span id="category-3">CostMargin Estimator</span>
                     </a>
                 </div>
 			</div>
@@ -450,10 +440,6 @@
                                     <button type="button" class="btn-cimc" id="calculate-button">
                                         <i class="fas fa-calculator me-2"></i>
                                         <span id="calculate-text">Calculate Capacity</span>
-                                    </button>
-                                    <button type="reset" class="btn-cimc" id="reset-button">
-                                        <i class="fas fa-redo me-2"></i>
-                                        <span id="reset-text">Reset</span>
                                     </button>
                                 </div>
                             </form>
@@ -752,16 +738,12 @@
 
         function initializeCalculator() {
             const calculateBtn = document.getElementById('calculate-button');
-            const resetBtn = document.getElementById('reset-button');
             const saveBtn = document.getElementById('save-button');
             const printBtn = document.getElementById('print-button');
             const densitySlider = document.getElementById('cargo-density');
             
             // Calculate button event
             calculateBtn.addEventListener('click', calculateCapacity);
-            
-            // Reset button event
-            resetBtn.addEventListener('click', resetCalculator);
             
             // Save button event
             saveBtn.addEventListener('click', saveCalculation);
@@ -883,44 +865,6 @@
                 loadIndicator.style.background = 'linear-gradient(to top, #ffc107, #ffcd39)';
             } else {
                 loadIndicator.style.background = 'linear-gradient(to top, #28a745, #20c997)';
-            }
-        }
-        
-        function resetCalculator() {
-            document.getElementById('length').value = 13.6;
-            document.getElementById('width').value = 2.5;
-            document.getElementById('height').value = 2.7;
-            document.getElementById('max-weight').value = 35;
-            document.getElementById('cargo-weight').value = 20;
-            document.getElementById('cargo-density').value = 500;
-            
-            updateDensityLabels();
-            calculateCapacity();
-            
-            // Track reset in Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'calculator_reset', {
-                    'event_category': 'Calculator'
-                });
-            }
-			
-			            
-            // Show results section
-            document.getElementById('results-section').style.display = 'none!important';
-        }
-        
-        function saveCalculation() {
-            // In a real implementation, this would save to a database
-            // For now, we'll just show an alert and track the event
-            alert(currentLang === 'th' ? 
-                "คุณต้องลงทะเบียนเพื่อบันทึกการคำนวณของคุณ" : 
-                "You need to register to save your calculations");
-                
-            // Track save attempt in Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'save_attempt', {
-                    'event_category': 'Calculator'
-                });
             }
         }
         
