@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer Capacity Calculator | CIMC Vehicles Thailand</title>
+    <meta name="description" content="Free trailer capacity calculator tool from CIMC Vehicles Thailand. Calculate load capacity, weight distribution, and transportation efficiency for your trailer needs.">
+    <meta name="keywords" content="trailer calculator, load capacity, weight distribution, transportation efficiency, CIMC Thailand, trailer tools">
+    <meta name="author" content="CIMC Vehicles Thailand">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cimcthailand.co.th/calculator.html">
+    <meta property="og:title" content="Trailer Capacity Calculator | CIMC Vehicles Thailand">
+    <meta property="og:description" content="Free trailer capacity calculator tool from CIMC Vehicles Thailand.">
+    <meta property="og:image" content="https://www.cimcthailand.com/img/calculator-og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.cimcthailand.co.th/calculator.html">
+    <meta property="twitter:title" content="Trailer Capacity Calculator | CIMC Vehicles Thailand">
+    <meta property="twitter:description" content="Free trailer capacity calculator tool from CIMC Vehicles Thailand.">
+    <meta property="twitter:image" content="https://www.cimcthailand.com/img/calculator-twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.cimcthailand.co.th/calculator.html">
+    
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Trailer Capacity Calculator",
+      "url": "https://www.cimcthailand.co.th/calculator.html",
+      "description": "Free trailer capacity calculator tool from CIMC Vehicles Thailand",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "permissions": "browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CIMC Vehicles Thailand",
+        "url": "https://www.cimcthailand.co.th/"
+      }
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/x-icon" href="./img/logo.ico">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJXJ5GL2GR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QJXJ5GL2GR');
+    </script>
+    
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --cimc-blue: #0056b3;
+            --cimc-blue-dark: #004494;
+            --cimc-accent: #ffc107;
+            --cimc-dark: #333;
+            --cimc-light: #f8f9fa;
+            --transition: all 0.3s ease;
+        }
+
+        /* CIMC Button Styles */
+        .btn-cimc {
+            background: linear-gradient(135deg, var(--cimc-blue) 0%, var(--cimc-blue-dark) 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cimc:hover {
+            background: white;
+            color: var(--cimc-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
+        }
+
+        .btn-cimc:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn-cimc:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
+        }
+
+        /* Calculator specific styles */
+        .calculator-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0,86,179,0.05) 0%, rgba(255,255,255,1) 100%);
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .calculator-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--cimc-dark);
+        }
+
+        .calculator-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--cimc-dark);
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px 15px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--cimc-blue);
+            box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
+        }
+
+        .input-group-text {
+            background-color: var(--cimc-light);
+            border: 2px solid #e9ecef;
+            border-left: none;
+            color: var(--cimc-dark);
+        }
+
+        .input-group .form-control {
+            border-right: none;
+        }
+
+        .results-card {
+            background: var(--cimc-blue);
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .results-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .results-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .results-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .result-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .trailer-visualization {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .visualization-container {
+            height: 200px;
+            position: relative;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .trailer-base {
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 20px;
+            background: #6c757d;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .trailer-body {
+            position: absolute;
+            bottom: 20px;
+            left: 10%;
+            width: 80%;
+            background: #dee2e6;
+            border-radius: 8px 8px 0 0;
+            transition: height 0.5s ease;
+        }
+
+        .load-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 10%;
+            width: 80%;
+            background: linear-gradient(to top, #28a745, #20c997);
+            border-radius: 8px 8px 0 0;
+            transition: height 0.5s ease;
+        }
+
+        .capacity-marker {
+            position: absolute;
+            right: 5%;
+            height: 100%;
+            width: 2px;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .capacity-label {
+            position: absolute;
+            right: 8%;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .calculator-tips {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .tip-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .tip-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .tip-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0,86,179,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .tip-icon i {
+            color: var(--cimc-blue);
+            font-size: 1.2rem;
+        }
+
+        .calculator-features {
+            margin-top: 60px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,
