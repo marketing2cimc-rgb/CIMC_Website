@@ -77,7 +77,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: var(--cimc-gold);
+            background: var(--cimc-blue);
             transition: var(--transition);
         }
 
