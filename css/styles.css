@@ -66,8 +66,8 @@
 
         .nav-link:hover, .nav-link.active {
 			color: white; /* Change text color to white for active */
-			background-color: var(--cimc-blue); /* Use the blue for active background */
-			border-bottom: 3px solid var(--cimc-blue);
+			background-color: var(--cimc-blue-dark); /* Use the blue for active background */
+			border-bottom: 3px solid var(--cimc-blue-dark);
         }
 
         .nav-link::after {
