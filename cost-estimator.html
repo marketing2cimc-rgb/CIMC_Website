@@ -318,14 +318,15 @@
             border: none;
             padding: 12px 25px;
             font-weight: 600;
-            color: #666;
-            border-radius: 8px 8px 0 0;
+			color: #333;  /* Changed from #666 to darker */
+			border-radius: 8px 8px 0 0;
+			background-color: #e9ecef; /* Add a light background for inactive tabs */
         }
 
         .nav-tabs .nav-link.active {
-            color: var(--cimc-blue);
-            background-color: white;
-            border-bottom: 3px solid var(--cimc-blue);
+			color: white; /* Change text color to white for active */
+			background-color: var(--cimc-blue); /* Use the blue for active background */
+			border-bottom: 3px solid var(--cimc-blue);
         }
 
         /* Responsive adjustments */
@@ -418,6 +419,7 @@
                                                     <option value="flatbed" id="option-flatbed">Flatbed Semi-Trailer</option>
                                                     <option value="container" id="option-container">Container Semi-Trailer</option>
                                                     <option value="skeleton" id="option-skeleton">Skeleton Trailer</option>
+													<option value="trailer_others" id="trailer-others">Others</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -429,6 +431,7 @@
                                                     <option value="bulk" id="option-bulk">Bulk Materials</option>
                                                     <option value="heavy" id="option-heavy">Heavy Machinery</option>
                                                     <option value="perishable" id="option-perishable">Perishable Goods</option>
+													<option value="cargo_others" id="cargo-other">Others</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -845,11 +848,13 @@
                 "option-flatbed": "Flatbed Semi-Trailer",
                 "option-container": "Container Semi-Trailer",
                 "option-skeleton": "Skeleton Trailer",
+				"trailer-others": "Others Trailer",
                 "cargo-type-label": "Cargo Type",
                 "option-general": "General Goods",
                 "option-bulk": "Bulk Materials",
                 "option-heavy": "Heavy Machinery",
                 "option-perishable": "Perishable Goods",
+				"cargo-other": "Others",
                 "distance-label": "Distance (km)",
                 "trips-label": "Trips per Month",
                 "fuel-efficiency-label": "Fuel Efficiency",
@@ -920,11 +925,13 @@
                 "option-flatbed": "พ่วงแบบแบน",
                 "option-container": "พ่วงคอนเทนเนอร์",
                 "option-skeleton": "พ่วงโครงกระดูก",
+				"trailer-others": "อื่นๆ",
                 "cargo-type-label": "ประเภทสินค้า",
                 "option-general": "สินค้าทั่วไป",
                 "option-bulk": "วัสดุจำนวนมาก",
                 "option-heavy": "เครื่องจักรหนัก",
                 "option-perishable": "สินค้าเสียง่าย",
+				"cargo-other": "อื่นๆ",
                 "distance-label": "ระยะทาง (กม.)",
                 "trips-label": "เที่ยวต่อเดือน",
                 "fuel-efficiency-label": "ประสิทธิภาพน้ำมันเชื้อเพลิง",
