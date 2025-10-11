@@ -66,8 +66,6 @@
 
         .nav-link:hover, .nav-link.active {
 			color: white; /* Change text color to white for active */
-			background-color: var(--cimc-blue); /* Use the blue for active background */
-			border-bottom: 3px solid var(--cimc-blue);
         }
 
         .nav-link::after {
@@ -84,7 +82,16 @@
         .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
         }
-
+		
+        .nav-tabs .nav-link {
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+			color: #333;  /* Changed from #666 to darker */
+			border-radius: 8px 8px 0 0;
+			background-color: #e9ecef; /* Add a light background for inactive tabs */
+        }
+		
         .navbar-toggler {
             border: none;
             color: white;
