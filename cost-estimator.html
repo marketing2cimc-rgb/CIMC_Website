@@ -309,57 +309,6 @@
             margin-top: 60px;
         }
 		
-    /* Tab Navigation Controls */
-    .tab-navigation {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid #e9ecef;
-    }
-   
-    .nav-btn {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 20px;
-        border-radius: 8px;
-        font-weight: 600;
-        transition: var(--transition);
-        border: none;
-    }
-    
-    .nav-btn.prev {
-        background: #f8f9fa;
-        color: #666;
-    }
-    
-    .nav-btn.prev:hover {
-        background: #e9ecef;
-        color: var(--cimc-dark);
-    }
-    
-    .nav-btn.next {
-        background: var(--cimc-blue);
-        color: white;
-    }
-    
-    .nav-btn.next:hover {
-        background: #0056b3;
-        box-shadow: 0 4px 12px rgba(0,86,179,0.3);
-    }
-    
-    .nav-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-    
-    .nav-btn:disabled:hover {
-        background: #f8f9fa;
-        color: #666;
-        box-shadow: none;
-    }
-	
 		.nav-tabs {
             border-bottom: 2px solid #e9ecef;
             margin-bottom: 25px;
@@ -379,126 +328,7 @@
 			background-color: var(--cimc-blue); /* Use the blue for active background */
 			border-bottom: 3px solid var(--cimc-blue);
         }
-		
-		 /* Option 1: Stepper Style Tabs */
-		.stepper-tabs {
-			display: flex;
-			justify-content: space-between;
-			position: relative;
-			margin-bottom: 30px;
-			counter-reset: step;
-		}
-		
-		.stepper-tabs::before {
-			content: '';
-			position: absolute;
-			top: 20px;
-			left: 0;
-			right: 0;
-			height: 3px;
-			background: #e9ecef;
-			z-index: 1;
-		}
-		
-		.stepper-tab {
-			position: relative;
-			z-index: 2;
-			text-align: center;
-			flex: 1;
-		}
-		
-		.stepper-tab::before {
-			counter-increment: step;
-			content: counter(step);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 40px;
-			height: 40px;
-			margin: 0 auto 10px;
-			border-radius: 50%;
-			background: #e9ecef;
-			color: #666;
-			font-weight: 600;
-			transition: var(--transition);
-		}
-		
-		.stepper-tab.active::before {
-			background: var(--cimc-blue);
-			color: white;
-			box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.2);
-		}
-		
-		.stepper-tab.completed::before {
-			background: #28a745;
-			color: white;
-			content: '✓';
-		}
-		
-		.stepper-label {
-			font-weight: 600;
-			font-size: 0.9rem;
-			color: #666;
-			transition: var(--transition);
-		}
-		
-		.stepper-tab.active .stepper-label {
-			color: var(--cimc-blue);
-		}
-		
-		.stepper-tab.completed .stepper-label {
-			color: #28a745;
-		}
-		
-/* Option 3: Modern Minimalist Tabs */
-    .modern-tabs {
-        display: flex;
-        background: #f8f9fa;
-        border-radius: 12px;
-        padding: 5px;
-        margin-bottom: 30px;
-    }
-    
-    .modern-tab {
-        flex: 1;
-        text-align: center;
-        padding: 15px 10px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 600;
-        color: #666;
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .modern-tab::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 3px;
-        background: var(--cimc-blue);
-        transition: var(--transition);
-    }
-    
-    .modern-tab.active {
-        color: var(--cimc-blue);
-        background: white;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    
-    .modern-tab.active::after {
-        width: 80%;
-    }
-    
-    .modern-tab:hover:not(.active) {
-        color: var(--cimc-blue);
-        background: rgba(0,86,179,0.05);
-    }
-	
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .estimator-header h1 {
@@ -512,46 +342,6 @@
             .results-card {
                 padding: 20px;
             }
-			
-			
-			.card-tabs, .stepper-tabs {
-				flex-direction: column;
-				gap: 10px;
-			}
-			
-			.stepper-tabs::before {
-				display: none;
-			}
-			
-			.stepper-tab {
-				text-align: left;
-				display: flex;
-				align-items: center;
-				padding: 15px;
-				background: white;
-				border-radius: 8px;
-				box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-			}
-			
-			.stepper-tab::before {
-				margin: 0 15px 0 0;
-				flex-shrink: 0;
-			}
-			
-			.modern-tabs {
-				flex-direction: column;
-				gap: 5px;
-			}
-			
-			.tab-navigation {
-				flex-direction: column;
-				gap: 10px;
-			}
-			
-			.nav-btn {
-				justify-content: center;
-			}
-			
         }
     </style>
 </head>
@@ -601,29 +391,17 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="estimator-card">
-<div class="modern-tabs" id="modernTabs">
-    <div class="modern-tab active" data-tab="route">
-        <span id="modern-route-label">Route & Vehicle</span>
-    </div>
-    <div class="modern-tab" data-tab="operating">
-        <span id="modern-operating-label">Operating Costs</span>
-    </div>
-    <div class="modern-tab" data-tab="financial">
-        <span id="modern-financial-label">Financial Factors</span>
-    </div>
-</div>
-
-<!-- Navigation Controls -->
-<div class="tab-navigation">
-    <button class="nav-btn prev" id="prevTab" disabled>
-        <i class="fas fa-arrow-left"></i>
-        <span id="prev-text">Previous</span>
-    </button>
-    <button class="nav-btn next" id="nextTab">
-        <span id="next-text">Next</span>
-        <i class="fas fa-arrow-right"></i>
-    </button>
-</div>
+                            <ul class="nav nav-tabs" id="costTabs" role="tablist">
+                                <li role="presentation">
+                                    <button class="nav-tabs-link active" id="route-tab" data-bs-toggle="tab" data-bs-target="#route" type="button" role="tab" aria-controls="route" aria-selected="true" id="route-tab-text">Route & Vehicle</button>
+                                </li>
+                                <li role="presentation">
+                                    <button class="nav-tabs-link" id="operating-tab" data-bs-toggle="tab" data-bs-target="#operating" type="button" role="tab" aria-controls="operating" aria-selected="false" id="operating-tab-text">Operating Costs</button>
+                                </li>
+                                <li role="presentation">
+                                    <button class="nav-tabs-link" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false" id="financial-tab-text">Financial Factors</button>
+                                </li>
+                            </ul>
                             
                             <div class="tab-content" id="costTabsContent">
                                 <!-- Route & Vehicle Tab -->
