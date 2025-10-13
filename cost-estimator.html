@@ -601,16 +601,28 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="estimator-card">
-<div class="stepper-tabs" id="stepperTabs">
-    <div class="stepper-tab active" data-tab="route">
-        <div class="stepper-label" id="stepper-route-label">Route & Vehicle</div>
+<div class="modern-tabs" id="modernTabs">
+    <div class="modern-tab active" data-tab="route">
+        <span id="modern-route-label">Route & Vehicle</span>
     </div>
-    <div class="stepper-tab" data-tab="operating">
-        <div class="stepper-label" id="stepper-operating-label">Operating Costs</div>
+    <div class="modern-tab" data-tab="operating">
+        <span id="modern-operating-label">Operating Costs</span>
     </div>
-    <div class="stepper-tab" data-tab="financial">
-        <div class="stepper-label" id="stepper-financial-label">Financial Factors</div>
+    <div class="modern-tab" data-tab="financial">
+        <span id="modern-financial-label">Financial Factors</span>
     </div>
+</div>
+
+<!-- Navigation Controls -->
+<div class="tab-navigation">
+    <button class="nav-btn prev" id="prevTab" disabled>
+        <i class="fas fa-arrow-left"></i>
+        <span id="prev-text">Previous</span>
+    </button>
+    <button class="nav-btn next" id="nextTab">
+        <span id="next-text">Next</span>
+        <i class="fas fa-arrow-right"></i>
+    </button>
 </div>
                             
                             <div class="tab-content" id="costTabsContent">
