@@ -413,7 +413,6 @@
             }
         };
 
-
 		// Direct footer update function as fallback
 		function updateFooterDirectly(lang) {
 			const footerTranslations = {
@@ -532,6 +531,11 @@
             const savedLang = localStorage.getItem('preferredLang') || 'en';
             setLanguage(savedLang);
 
+			// Also, set the footer language if the function is available
+			if (window.setFooterLanguage) {
+				window.setFooterLanguage(savedLang);
+			}
+				
             // Language switch events
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
