@@ -254,13 +254,13 @@ const products = {
 	},
 	3: {
 		id: 3,
-		breadcrumbseries_href : "./productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "Chassis Series",
 				name: "Tipping Container Chassis",
 				series: "Chassis Series",
@@ -287,6 +287,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "ซีรี่ส์แชสซี",
 				name: "แชสซีตู้คอนเทนเนอร์แบบเทข้าง",
 				series: "ซีรีส์แชสซี",
@@ -322,13 +323,13 @@ const products = {
 	},
 	4: {
 		id: 4,
-		breadcrumbseries_href : "./productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "Chassis Series",
 				name: "Low Bed Trailer",
 				series: "Chassis Series",
@@ -353,6 +354,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "ซีรี่ส์แชสซี",
 				name: "รถพ่วงแบบเตี้ย",
 				series: "ซีรีส์แชสซี",
@@ -386,13 +388,13 @@ const products = {
 	},
 	5: {
 		id: 5,
-		breadcrumbseries_href : "./productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "Chassis Series",
 				name: "Drop Chassis for ISO Tank",
 				series: "Chassis Series",
@@ -419,6 +421,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "ซีรี่ส์แชสซี",
 				name: "แชสซีแบบลดระดับสำหรับถัง ISO",
 				series: "ซีรีส์แชสซี",
@@ -454,13 +457,13 @@ const products = {
 	},
 	6: {
 		id: 6,
-		breadcrumbseries_href : "./productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "Chassis Series",
 				name: "Light Weight Chassis Full Trailer",
 				series: "Chassis Series",
@@ -487,6 +490,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "ซีรี่ส์แชสซี",
 				name: "รถพ่วงเต็มรูปแบบแชสซีน้ำหนักเบา",
 				series: "ซีรีส์แชสซี",
@@ -522,13 +526,13 @@ const products = {
 	},
    7: {
 		id: 7,
-		breadcrumbseries_href : "./productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Dump (Middle Lifting)",
 				series: "Dumper Trailer",
@@ -555,6 +559,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถดัมพ์ (ยกกลาง)",
 				series: "รถพ่วงบรรทุก",
@@ -591,13 +596,13 @@ const products = {
 
 	8: {
 		id: 8,
-		breadcrumbseries_href : "./productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Dump Semi-trailer",
 				series: "Dumper Trailer",
@@ -624,6 +629,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถพ่วงดัมพ์",
 				series: "รถพ่วงบรรทุก",
@@ -660,13 +666,13 @@ const products = {
 
 	9: {
 		id: 9,
-		breadcrumbseries_href : "./productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Dump Full Trailer",
 				series: "Dumper Trailer",
@@ -693,6 +699,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถพ่วงเต็มรูปแบบ",
 				series: "รถพ่วงบรรทุก",
@@ -727,13 +734,13 @@ const products = {
 
 	10: {
 		id: 10,
-		breadcrumbseries_href : "./productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Cargo Semi-trailer",
 				series: "Cargo Trailer",
@@ -760,6 +767,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถพ่วงกึ่งพ่วงบรรทุกสินค้า",
 				series: "รถพ่วงบรรทุกสินค้า",
@@ -796,13 +804,13 @@ const products = {
 
 	11: {
 		id: 11,
-		breadcrumbseries_href : "./productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Dump (Front End Tipping)",
 				series: "Dumper Trailer",
@@ -829,6 +837,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถดัมพ์ (ทิ้งด้านหน้า)",
 				series: "รถพ่วงบรรทุก",
@@ -863,13 +872,13 @@ const products = {
 	},
 	12: {
 		id: 12,
-		breadcrumbseries_href : "./productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Cargo Body and Full-trailer",
 				series: "Cargo Trailer",
@@ -896,6 +905,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries1.html",
 				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "ตัวถังสินค้าและรถพ่วงเต็มรูปแบบ",
 				series: "รถพ่วงบรรทุกสินค้า",
@@ -931,13 +941,13 @@ const products = {
 
 	13: {
 		id: 13,
-		breadcrumbseries_href : "./productSeries2.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries2.html",
 				breadcrumbseries : "Side Curtain",
 				name: "Side Curtain (32 Pallets)",
 				series: "Curtainsider Trailer",
@@ -964,6 +974,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries2.html",
 				breadcrumbseries : "Side Curtain",
 				name: "ผ้าใบกั้นข้าง (32 พาเลท)",
 				series: "รถพ่วงผ้าใบ",
@@ -999,13 +1010,13 @@ const products = {
 	},
 	14: {
 		id: 14,
-		breadcrumbseries_href : "./productSeries2.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries2.html",
 				breadcrumbseries : "Side Curtain",
 				name: "Full Sliding Side Curtain",
 				series: "Curtainsider Trailer",
@@ -1032,6 +1043,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries2.html",
 				breadcrumbseries : "Side Curtain",
 				name: "ผ้าใบเลื่อนด้านข้างแบบเต็ม",
 				series: "รถพ่วงผ้าใบ",
@@ -1066,13 +1078,13 @@ const products = {
 	},
 	15: {
 		id: 15,
-		breadcrumbseries_href : "./productSeries2.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries2.html",
 				breadcrumbseries : "Side Curtain",
 				name: "Side Curtain (Normal & Quick Slide)",
 				series: "Curtainsider Trailer",
@@ -1099,6 +1111,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries2.html",
 				breadcrumbseries : "Side Curtain",
 				name: "ผ้าใบกั้นข้าง (แบบปกติและแบบเลื่อนเร็ว)",
 				series: "รถพ่วงผ้าใบ",
@@ -1133,13 +1146,13 @@ const products = {
 	},
 	16: {
 		id: 16,
-		breadcrumbseries_href : "./productSeries2.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries2.html",
 				breadcrumbseries : "Side Curtain",
 				name: "Side Curtain (The Lifting Roof)",
 				series: "Curtainsider Trailer",
@@ -1166,6 +1179,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries2.html",
 				breadcrumbseries : "Side Curtain",
 				name: "ผ้าใบกั้นข้าง (หลังคายกได้)",
 				series: "รถพ่วงผ้าใบ",
@@ -1201,13 +1215,13 @@ const products = {
 	
 	17: {
 		id: 17,
-		breadcrumbseries_href : "./productSeries3.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries3.html",
 				breadcrumbseries : "DryVan/Reefer",
 				name: "Dry Van Semi-trailer",
 				series: "Dry Van Trailer",
@@ -1234,6 +1248,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries3.html",
 				breadcrumbseries : "DryVan/Reefer",
 				name: "รถพ่วงกึ่งพ่วงแบบแห้ง",
 				series: "รถพ่วงแบบแห้ง",
@@ -1269,13 +1284,13 @@ const products = {
 
 	18: {
 		id: 18,
-		breadcrumbseries_href : "./productSeries3.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries3.html",
 				breadcrumbseries : "DryVan/Reefer",
 				name: "Dry Van Full Trailer",
 				series: "Dry Van Trailer",
@@ -1302,6 +1317,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries3.html",
 				breadcrumbseries : "DryVan/Reefer",
 				name: "รถพ่วงเต็มรูปแบบแบบแห้ง",
 				series: "รถพ่วงแบบแห้ง",
@@ -1337,13 +1353,13 @@ const products = {
 
 	19: {
 		id: 19,
-		breadcrumbseries_href : "./productSeries3.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries3.html",
 				breadcrumbseries : "DryVan/Reefer",
 				name: "Reefer on Truck",
 				series: "Refrigerated Transport",
@@ -1369,6 +1385,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries3.html",
 				breadcrumbseries : "DryVan/Reefer",
 				name: "รถหิ้วแบบรถบรรทุก",
 				series: "การขนส่งแบบแช่เย็น",
@@ -1403,13 +1420,13 @@ const products = {
 
 	20: {
 		id: 20,
-		breadcrumbseries_href : "./productSeries3.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries3.html",
 				breadcrumbseries : "DryVan/Reefer",
 				name: "Reefer Container Light Weight (26 Pallets)",
 				series: "Refrigerated Container",
@@ -1435,6 +1452,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries3.html",
 				breadcrumbseries : "DryVan/Reefer",
 				name: "ตู้คอนเทนเนอร์หิ้วน้ำหนักเบา (26 พาเลท)",
 				series: "ตู้คอนเทนเนอร์หิ้ว",
@@ -1469,13 +1487,13 @@ const products = {
 	},	
 	21: {
 		id: 21,
-		breadcrumbseries_href : "./productSeries4.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries4.html",
 				breadcrumbseries : "Mixer/Bulk",
 				name: "Concrete Mixer (3,4,6,7 Cum)",
 				series: "Mixer Trailer",
@@ -1503,6 +1521,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries4.html",
 				breadcrumbseries : "Mixer/Bulk",
 				name: "เครื่องผสมคอนกรีต (3,4,6,7 ลบ.ม.)",
 				series: "รถผสมคอนกรีต",
@@ -1540,13 +1559,13 @@ const products = {
 	
 	22: {
 		id: 22,
-		breadcrumbseries_href : "./productSeries4.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries4.html",
 				breadcrumbseries : "Mixer/Bulk",
 				name: "Bulk Powder Tanker (32/36 Cum)",
 				series: "Bulk Transport",
@@ -1574,6 +1593,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries4.html",
 				breadcrumbseries : "Mixer/Bulk",
 				name: "ถังบรรจุผงจำนวนมาก (32/36 ลบ.ม.)",
 				series: "การขนส่งจำนวนมาก",
@@ -1611,13 +1631,13 @@ const products = {
 	
 	23: {
 		id: 23,
-		breadcrumbseries_href : "./productSeries4.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries4.html",
 				breadcrumbseries : "Mixer/Bulk",
 				name: "Self-Powered Bulk Tanker (32/36 Cum)",
 				series: "Bulk Transport",
@@ -1645,6 +1665,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries4.html",
 				breadcrumbseries : "Mixer/Bulk",
 				name: "ถังบรรจุจำนวนมากแบบขับเคลื่อนด้วยตัวเอง (32/36 ลบ.ม.)",
 				series: "การขนส่งจำนวนมาก",
@@ -1682,13 +1703,13 @@ const products = {
 
 	24: {
 		id: 24,
-		breadcrumbseries_href : "./productSeries5.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries5.html",
 				breadcrumbseries : "Liquid/Tipping",
 				name: "Liquid Tanker Semi-trailer Aluminium (45,50 KL)",
 				series: "Tanker Series",
@@ -1714,6 +1735,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries5.html",
 				breadcrumbseries : "Liquid/Tipping",
 				name: "รถพ่วงบรรทุกน้ำมันอะลูมิเนียม (45,50 KL)",
 				series: "ซีรีส์แท็งก์น้ำมัน",
@@ -1749,13 +1771,13 @@ const products = {
 
 	25: {
 		id: 25,
-		breadcrumbseries_href : "./productSeries5.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries5.html",
 				breadcrumbseries : "Liquid/Tipping",
 				name: "Fuel Rigid Tanker",
 				series: "Tanker Series",
@@ -1781,6 +1803,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries5.html",
 				breadcrumbseries : "Liquid/Tipping",
 				name: "รถถังเชื้อเพลิงแบบแข็ง",
 				series: "ซีรีส์แท็งก์น้ำมัน",
@@ -1815,13 +1838,13 @@ const products = {
 
 	26: {
 		id: 26,
-		breadcrumbseries_href : "./productSeries5.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries5.html",
 				breadcrumbseries : "Liquid/Tipping",
 				name: "Bitumen Tanker Semi-trailer",
 				series: "Tanker Series",
@@ -1847,6 +1870,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries5.html",
 				breadcrumbseries : "Liquid/Tipping",
 				name: "รถพ่วงบรรทุกน้ำมันดิน",
 				series: "ซีรีส์แท็งก์น้ำมัน",
@@ -1880,13 +1904,13 @@ const products = {
 
 	27: {
 		id: 27,
-		breadcrumbseries_href : "./productSeries5.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries5.html",
 				breadcrumbseries : "Liquid/Tipping",
 				name: "Tipping Tanker",
 				series: "Tanker Series",
@@ -1912,6 +1936,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries5.html",
 				breadcrumbseries : "Liquid/Tipping",
 				name: "รถถังเทข้าง",
 				series: "ซีรีส์แท็งก์น้ำมัน",
