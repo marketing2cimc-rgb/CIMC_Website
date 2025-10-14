@@ -260,7 +260,7 @@
         }
 
         .product-features {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             flex-grow: 1;
         }
 
@@ -1254,7 +1254,7 @@ body {
 
         .feature-item i {
             color: #28a745;
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-right: 10px;
         }
  /* End of Product */
