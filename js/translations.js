@@ -520,6 +520,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Dump (Middle Lifting)",
 				series: "Dumper Trailer",
 				description: "Center-balanced hydraulic lifting for stable 45' tipping of cohesive materials.",
@@ -545,6 +546,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถดัมพ์ (ยกกลาง)",
 				series: "รถพ่วงบรรทุก",
 				description: "ระบบไฮดรอลิกยกกลางเพื่อการเทวัสดุที่เกาะกันแน่นในมุม 45 องศาอย่างมั่นคง",
@@ -586,6 +588,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Dump Semi-trailer",
 				series: "Dumper Trailer",
 				description: "High-volume rear discharge (50' angle) for rapid unloading of bulk minerals.",
@@ -611,6 +614,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถพ่วงดัมพ์",
 				series: "รถพ่วงบรรทุก",
 				description: "ระบบปล่อยด้านหลังปริมาณสูง (มุม 50 องศา) สำหรับการขนถ่ายแร่จำนวนมากอย่างรวดเร็ว",
@@ -652,6 +656,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Dump Full Trailer",
 				series: "Dumper Trailer",
 				description: "Independent maneuverability with gooseneck coupling for confined job sites.",
@@ -677,6 +682,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถพ่วงเต็มรูปแบบ",
 				series: "รถพ่วงบรรทุก",
 				description: "การเคลื่อนที่อย่างอิสระด้วยระบบคัปปลิ้งคอห่านสำหรับสถานที่ทำงานที่จำกัด",
@@ -716,6 +722,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Cargo Semi-trailer",
 				series: "Cargo Trailer",
 				description: "Weatherproof freight transport with customizable compartmentalization.",
@@ -741,6 +748,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถพ่วงกึ่งพ่วงบรรทุกสินค้า",
 				series: "รถพ่วงบรรทุกสินค้า",
 				description: "การขนส่งสินค้าที่กันน้ำได้พร้อมระบบแบ่งส่วนที่ปรับแต่งได้",
@@ -782,6 +790,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Dump (Front End Tipping)",
 				series: "Dumper Trailer",
 				description: "Forward discharge for precise material placement in landscaping/agriculture.",
@@ -807,6 +816,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "รถดัมพ์ (ทิ้งด้านหน้า)",
 				series: "รถพ่วงบรรทุก",
 				description: "การปล่อยด้านหน้าเพื่อการวางวัสดุที่แม่นยำในการจัดสวน/เกษตรกรรม",
@@ -846,6 +856,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "Cargo Body and Full-trailer",
 				series: "Cargo Trailer",
 				description: "Aerodynamic regional distribution with 12% fuel savings.",
@@ -871,6 +882,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Dumper/Cargo Trailer",
 				name: "ตัวถังสินค้าและรถพ่วงเต็มรูปแบบ",
 				series: "รถพ่วงบรรทุกสินค้า",
 				description: "การกระจายสินค้าระดับภูมิภาคแบบแอร์โอดนามิกส์ประหยัดเชื้อเพลิง 12%",
@@ -911,6 +923,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Side Curtain",
 				name: "Side Curtain (32 Pallets)",
 				series: "Curtainsider Trailer",
 				description: "High-density pallet transport with optimized 32-pallet capacity.",
@@ -936,6 +949,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Side Curtain",
 				name: "ผ้าใบกั้นข้าง (32 พาเลท)",
 				series: "รถพ่วงผ้าใบ",
 				description: "การขนส่งพาเลทความหนาแน่นสูงด้วยความจุ 32 พาเลทที่ปรับให้เหมาะสม",
@@ -976,6 +990,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Side Curtain",
 				name: "Full Sliding Side Curtain",
 				series: "Curtainsider Trailer",
 				description: "Complete side access system for rapid full-length loading.",
@@ -1001,6 +1016,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Side Curtain",
 				name: "ผ้าใบเลื่อนด้านข้างแบบเต็ม",
 				series: "รถพ่วงผ้าใบ",
 				description: "ระบบการเข้าถึงด้านข้างแบบสมบูรณ์สำหรับการบรรทุกแบบเต็มความยาวอย่างรวดเร็ว",
@@ -1040,6 +1056,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Side Curtain",
 				name: "Side Curtain (Normal & Quick Slide)",
 				series: "Curtainsider Trailer",
 				description: "Hybrid system combining standard and rapid-access sections.",
@@ -1065,6 +1082,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Side Curtain",
 				name: "ผ้าใบกั้นข้าง (แบบปกติและแบบเลื่อนเร็ว)",
 				series: "รถพ่วงผ้าใบ",
 				description: "ระบบไฮบริดที่รวมส่วนมาตรฐานและส่วนการเข้าถึงอย่างรวดเร็ว",
@@ -1104,6 +1122,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Side Curtain",
 				name: "Side Curtain (The Lifting Roof)",
 				series: "Curtainsider Trailer",
 				description: "Hydraulic roof system for oversized cargo handling.",
@@ -1129,6 +1148,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Side Curtain",
 				name: "ผ้าใบกั้นข้าง (หลังคายกได้)",
 				series: "รถพ่วงผ้าใบ",
 				description: "ระบบหลังคาไฮดรอลิกสำหรับการจัดการสินค้าขนาดใหญ่",
@@ -1169,6 +1189,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "DryVan/Reefer",
 				name: "Dry Van Semi-trailer",
 				series: "Dry Van Trailer",
 				description: "Standard enclosed trailer for general freight with optimal cargo security.",
@@ -1194,6 +1215,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "DryVan/Reefer",
 				name: "รถพ่วงกึ่งพ่วงแบบแห้ง",
 				series: "รถพ่วงแบบแห้ง",
 				description: "รถพ่วงแบบปิดมาตรฐานสำหรับสินค้าทั่วไปที่มีความปลอดภัยในการขนส่งสูงสุด",
@@ -1234,6 +1256,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "DryVan/Reefer",
 				name: "Dry Van Full Trailer",
 				series: "Dry Van Trailer",
 				description: "Rigid-body trailer with superior maneuverability for urban distribution.",
@@ -1259,28 +1282,29 @@ const products = {
 				]
 			},
 			th: {
-					name: "รถพ่วงเต็มรูปแบบแบบแห้ง",
-					series: "รถพ่วงแบบแห้ง",
-					description: "รถพ่วงโครงแข็งที่มีความคล่องตัวสูงสำหรับการกระจายสินค้าในเขตเมือง",
-					detailedDescription: "<p>โซลูชันโครงแข็งสมบูรณ์ที่มีโครงสร้างโมโนค็อกเสริมแรงซึ่งไม่จำเป็นต้องใช้ล้อที่ห้า การกระจายน้ำหนักที่เหมาะสมให้ความมั่นคงสูงสุดระหว่างการเดินทางในเมือง ในขณะที่ยังคงความจุในการบรรทุก 25 ตัน</p><p>ประตูหลังเปิดกว้าง 90 องศา และประตูด้านข้างเสริมช่วยให้เข้าถึงได้หลายจุดสำหรับการบรรทุก/ขนถ่ายที่มีประสิทธิภาพ แพลตฟอร์ม telematics ที่รวมอยู่ช่วยติดตามตำแหน่งแบบเรียลไทม์และตรวจสอบอุณหภูมิ เหมาะสำหรับสินค้ามูลค่าสูงในเครือข่ายการกระจายสินค้าในภูมิภาค</p>",
-					specifications: {
-						"ความจุในการบรรทุก": "22-25 ตัน",
-						"ขนาดภายใน": "7.82m × 2.48m × 2.70m",
-						"วัสดุโครง": "เหล็กความแข็งแรงสูง",
-						"การเคลือบ": "เคลือบแบบจุ่มแคโทด",
-						"วัสดุพื้น": "คอมโพสิตเหล็ก",
-						"การกำหนดค่าเพลา": "2 เพลา",
-						"ระบบกันสะเทือน": "สปริงพาราโบลา",
-						"ความยาวโดยรวม": "8.5m",
-						"น้ำหนักรถเปล่า": "4.8-5.5 ตัน"
-					},
-					features: [
-						"ประตูหลังเปิดกว้าง 90 องศา",
-						"แพลตฟอร์ม telematics แบบบูรณาการ",
-						"เสามุมเสริมแรง",
-						"ผนังด้านลามิเนต",
-						"ช่องเก็บของใต้พื้น",
-						"ระบบเบรกป้องกันล้อล็อก (ABS)"
+				breadcrumbseries : "DryVan/Reefer",
+				name: "รถพ่วงเต็มรูปแบบแบบแห้ง",
+				series: "รถพ่วงแบบแห้ง",
+				description: "รถพ่วงโครงแข็งที่มีความคล่องตัวสูงสำหรับการกระจายสินค้าในเขตเมือง",
+				detailedDescription: "<p>โซลูชันโครงแข็งสมบูรณ์ที่มีโครงสร้างโมโนค็อกเสริมแรงซึ่งไม่จำเป็นต้องใช้ล้อที่ห้า การกระจายน้ำหนักที่เหมาะสมให้ความมั่นคงสูงสุดระหว่างการเดินทางในเมือง ในขณะที่ยังคงความจุในการบรรทุก 25 ตัน</p><p>ประตูหลังเปิดกว้าง 90 องศา และประตูด้านข้างเสริมช่วยให้เข้าถึงได้หลายจุดสำหรับการบรรทุก/ขนถ่ายที่มีประสิทธิภาพ แพลตฟอร์ม telematics ที่รวมอยู่ช่วยติดตามตำแหน่งแบบเรียลไทม์และตรวจสอบอุณหภูมิ เหมาะสำหรับสินค้ามูลค่าสูงในเครือข่ายการกระจายสินค้าในภูมิภาค</p>",
+				specifications: {
+					"ความจุในการบรรทุก": "22-25 ตัน",
+					"ขนาดภายใน": "7.82m × 2.48m × 2.70m",
+					"วัสดุโครง": "เหล็กความแข็งแรงสูง",
+					"การเคลือบ": "เคลือบแบบจุ่มแคโทด",
+					"วัสดุพื้น": "คอมโพสิตเหล็ก",
+					"การกำหนดค่าเพลา": "2 เพลา",
+					"ระบบกันสะเทือน": "สปริงพาราโบลา",
+					"ความยาวโดยรวม": "8.5m",
+					"น้ำหนักรถเปล่า": "4.8-5.5 ตัน"
+				},
+				features: [
+					"ประตูหลังเปิดกว้าง 90 องศา",
+					"แพลตฟอร์ม telematics แบบบูรณาการ",
+					"เสามุมเสริมแรง",
+					"ผนังด้านลามิเนต",
+					"ช่องเก็บของใต้พื้น",
+					"ระบบเบรกป้องกันล้อล็อก (ABS)"
 				]
 			}
 		},
@@ -1299,6 +1323,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "DryVan/Reefer",
 				name: "Reefer on Truck",
 				series: "Refrigerated Transport",
 				description: "Rigid refrigerated vehicle for last-mile cold chain distribution.",
@@ -1323,6 +1348,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "DryVan/Reefer",
 				name: "รถหิ้วแบบรถบรรทุก",
 				series: "การขนส่งแบบแช่เย็น",
 				description: "รถหิ้วแบบแข็งสำหรับการกระจายสินค้าโซ่เย็นระยะสุดท้าย",
@@ -1362,6 +1388,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "DryVan/Reefer",
 				name: "Reefer Container Light Weight (26 Pallets)",
 				series: "Refrigerated Container",
 				description: "Lightweight ISO refrigerated container for intermodal perishable transport.",
@@ -1386,6 +1413,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "DryVan/Reefer",
 				name: "ตู้คอนเทนเนอร์หิ้วน้ำหนักเบา (26 พาเลท)",
 				series: "ตู้คอนเทนเนอร์หิ้ว",
 				description: "ตู้คอนเทนเนอร์หิ้ว ISO น้ำหนักเบาสำหรับการขนส่งสินค้าเน่าเสียแบบอินเตอร์โมดัล",
@@ -1425,6 +1453,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Mixer/Bulk",
 				name: "Concrete Mixer (3,4,6,7 Cum)",
 				series: "Mixer Trailer",
 				description: "Hydraulic drum mixer for ready-mix concrete with multiple capacity options.",
@@ -1451,6 +1480,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Mixer/Bulk",
 				name: "เครื่องผสมคอนกรีต (3,4,6,7 ลบ.ม.)",
 				series: "รถผสมคอนกรีต",
 				description: "เครื่องผสมคอนกรีตแบบไฮดรอลิกสำหรับคอนกรีตผสมเสร็จพร้อมตัวเลือกความจุหลากหลายขนาด",
@@ -1493,6 +1523,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Mixer/Bulk",
 				name: "Bulk Powder Tanker (32/36 Cum)",
 				series: "Bulk Transport",
 				description: "Pressurized tank for cement, fly ash, and dry bulk powders.",
@@ -1519,6 +1550,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Mixer/Bulk",
 				name: "ถังบรรจุผงจำนวนมาก (32/36 ลบ.ม.)",
 				series: "การขนส่งจำนวนมาก",
 				description: "ถังความดันสำหรับปูนซีเมนต์ เถ้าลอย และผงแห้งจำนวนมาก",
@@ -1561,6 +1593,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Mixer/Bulk",
 				name: "Self-Powered Bulk Tanker (32/36 Cum)",
 				series: "Bulk Transport",
 				description: "Engine-driven pneumatic tanker for independent operation.",
@@ -1587,6 +1620,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Mixer/Bulk",
 				name: "ถังบรรจุจำนวนมากแบบขับเคลื่อนด้วยตัวเอง (32/36 ลบ.ม.)",
 				series: "การขนส่งจำนวนมาก",
 				description: "รถบรรทุกแบบนิวแมติกที่ขับเคลื่อนด้วยเครื่องยนต์สำหรับการทำงานอิสระ",
@@ -1629,6 +1663,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Liquid/Tipping",
 				name: "Liquid Tanker Semi-trailer Aluminium (45,50 KL)",
 				series: "Tanker Series",
 				description: "Lightweight aluminum tankers for fuel and oil transport with maximum payload capacity.",
@@ -1653,6 +1688,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Liquid/Tipping",
 				name: "รถพ่วงบรรทุกน้ำมันอะลูมิเนียม (45,50 KL)",
 				series: "ซีรีส์แท็งก์น้ำมัน",
 				description: "รถถังอะลูมิเนียมน้ำหนักเบาสำหรับการขนส่งน้ำมันเชื้อเพลิงและน้ำมันด้วยความจุบรรทุกสูงสุด",
@@ -1693,6 +1729,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Liquid/Tipping",
 				name: "Fuel Rigid Tanker",
 				series: "Tanker Series",
 				description: "Integrated fuel delivery solution with telematics for efficient dispensing.",
@@ -1717,6 +1754,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Liquid/Tipping",
 				name: "รถถังเชื้อเพลิงแบบแข็ง",
 				series: "ซีรีส์แท็งก์น้ำมัน",
 				description: "โซลูชันการจ่ายน้ำมันเชื้อเพลิงแบบบูรณาการพร้อมระบบ telematics สำหรับการจ่ายที่มีประสิทธิภาพ",
@@ -1756,6 +1794,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Liquid/Tipping",
 				name: "Bitumen Tanker Semi-trailer",
 				series: "Tanker Series",
 				description: "Heated tankers for high-temperature asphalt transport with superior insulation.",
@@ -1780,6 +1819,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Liquid/Tipping",
 				name: "รถพ่วงบรรทุกน้ำมันดิน",
 				series: "ซีรีส์แท็งก์น้ำมัน",
 				description: "รถถังความร้อนสำหรับการขนส่งยางมะตอยอุณหภูมิสูงด้วยฉนวนกันความร้อนที่เหนือกว่า",
@@ -1818,6 +1858,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumbseries : "Liquid/Tipping",
 				name: "Tipping Tanker",
 				series: "Tanker Series",
 				description: "Hydraulic tipping system for containerized liquid and sludge unloading.",
@@ -1842,6 +1883,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries : "Liquid/Tipping",
 				name: "รถถังเทข้าง",
 				series: "ซีรีส์แท็งก์น้ำมัน",
 				description: "ระบบเทไฮดรอลิกสำหรับการขนถ่ายของเหลวและโคลนในตู้คอนเทนเนอร์",
