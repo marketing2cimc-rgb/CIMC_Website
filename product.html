@@ -406,66 +406,66 @@
             }
         ];
 
-        // Render products function
-        function renderProducts() {
-            const container = document.getElementById('products-container');
-            container.innerHTML = '';
+		// Render products function
+		function renderProducts() {
+			const container = document.getElementById('products-container');
+			container.innerHTML = '';
 
-            productData.forEach(product => {
-                const langData = product.translations[currentLang] || product.translations.en;
+			productData.forEach(product => {
+				const langData = product.translations[currentLang] || product.translations.en;
 
-                const productCard = `
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card">
-                            ${langData.badge ? `<div class="product-badge">${langData.badge}</div>` : ''}
-                            <div class="product-img-container">
-                                <img src="${product.image}"
-                                     alt="${langData.name}" class="product-img">
-                                <!-- Metadata Box -->
-                                <div class="metadata-box">
-                                    <div class="meta-item">
-                                        <div class="meta-value">${product.metadata.length}</div>
-                                        <div class="meta-label">${currentLang === 'th' ? 'เมตร' : 'Meters'}</div>
-                                    </div>
-                                    <div class="meta-item">
-                                        <div class="meta-value">${product.metadata.capacity}</div>
-                                        <div class="meta-label">${currentLang === 'th' ? 'ความจุ' : 'Capacity'}</div>
-                                    </div>
-                                    <div class="meta-item">
-                                        <div class="meta-value">${product.metadata.weight}</div>
-                                        <div class="meta-label">${currentLang === 'th' ? 'น้ำหนัก' : 'Weight'}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title">${langData.name}</h3>
-                                <div class="product-description">
-                                    ${langData.description}
-                                </div>
-                                <div class="product-features">
-                                    ${langData.features.map(feature => ` 	
-                                        <div class="feature-item">
-                                            <i class="fas fa-check-circle"></i>
-                                            <span>${feature}</span>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                                <div class="product-actions">
-                                    <a href="./productDetails.html?productId=${product.id}" class="btn btn-cimc">
-                                        ${currentLang === 'th' ? 'รายละเอียด' : 'Details'}
-                                    </a>
-                                    <a href="./index.html#contact" class="btn btn-outline-cimc">
-                                        ${currentLang === 'th' ? 'สอบถามราคา' : 'Quote'}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
+				const productCard = `
+					<div class="col-lg-4 col-md-6">
+						<div class="product-card">
+							${langData.badge ? `<div class="product-badge">${langData.badge}</div>` : ''}
+							<div class="product-img-container">
+								<img src="${product.image}"
+									 alt="${langData.name}" class="product-img">
+								<!-- Metadata Box -->
+								<div class="metadata-box">
+									<div class="meta-item">
+										<div class="meta-value">${product.metadata.length}</div>
+										<div class="meta-label">${currentLang === 'th' ? 'เมตร' : 'Meters'}</div>
+									</div>
+									<div class="meta-item">
+										<div class="meta-value">${product.metadata.capacity}</div>
+										<div class="meta-label">${currentLang === 'th' ? 'ความจุ' : 'Capacity'}</div>
+									</div>
+									<div class="meta-item">
+										<div class="meta-value">${product.metadata.weight}</div>
+										<div class="meta-label">${currentLang === 'th' ? 'น้ำหนัก' : 'Weight'}</div>
+									</div>
+								</div>
+							</div>
+							<div class="product-info">
+								<h3 class="product-title">${langData.name}</h3>
+								<div class="product-description">
+									${langData.description}
+								</div>
+								<div class="product-features">
+									${langData.features.map(feature => ` 	
+										<div class="feature-item">
+											<i class="fas fa-check-circle"></i>
+											<span>${feature}</span>
+										</div>
+									`).join('')}
+								</div>
+								<div class="product-actions">
+									<a href="./productDetails.html?productId=${product.id}" class="btn btn-cimc">
+										${currentLang === 'th' ? 'รายละเอียด' : 'Details'}
+									</a>
+									<a href="./index.html#contact" class="btn btn-outline-cimc">
+										${currentLang === 'th' ? 'สอบถามราคา' : 'Quote'}
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				`;
 
-                container.innerHTML += productCard;
-            });
-        }
+				container.innerHTML += productCard;
+			});
+		}
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
