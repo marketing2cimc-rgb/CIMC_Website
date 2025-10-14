@@ -120,13 +120,13 @@ const footerTranslations = {
 const products = {
 	1: {
 		id: 1,
-		breadcrumbseries_href : "./productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
 		},
 		translations: {
 			en: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "Chassis Series",
 				name: "Container Chassis",
 				series: "Chassis Series",
@@ -153,6 +153,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "ซีรี่ส์แชสซี",
 				name: "แชสซีตู้คอนเทนเนอร์",
 				series: "ซีรีส์แชสซี",
@@ -188,7 +189,6 @@ const products = {
 	},
 	2: {
 		id: 2,
-		breadcrumbseries_href : "./productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -196,6 +196,7 @@ const products = {
 		translations: {
 			en: {
 				breadcrumbseries : "Chassis Series",
+				breadcrumbseries_href : "./productSeries.html",
 				name: "Flatbed Semi-Trailer",
 				series: "Chassis Series",
 				description: "Ultra-versatile platform (1,000mm low deck) with modular extendable axles and diamond-tread deck - optimal for oversized machinery transport.",
@@ -219,6 +220,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumbseries_href : "./productSeries.html",
 				breadcrumbseries : "ซีรี่ส์แชสซี",
 				name: "รถพ่วงแบบแบน",
 				series: "ซีรีส์แชสซี",
