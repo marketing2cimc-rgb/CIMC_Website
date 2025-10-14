@@ -490,6 +490,9 @@
 
             // Save preference
             localStorage.setItem('preferredLang', lang);
+			
+			// Force update footer by querying and updating elements directly
+			updateFooterDirectly(lang);
         }
 
         // Update text content
