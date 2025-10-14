@@ -474,6 +474,15 @@
                         }
                     });
                 }
+				
+				const footerTranslate = footerTranslations[lang] || footerTranslations.en;
+				for (const key in footerTranslate) {
+					const element = document.getElementById(key);
+					if (element) {
+						element.textContent = footerTranslate[key];
+					}
+				}
+			
             } else {
                 // Handle product not found
                 document.getElementById('productTitle').textContent = currentLang === 'th' ? "ไม่พบสินค้า" : "Product Not Found";

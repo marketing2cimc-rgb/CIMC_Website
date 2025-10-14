@@ -114,16 +114,8 @@ const footerTranslations = {
 		"footer-design": "ออกแบบด้วย",
 		"footer-clients": "สำหรับลูกค้าของเรา"
 	}
+};
 
-			const translations = footerTranslations[lang] || footerTranslations.en;
-			for (const key in translations) {
-				const element = document.getElementById(key);
-				if (element) {
-					element.textContent = translations[key];
-				}
-			}
-		}
-	
 // Product database with translations
 const products = {
 	1: {
