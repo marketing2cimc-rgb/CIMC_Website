@@ -480,7 +480,7 @@
             }).catch(error => {
                 console.error('Error loading components:', error);
                 // If loading fails, still generate the main content
-                generatePageContent();
+                updateTextContent();
                 const savedLang = localStorage.getItem('preferredLang') || 'en';
                 setLanguage(savedLang);
             });		
