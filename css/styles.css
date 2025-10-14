@@ -264,14 +264,6 @@
             flex-grow: 1;
         }
 
-        .feature-item i {
-            color: var(--cimc-gold);
-            margin-right: 10px;
-            min-width: 18px;
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-
         .btn-details {
             background: var(--cimc-blue);
             color: white;
@@ -866,11 +858,6 @@
             flex-grow: 1;
         }
 
-        .feature-item {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
         .btn-outline-cimc {
             background-color: transparent;
             border: 2px solid var(--cimc-gold);
@@ -918,6 +905,12 @@
             transform: translateY(-8px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
             border-color: var(--cimc-gold);
+        }
+
+
+        .product-features {
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .product-actions {
@@ -1250,12 +1243,16 @@ body {
         .feature-item {
             display: flex;
             align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
         .feature-item i {
-            color: #28a745;
-            font-size: 1rem;
+            color: var(--cimc-gold);
             margin-right: 10px;
+            min-width: 18px;
+            margin-top: 3px;
+            flex-shrink: 0;
         }
  /* End of Product */
  
