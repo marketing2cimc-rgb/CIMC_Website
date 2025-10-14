@@ -49,7 +49,7 @@ const translations = {
 		// Breadcrumbs
 		"breadcrumb-home": "หน้าแรก",
 		"breadcrumb-products": "ผลิตภัณฑ์",
-
+		
 		// Product Details
 		"overview-title": "ภาพรวมสินค้า",
 		"specs-title": "ข้อมูลจำเพาะทางเทคนิค",
@@ -126,6 +126,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumb-series : "Chassis Series",
 				name: "Container Chassis",
 				series: "Chassis Series",
 				description: "FEA-optimized T700 frame (5.2t tare) with auto twist locks - maximum payload efficiency for port logistics.",
@@ -151,6 +152,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumb-series : "ซีรี่ส์แชสซี",
 				name: "แชสซีตู้คอนเทนเนอร์",
 				series: "ซีรีส์แชสซี",
 				description: "โครง T700 ที่ได้รับการปรับให้เหมาะสมด้วย FEA (น้ำหนักเปล่า 5.2 ตัน) พร้อมล็อคบิดอัตโนมัติ - ประสิทธิภาพการบรรทุกสูงสุดสำหรับลอจิสติกส์ท่าเรือ",
@@ -191,6 +193,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumb-series : "Chassis Series",
 				name: "Flatbed Semi-Trailer",
 				series: "Chassis Series",
 				description: "Ultra-versatile platform (1,000mm low deck) with modular extendable axles and diamond-tread deck - optimal for oversized machinery transport.",
@@ -214,6 +217,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumb-series : "ซีรี่ส์แชสซี",
 				name: "รถพ่วงแบบแบน",
 				series: "ซีรีส์แชสซี",
 				description: "ดาดฟ้าอเนกประสงค์สุดพิเศษ (ดาดฟ้าต่ำ 1,000 มม.) พร้อมเพลาขยายแบบแยกส่วนและดาดฟ้าแบบร่องเพชร - เหมาะสมที่สุดสำหรับการขนส่งเครื่องจักรขนาดใหญ่",
@@ -252,6 +256,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumb-series : "Chassis Series",
 				name: "Tipping Container Chassis",
 				series: "Chassis Series",
 				description: "Heavy-duty chassis with hydraulic tipping (45° max) for bulk materials (ores, waste). Reinforced legs and dual cylinders ensure stability.",
@@ -277,6 +282,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumb-series : "ซีรี่ส์แชสซี",
 				name: "แชสซีตู้คอนเทนเนอร์แบบเทข้าง",
 				series: "ซีรีส์แชสซี",
 				description: "แชสซีแบบหนักพร้อมระบบเทไฮดรอลิก (สูงสุด 45 องศา) สำหรับวัสดุจำนวนมาก (แร่, ของเสีย) ขายึดเสริมและกระบอกสูบคู่รับประกันความมั่นคง",
@@ -317,6 +323,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumb-series : "Chassis Series",
 				name: "Low Bed Trailer",
 				series: "Chassis Series",
 				description: "Step-deck design (800mm ultra-low height) with hydraulic ramps and CTI system - engineered for super-heavy/tall construction equipment.",
@@ -340,6 +347,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumb-series : "ซีรี่ส์แชสซี",
 				name: "รถพ่วงแบบเตี้ย",
 				series: "ซีรีส์แชสซี",
 				description: "การออกแบบดาดฟ้าชั้นขั้นบันได (ความสูงต่ำพิเศษ 800 มม.) พร้อมทางลาดไฮดรอลิกและระบบ CTI - ออกแบบมาเพื่ออุปกรณ์ก่อสร้างขนาดใหญ่/สูง",
@@ -378,6 +386,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumb-series : "Chassis Series",
 				name: "Drop Chassis for ISO Tank",
 				series: "Chassis Series",
 				description: "150mm lowered CG with chemical-resistant coating and ADR compliance - safest solution for hazardous liquid tank transport.",
@@ -403,6 +412,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumb-series : "ซีรี่ส์แชสซี",
 				name: "แชสซีแบบลดระดับสำหรับถัง ISO",
 				series: "ซีรีส์แชสซี",
 				description: "จุดศูนย์ถ่วงลดลง 150 มม. พร้อมการเคลือบกันสารเคมีและการปฏิบัติตาม ADR - โซลูชันที่ปลอดภัยที่สุดสำหรับการขนส่งถังของเหลวอันตราย",
@@ -443,6 +453,7 @@ const products = {
 		},
 		translations: {
 			en: {
+				breadcrumb-series : "Chassis Series",
 				name: "Light Weight Chassis Full Trailer",
 				series: "Chassis Series",
 				description: "Aircraft-grade aluminum (3.8t tare) with air suspension - 30% lighter for e-commerce/high-mileage container haulage.",
@@ -468,6 +479,7 @@ const products = {
 				]
 			},
 			th: {
+				breadcrumb-series : "ซีรี่ส์แชสซี",
 				name: "รถพ่วงเต็มรูปแบบแชสซีน้ำหนักเบา",
 				series: "ซีรีส์แชสซี",
 				description: "อลูมิเนียมเกรดอากาศยาน (น้ำหนักเปล่า 3.8 ตัน) พร้อมระบบกันสะเทือนลม - เบาลง 30% สำหรับการขนส่งตู้คอนเทนเนอร์อีคอมเมิร์ซ/ระยะทางสูง",
