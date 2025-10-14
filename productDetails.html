@@ -729,8 +729,6 @@
 				
             }).catch(error => {
                 console.error('Error loading components:', error);
-                const savedLang = localStorage.getItem('preferredLang') || 'en';
-                setLanguage(savedLang);
             });
         });
     </script>
