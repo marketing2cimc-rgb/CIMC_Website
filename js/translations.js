@@ -2,7 +2,7 @@
 const translations = {
 	en: {
 		// Navigation
-		"brand": "CIMC Thailand",
+		"brand": "CIMC Vehicles TH",
 		"nav-home": "Home",
 		"nav-about": "About Us",
 		"nav-products": "Products",
