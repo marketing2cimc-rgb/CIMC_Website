@@ -399,7 +399,8 @@
                 document.getElementById('productNameBreadcrumb').textContent = langData.name;
                 document.getElementById('productDescription').textContent = langData.description;
                 document.getElementById('detailedDescription').innerHTML = langData.detailedDescription;
-
+				document.getElementById('breadcrumb-series').innerHTML = langData.breadcrumbseries;	
+				
                 // Set main image
                 const mainImage = document.getElementById('mainImage');
                 mainImage.src = product.images[0];
