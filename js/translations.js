@@ -120,6 +120,7 @@ const footerTranslations = {
 const products = {
 	1: {
 		id: 1,
+		breadcrumbseries_href : "../productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -187,6 +188,7 @@ const products = {
 	},
 	2: {
 		id: 2,
+		breadcrumbseries_href : "../productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -250,6 +252,7 @@ const products = {
 	},
 	3: {
 		id: 3,
+		breadcrumbseries_href : "../productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -317,6 +320,7 @@ const products = {
 	},
 	4: {
 		id: 4,
+		breadcrumbseries_href : "../productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -380,6 +384,7 @@ const products = {
 	},
 	5: {
 		id: 5,
+		breadcrumbseries_href : "../productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -447,6 +452,7 @@ const products = {
 	},
 	6: {
 		id: 6,
+		breadcrumbseries_href : "../productSeries.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -514,6 +520,7 @@ const products = {
 	},
    7: {
 		id: 7,
+		breadcrumbseries_href : "../productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -582,6 +589,7 @@ const products = {
 
 	8: {
 		id: 8,
+		breadcrumbseries_href : "../productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -650,6 +658,7 @@ const products = {
 
 	9: {
 		id: 9,
+		breadcrumbseries_href : "../productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -716,6 +725,7 @@ const products = {
 
 	10: {
 		id: 10,
+		breadcrumbseries_href : "../productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -784,6 +794,7 @@ const products = {
 
 	11: {
 		id: 11,
+		breadcrumbseries_href : "../productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -850,6 +861,7 @@ const products = {
 	},
 	12: {
 		id: 12,
+		breadcrumbseries_href : "../productSeries1.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -917,6 +929,7 @@ const products = {
 
 	13: {
 		id: 13,
+		breadcrumbseries_href : "../productSeries2.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -984,6 +997,7 @@ const products = {
 	},
 	14: {
 		id: 14,
+		breadcrumbseries_href : "../productSeries2.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1050,6 +1064,7 @@ const products = {
 	},
 	15: {
 		id: 15,
+		breadcrumbseries_href : "../productSeries2.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1116,6 +1131,7 @@ const products = {
 	},
 	16: {
 		id: 16,
+		breadcrumbseries_href : "../productSeries2.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1183,6 +1199,7 @@ const products = {
 	
 	17: {
 		id: 17,
+		breadcrumbseries_href : "../productSeries3.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1250,6 +1267,7 @@ const products = {
 
 	18: {
 		id: 18,
+		breadcrumbseries_href : "../productSeries3.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1317,6 +1335,7 @@ const products = {
 
 	19: {
 		id: 19,
+		breadcrumbseries_href : "../productSeries3.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1382,6 +1401,7 @@ const products = {
 
 	20: {
 		id: 20,
+		breadcrumbseries_href : "../productSeries3.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1447,6 +1467,7 @@ const products = {
 	},	
 	21: {
 		id: 21,
+		breadcrumbseries_href : "../productSeries4.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1517,6 +1538,7 @@ const products = {
 	
 	22: {
 		id: 22,
+		breadcrumbseries_href : "../productSeries4.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1587,6 +1609,7 @@ const products = {
 	
 	23: {
 		id: 23,
+		breadcrumbseries_href : "../productSeries4.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1657,6 +1680,7 @@ const products = {
 
 	24: {
 		id: 24,
+		breadcrumbseries_href : "../productSeries5.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1723,6 +1747,7 @@ const products = {
 
 	25: {
 		id: 25,
+		breadcrumbseries_href : "../productSeries5.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1788,6 +1813,7 @@ const products = {
 
 	26: {
 		id: 26,
+		breadcrumbseries_href : "../productSeries5.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
@@ -1852,6 +1878,7 @@ const products = {
 
 	27: {
 		id: 27,
+		breadcrumbseries_href : "../productSeries5.html",
 		brochureUrl: {
 			en: "./img/brochure.pdf",
 			th: "./img/brochure.pdf"
