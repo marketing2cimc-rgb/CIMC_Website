@@ -260,7 +260,7 @@
         }
 
         .product-features {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             flex-grow: 1;
         }
 
@@ -918,12 +918,6 @@
             transform: translateY(-8px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
             border-color: var(--cimc-gold);
-        }
-
-
-        .product-features {
-            margin-bottom: 20px;
-            flex-grow: 1;
         }
 
         .product-actions {
