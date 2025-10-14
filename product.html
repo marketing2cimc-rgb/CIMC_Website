@@ -198,9 +198,9 @@
                 "footer-home": "Home",
                 "footer-about": "About Us",
                 "footer-products": "Products",
-					"footer-news": "News",
-					"footer-customers": "Network",
-					"footer-calculator": "Calculator",
+				"footer-news": "News",
+				"footer-customers": "Network",
+				"footer-calculator": "Calculator",
                 "footer-contact": "Contact Us",
                 "footer-contact-title": "Contact Information",
                 "footer-location": "7/258 Mu 6, Amata City Industrial Estate, Pluak Daeng, Rayong, Thailand 21140",
@@ -458,7 +458,7 @@
                 const productCard = `
                     <div class="col-lg-4 col-md-6">
                         <div class="product-card">
-                            ${langData.badge ? `<div class="product-badge">${langData.badge}</div>` : ''}
+                            ${langData.badge ? '<div class="product-badge">${langData.badge}</div>' : ''}
                             <div class="product-img-container">
                                 <img src="${product.image}"
                                      alt="${langData.name}" class="product-img">
@@ -484,12 +484,12 @@
                                     ${langData.description}
                                 </div>
                                 <div class="product-features">
-                                    ${langData.features.map(feature => `
+                                    ${langData.features.map(feature => '
                                         <div class="feature-item">
                                             <i class="fas fa-check-circle"></i>
                                             <span>${feature}</span>
                                         </div>
-                                    `).join('')}
+                                    ').join('')}
                                 </div>
                                 <div class="product-actions">
                                     <a href="./productDetails.html?productId=${product.id}" class="btn btn-cimc">
