@@ -475,7 +475,7 @@
                     });
                 }
 				
-				const footerTranslate = footerTranslations[lang] || footerTranslations.en;
+				const footerTranslate = footerTranslations[currentLang] || footerTranslations.en;
 				for (const key in footerTranslate) {
 					const element = document.getElementById(key);
 					if (element) {
