@@ -246,7 +246,6 @@
             // Render products in current language
             renderProducts();
 			
-			
 			// Force update footer by querying and updating elements directly
 			updateFooterDirectly(lang);			
         }
@@ -415,7 +414,7 @@
             productData.forEach(product => {
                 const langData = product.translations[currentLang] || product.translations.en;
 
-                const productCard = `
+                const productCard = '
                     <div class="col-lg-4 col-md-6">
                         <div class="product-card">
                             ${langData.badge ? '<div class="product-badge">${langData.badge}</div>' : ''}
@@ -462,7 +461,7 @@
                             </div>
                         </div>
                     </div>
-                `;
+                ';
 
                 container.innerHTML += productCard;
             });
