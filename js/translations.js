@@ -22,25 +22,6 @@ const translations = {
 		"btn-brochure": "Request Brochure",
 		"btn-quote": "Request Quote",
 
-		// Footer
-		"footer-brand": "CIMC Thailand",
-		"footer-desc": "Leading container manufacturing and logistics solutions provider in Southeast Asia, committed to quality, innovation, and customer satisfaction.",
-		"footer-quick-links": "Quick Links",
-		"footer-home": "Home",
-		"footer-about": "About Us",
-		"footer-products": "Products",
-		"footer-news": "News & Events",
-		"footer-customers": "Our Customers",
-		"footer-contact": "Contact Us",
-		"footer-contact-title": "Contact Information",
-		"footer-location": "7/258 Moo 6, Amata City Industrial Estate, Pluak Daeng, Rayong, Thailand 21140",
-		"footer-weekdays": "Monday - Friday: 8:00 AM - 5:00 PM",
-		"footer-saturday": "Saturday: 8:00 AM - 12:00 PM",
-		"footer-copyright": "CIMC Thailand",
-		"footer-rights": "All Rights Reserved.",
-		"footer-design": "Designed with",
-		"footer-clients": "for our clients",
-
 		// Brochure Modal
 		"brochure-modal-title": "Request Product Brochure",
 		"brochure-product": "Product",
@@ -77,25 +58,6 @@ const translations = {
 		"btn-brochure": "ขอโบรชัวร์",
 		"btn-quote": "ขอใบเสนอราคา",
 
-		// Footer
-		"footer-brand": "ซีไอเอ็มซี ประเทศไทย",
-		"footer-desc": "ผู้ผลิตตู้คอนเทนเนอร์และโซลูชันลอจิสติกส์ชั้นนำในเอเชียตะวันออกเฉียงใต้ มุ่งมั่นในคุณภาพ นวัตกรรม และความพึงพอใจของลูกค้า",
-		"footer-quick-links": "ลิงก์ด่วน",
-		"footer-home": "หน้าแรก",
-		"footer-about": "เกี่ยวกับเรา",
-		"footer-products": "ผลิตภัณฑ์",
-		"footer-news": "ข่าวสารและกิจกรรม",
-		"footer-customers": "ลูกค้าของเรา",
-		"footer-contact": "ติดต่อเรา",
-		"footer-contact-title": "ข้อมูลติดต่อ",
-		"footer-location": "7/258 หมู่ 6 นิคมอุตสาหกรรมอมตะซิตี้ อำเภอปลวกแดง จังหวัดระยอง 21140",
-		"footer-weekdays": "วันจันทร์ - วันศุกร์: 8:00 - 17:00 น.",
-		"footer-saturday": "วันเสาร์: 8:00 - 12:00 น.",
-		"footer-copyright": "ซีไอเอ็มซี ประเทศไทย",
-		"footer-rights": "สงวนลิขสิทธิ์.",
-		"footer-design": "ออกแบบด้วย",
-		"footer-clients": "สำหรับลูกค้าของเรา",
-
 		// Brochure Modal
 		"brochure-modal-title": "ขอโบรชัวร์สินค้า",
 		"brochure-product": "สินค้า",
@@ -112,6 +74,56 @@ const translations = {
 	}
 };
 
+// Direct footer update function as fallback
+const footerTranslations = {
+	en: {
+		"footer-brand": "CIMC Vehicles TH",
+		"footer-desc": "Leading container manufacturing and logistics solutions provider in Southeast Asia, committed to quality, innovation, and customer satisfaction.",
+		"footer-quick-links": "Quick Links",
+		"footer-home": "Home",
+		"footer-about": "About Us",
+		"footer-products": "Products",
+		"footer-news": "News & Events",
+		"footer-customers": "Stakeholder Network",
+		"footer-contact": "Contact Us",
+		"footer-contact-title": "Contact Information",
+		"footer-location": "7/258 Mu 6, Amata City Industrial Estate, Pluak Daeng, Rayong, Thailand 21140",
+		"footer-weekdays": "Monday - Friday: 8:00 AM - 5:00 PM",
+		"footer-saturday": "Saturday: 8:00 AM - 12:00 PM",
+		"footer-copyright": "CIMC Vehicles TH",
+		"footer-rights": "All Rights Reserved.",
+		"footer-design": "Designed with",
+		"footer-clients": "for our clients"
+	},
+	th: {
+		"footer-brand": "ซีไอเอ็มซี ประเทศไทย",
+		"footer-desc": "ผู้ผลิตตู้คอนเทนเนอร์และโซลูชันลอจิสติกส์ชั้นนำในเอเชียตะวันออกเฉียงใต้ มุ่งมั่นในคุณภาพ นวัตกรรม และความพึงพอใจของลูกค้า",
+		"footer-quick-links": "ลิงก์ด่วน",
+		"footer-home": "หน้าแรก",
+		"footer-about": "เกี่ยวกับเรา",
+		"footer-products": "ผลิตภัณฑ์",
+		"footer-news": "ข่าวสารและกิจกรรม",
+		"footer-customers": "ลูกค้าของเรา",
+		"footer-contact": "ติดต่อเรา",
+		"footer-contact-title": "ข้อมูลติดต่อ",
+		"footer-location": "7/258 หมู่ 6 นิคมอุตสาหกรรมอมตะซิตี้ อำเภอปลวกแดง จังหวัดระยอง 21140",
+		"footer-weekdays": "วันจันทร์ - วันศุกร์: 8:00 - 17:00 น.",
+		"footer-saturday": "วันเสาร์: 8:00 - 12:00 น.",
+		"footer-copyright": "ซีไอเอ็มซี ประเทศไทย",
+		"footer-rights": "สงวนลิขสิทธิ์.",
+		"footer-design": "ออกแบบด้วย",
+		"footer-clients": "สำหรับลูกค้าของเรา"
+	}
+
+			const translations = footerTranslations[lang] || footerTranslations.en;
+			for (const key in translations) {
+				const element = document.getElementById(key);
+				if (element) {
+					element.textContent = translations[key];
+				}
+			}
+		}
+	
 // Product database with translations
 const products = {
 	1: {
