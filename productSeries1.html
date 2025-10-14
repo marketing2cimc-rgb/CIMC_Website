@@ -540,10 +540,6 @@
 				if (window.setFooterLanguage) {
 					window.setFooterLanguage(savedLang);
 				}	
-				
-				// Initialize language
-				const savedLang = localStorage.getItem('preferredLang') || 'en';
-				setLanguage(savedLang);
 
 				// Language switch events
 				document.querySelectorAll('.lang-btn').forEach(btn => {
