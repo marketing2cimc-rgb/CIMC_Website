@@ -711,7 +711,7 @@
                 }
 
                 // 更新占位符
-                const placeholderElements = document.querySelectorAll(`[data-placeholder="${key}"]`);
+                const placeholderElements = document.querySelectorAll(./productSeries[data-placeholder="${key}"]./productSeries);
                 placeholderElements.forEach(el => {
                     el.setAttribute('placeholder', translations[currentLang][key]);
                 });
@@ -721,7 +721,7 @@
         // 生成页面内容
         function generatePageContent() {
             const container = document.getElementById('content-container');
-            container.innerHTML = `
+            container.innerHTML = ./productSeries
                 <!-- Banner -->
                 <section class="hero">
                     <div class="container text-center">
@@ -934,7 +934,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="project-card">
-                                    <img src="./product/container.jpg" alt="CIMC Container semi-trailer - Durable shipping container transport" class="project-img" width="400" height="300">
+                                    <img src="./product/container01.jpg" alt="CIMC Container semi-trailer - Durable shipping container transport" class="project-img" width="400" height="300">
                                     <div class="project-overlay">
                                         <h3 id="product2-title">Container semi-trailer</h3>
                                         <p id="product2-desc">Light weight|Strong|Easy to maintain</p>
@@ -1039,7 +1039,7 @@
                         </div>
                     </div>
                 </section>
-            `;
+            ./productSeries;
 
             // 更新文本内容
             updateTextContent();
@@ -1187,11 +1187,11 @@
                     if (!alertDiv) {
                         alertDiv = document.createElement('div');
                         alertDiv.id = 'form-alert';
-                        alertDiv.className = `alert alert-${type}`;
+                        alertDiv.className = ./productSeriesalert alert-${type}./productSeries;
                         alertDiv.setAttribute('role', 'alert');
                         contactForm.parentNode.insertBefore(alertDiv, contactForm);
                     } else {
-                        alertDiv.className = `alert alert-${type}`;
+                        alertDiv.className = ./productSeriesalert alert-${type}./productSeries;
                     }
 
                     alertDiv.textContent = message;
