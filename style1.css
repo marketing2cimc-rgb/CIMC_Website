@@ -470,3 +470,407 @@ footer {
         margin-top: 10px;
     }
 }
+
+:root {
+    --color-dark-blue: #0A1931;
+    --color-deep-blue: #010B19;
+    --color-vibrant-red: #E63946;
+    --color-blueprint-cyan: #00FFFF; /* Used for wireframe lines */
+    --color-light-grey: #F1FAEE;
+    --color-medium-grey: #A8DADC;
+    --color-secondary-accent: #457B9D; /* Lighter blue for subtle glows */
+}
+
+/* Base & Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: var(--color-light-grey);
+}
+
+body {
+    background-color: var(--color-deep-blue);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+/* --- ANIMATIONS --- */
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px var(--color-vibrant-red); }
+    50% { box-shadow: 0 0 30px var(--color-vibrant-red), 0 0 40px rgba(230, 57, 70, 0.6); }
+    100% { box-shadow: 0 0 10px var(--color-vibrant-red); }
+}
+
+@keyframes line-flow {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+@keyframes draw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-left {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-right {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- HEADER --- */
+header {
+    background: var(--color-dark-blue);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-vibrant-red);
+}
+
+nav a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    color: var(--color-medium-grey);
+}
+
+.cta-button-header {
+    background: var(--color-vibrant-red);
+    color: var(--color-light-grey);
+    border: none;
+    padding: 0.5rem 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+}
+
+/* --- 1. BLUEPRINT SECTION (HERO) --- */
+.blueprint-section {
+    position: relative;
+    padding: 5% 5% 0;
+    background-color: var(--color-dark-blue);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blueprint-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 10;
+}
+
+.blueprint-text {
+    max-width: 400px;
+}
+
+.blueprint-text h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    color: var(--color-light-grey);
+}
+
+.blueprint-text .subtitle {
+    color: var(--color-vibrant-red);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Wireframe Simulation */
+.wireframe-truck-container {
+    width: 60%;
+    height: 400px;
+    position: relative;
+    transform: perspective(1000px) rotateY(-10deg);
+    /* Background for the glow and data field */
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+}
+
+.wireframe-truck {
+    width: 100%;
+    height: 100%;
+    /* Basic line drawing simulation */
+    border: 2px solid var(--color-blueprint-cyan);
+    box-shadow: 0 0 20px var(--color-blueprint-cyan);
+    opacity: 0.8;
+    position: relative;
+    
+    /* Simulating internal components with gradients and lines */
+    background-image: 
+        repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(0, 255, 255, 0.15) 20px),
+        linear-gradient(to bottom, rgba(230, 57, 70, 0.5), transparent);
+    background-size: 40px 100%, 100% 100%;
+    animation: pulse 4s infinite alternate; /* Subtle breathing glow */
+}
+
+.data-callouts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.callout {
+    position: absolute;
+    color: var(--color-vibrant-red);
+    font-size: 0.7rem;
+    border-bottom: 1px solid var(--color-vibrant-red);
+    padding-bottom: 2px;
+    cursor: pointer;
+    white-space: nowrap;
+    opacity: 0;
+    animation: fade-in 1.5s forwards 0.5s;
+}
+
+/* --- 2. FEATURES SECTION --- */
+.features-section {
+    padding: 4rem 5%;
+    background-color: var(--color-deep-blue);
+}
+
+.features-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-medium-grey);
+}
+
+.features-grid {
+    display: flex;
+    gap: 3%;
+    justify-content: center;
+}
+
+.feature-card {
+    flex: 1;
+    max-width: 250px;
+    background: var(--color-dark-blue);
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0; /* Hidden by default for JS animation */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-vibrant-red);
+    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.5);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--color-blueprint-cyan);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem;
+    font-size: 1.8rem;
+    color: var(--color-blueprint-cyan);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.feature-card:hover .icon-box {
+    color: var(--color-vibrant-red);
+    border-color: var(--color-vibrant-red);
+}
+
+.feature-card h3 {
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+
+/* --- 3. TECHNICAL DATA STREAM (HUD) --- */
+.data-stream-section {
+    padding: 4rem 5%;
+    background-color: var(--color-dark-blue);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-stream-section h2 {
+    margin-bottom: 2rem;
+    color: var(--color-vibrant-red);
+    text-shadow: 0 0 5px rgba(230, 57, 70, 0.5);
+}
+
+.data-stream-grid {
+    display: flex;
+    gap: 20px;
+    min-height: 350px;
+}
+
+.data-module {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-secondary-accent);
+    padding: 1.5rem;
+    opacity: 0; /* Hidden by default for JS animation */
+}
+
+.data-label {
+    color: var(--color-secondary-accent);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.data-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-vibrant-red);
+    margin-bottom: 1rem;
+}
+
+/* Module 1: List */
+.module-list {
+    flex: 0 0 25%;
+}
+
+.specs-list {
+    list-style: none;
+    padding: 0;
+    font-size: 0.8rem;
+    color: var(--color-medium-grey);
+}
+
+/* Module 2: Gauges/Charts */
+.module-gauges {
+    flex: 0 0 20%;
+    text-align: center;
+}
+
+.gauge-placeholder {
+    width: 100px;
+    height: 100px;
+    border: 5px solid var(--color-vibrant-red);
+    border-right-color: transparent;
+    border-radius: 50%;
+    margin: 20px auto;
+    transform: rotate(45deg); /* Simple gauge simulation */
+}
+
+.operating-data {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dotted var(--color-secondary-accent);
+    color: var(--color-medium-grey);
+}
+
+.data-number {
+    font-size: 1.5rem;
+    color: var(--color-blueprint-cyan);
+}
+
+/* Module 3: Visual Monitors */
+.module-monitors {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.monitor-row {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.monitor-box {
+    flex: 1;
+    background: #000;
+    border: 1px solid var(--color-blueprint-cyan);
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    position: relative;
+    /* Image Placeholder */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"><polyline points="10 90 50 10 90 90 130 10 170 90" fill="none" stroke="%23E63946" stroke-width="3"/></svg>');
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* --- 4. FINAL CTA --- */
+.cta-section {
+    text-align: center;
+    padding: 5rem 5%;
+    background-color: var(--color-deep-blue);
+}
+
+.cta-section h2 {
+    margin-bottom: 2rem;
+    color: var(--color-light-grey);
+}
+
+.cta-button-final {
+    background: var(--color-vibrant-red);
+    color: var(--color-light-grey);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.7);
+    transition: transform 0.3s;
+    animation: pulse 3s infinite alternate;
+}
+
+.cta-button-final:hover {
+    transform: scale(1.05);
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+    .blueprint-content, .features-grid, .data-stream-grid {
+        flex-direction: column;
+    }
+    .wireframe-truck-container {
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .feature-card {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+    .data-module {
+        flex: 100%;
+        margin-bottom: 1rem;
+    }
+    .module-list {
+        order: -1;
+    }
+    .monitor-row {
+        flex-direction: column;
+    }
+}

@@ -6,6 +6,63 @@
     <title>CIMC Advanced Logistics Trailer</title>
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all elements tagged for animation
+    const elementsToAnimate = document.querySelectorAll(
+        '[data-animation]'
+    );
+
+    const animateOnScroll = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const animationType = element.getAttribute('data-animation');
+
+                // Apply the correct CSS class/style based on data-animation attribute
+                element.style.opacity = '1';
+                if (animationType === 'fade-in') {
+                    element.style.transform = 'translateY(0)';
+                } else if (animationType === 'slide-left') {
+                    element.style.transform = 'translateX(0)';
+                } else if (animationType === 'slide-right') {
+                    element.style.transform = 'translateX(0)';
+                }
+                
+                // Add staggered delay for the features grid
+                if (element.classList.contains('feature-card')) {
+                    const index = Array.from(element.parentNode.children).indexOf(element);
+                    element.style.transitionDelay = `${index * 0.15}s`;
+                }
+
+                observer.unobserve(element);
+            }
+        });
+    };
+
+    // Set initial state for animations via CSS
+    const animationObserver = new IntersectionObserver(animateOnScroll, {
+        rootMargin: '0px',
+        threshold: 0.15 // Trigger when 15% of the element is visible
+    });
+
+    elementsToAnimate.forEach(element => {
+        // Set initial invisible state (overwritten by the transition properties in CSS)
+        element.style.opacity = '0';
+        const animationType = element.getAttribute('data-animation');
+        if (animationType === 'slide-left') {
+             element.style.transform = 'translateX(-50px)';
+        } else if (animationType === 'slide-right') {
+            element.style.transform = 'translateX(50px)';
+        } else {
+             element.style.transform = 'translateY(20px)';
+        }
+        
+        element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        animationObserver.observe(element);
+    });
+});
+	</script>
 </head>
 <body>
     <header>
@@ -95,6 +152,5 @@
         </section>
     </main>
 
-    <script src="script1.js"></script>
 </body>
 </html>
