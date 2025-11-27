@@ -1,0 +1,472 @@
+:root {
+    --color-dark-blue: #0A1931;
+    --color-deep-blue: #010B19;
+    --color-vibrant-red: #E63946;
+    --color-light-grey: #F1FAEE;
+    --color-medium-grey: #A8DADC;
+    --color-secondary-accent: #457B9D; /* Lighter blue for subtle glows */
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: var(--color-light-grey);
+}
+
+body {
+    background-color: var(--color-deep-blue);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px var(--color-vibrant-red); }
+    50% { box-shadow: 0 0 15px var(--color-vibrant-red), 0 0 25px rgba(230, 57, 70, 0.4); }
+    100% { box-shadow: 0 0 5px var(--color-vibrant-red); }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flow {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}
+
+/* --- HEADER --- */
+header {
+    background: var(--color-dark-blue);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(230, 57, 70, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-light-grey);
+}
+
+nav a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    color: var(--color-medium-grey);
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a.active {
+    color: var(--color-vibrant-red);
+    border-bottom: 2px solid var(--color-vibrant-red);
+}
+
+.cta-button-header {
+    background: var(--color-vibrant-red);
+    color: var(--color-light-grey);
+    border: none;
+    padding: 0.5rem 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    position: relative;
+    padding: 5% 5%;
+    background-color: var(--color-dark-blue);
+    overflow: hidden;
+    border-bottom: 3px solid var(--color-vibrant-red); /* Red line under hero */
+}
+
+.background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Simulate the dark, tech background from the image */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%230A1931" width="100" height="100"/><path d="M100 0L0 100Z" stroke-width="1" stroke="%23457B9D33"/></svg>'), 
+                radial-gradient(circle at 75% 50%, rgba(230, 57, 70, 0.15) 0%, transparent 40%);
+    background-size: 100px 100px, cover;
+    opacity: 1;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.hero-text {
+    max-width: 400px;
+    padding-top: 50px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    animation: slideInUp 1s ease-out;
+}
+
+.hero-text .subtitle {
+    color: var(--color-secondary-accent);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button-hero {
+    background: var(--color-vibrant-red);
+    color: var(--color-light-grey);
+    border: 2px solid var(--color-vibrant-red);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.7);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 30px rgba(230, 57, 70, 1);
+}
+
+/* Truck Render Simulation */
+.truck-render-placeholder {
+    width: 650px;
+    height: 350px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300"><path d="M50 250H550V100H450L400 50H150L100 100H50Z" fill="%23A8DADC" stroke="%23E63946" stroke-width="3"/><rect x="400" y="150" width="100" height="50" fill="%23E63946"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    position: relative;
+    /* Simulate depth and metallic sheen */
+    filter: drop-shadow(0 0 10px var(--color-secondary-accent)) brightness(1.2);
+}
+
+.cimc-truck-glow {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    width: 550px;
+    height: 10px;
+    background: var(--color-vibrant-red);
+    box-shadow: 0 0 20px var(--color-vibrant-red);
+    opacity: 0.5;
+    /* Simulating undercarriage glow */
+}
+
+
+/* --- SOLUTIONS SECTION --- */
+.solutions-section {
+    padding: 4rem 5%;
+    background-color: var(--color-dark-blue);
+}
+
+.solutions-section h2 {
+    font-size: 2rem;
+    color: var(--color-light-grey);
+    margin-bottom: 0.5rem;
+}
+
+.section-indicator {
+    color: var(--color-medium-grey);
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.solution-grid {
+    display: flex;
+    gap: 3%;
+    justify-content: space-between;
+}
+
+.solution-card {
+    flex: 1;
+    background: var(--color-deep-blue);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.solution-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+}
+
+.solution-card.active {
+    border: 1px solid var(--color-vibrant-red);
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.5);
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--color-secondary-accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+}
+
+.solution-card.active .icon-box, .solution-card:hover .icon-box {
+    border-color: var(--color-vibrant-red);
+    background: rgba(230, 57, 70, 0.1);
+}
+
+.solution-card h3 {
+    color: var(--color-light-grey);
+    margin-bottom: 0.5rem;
+}
+
+
+/* --- FLEET SECTION --- */
+.fleet-section {
+    padding: 4rem 5%;
+    background-color: var(--color-deep-blue);
+}
+
+.fleet-showcase {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.tech-feature {
+    width: 250px;
+    padding: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-icon-box {
+    display: flex;
+    gap: 10px;
+    font-size: 2rem;
+    color: var(--color-vibrant-red);
+    margin-bottom: 1rem;
+}
+
+.product-card {
+    flex: 1;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.5);
+}
+
+.card-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: var(--color-medium-grey);
+}
+
+/* Simulating Image Placeholders with Color Blocks */
+.card-red-truck {
+    background-color: #8B0000;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><rect fill="%23FF4500" width="300" height="150"/></svg>');
+}
+
+.card-blue-truck {
+    background-color: #1E90FF;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><rect fill="%234682B4" width="300" height="150"/></svg>');
+}
+
+.card-white-truck {
+    background-color: #F0F8FF;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><rect fill="%23D3D3D3" width="300" height="150"/></svg>');
+}
+
+
+/* --- FINAL CTA BANNER --- */
+.cta-banner {
+    background-color: var(--color-deep-blue);
+    padding: 0 5% 4rem;
+}
+
+.banner-content {
+    background: var(--color-dark-blue);
+    border: 2px solid var(--color-vibrant-red);
+    box-shadow: 0 0 30px rgba(230, 57, 70, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    /* Simulating the circuit background with a gradient overlay */
+    background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M100 0L0 100Z" stroke-width="0.5" stroke="%23E6394622"/></svg>'),
+        linear-gradient(to right, rgba(230, 57, 70, 0.1), rgba(69, 123, 157, 0.1));
+    background-size: 50px 50px, cover;
+}
+
+.circuit-diagram {
+    position: relative;
+    width: 200px;
+    height: 100px;
+}
+
+.chip-glow {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(var(--color-secondary-accent), transparent 60%);
+    border: 2px solid var(--color-secondary-accent);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--color-secondary-accent);
+    animation: pulse 4s infinite alternate;
+}
+
+.circuit-diagram p {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    font-size: 0.9rem;
+    color: var(--color-secondary-accent);
+}
+
+.cta-text {
+    text-align: right;
+}
+
+.cta-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button-final {
+    background: none;
+    color: var(--color-vibrant-red);
+    border: 2px solid var(--color-vibrant-red);
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.cta-button-final:hover {
+    background: var(--color-vibrant-red);
+    color: var(--color-dark-blue);
+}
+
+
+/* --- FOOTER --- */
+footer {
+    padding: 1rem 5%;
+    background-color: var(--color-dark-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.7rem;
+    color: var(--color-medium-grey);
+}
+
+.social-icons i {
+    margin-left: 15px;
+    font-size: 1.2rem;
+    color: var(--color-secondary-accent);
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: var(--color-vibrant-red);
+}
+
+/* --- MEDIA QUERIES (Responsiveness) --- */
+@media (max-width: 1024px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-text {
+        padding-top: 0;
+        margin-bottom: 2rem;
+    }
+    .truck-render-placeholder {
+        width: 100%;
+        height: 250px;
+    }
+    .solutions-section h2 {
+        text-align: center;
+    }
+    .solution-grid, .fleet-showcase, .banner-content {
+        flex-direction: column;
+    }
+    .solution-card {
+        margin-bottom: 1.5rem;
+    }
+    .tech-feature {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1.5rem;
+    }
+    .cta-text {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    .circuit-diagram {
+        margin: 0 auto;
+    }
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .social-icons {
+        margin-top: 10px;
+    }
+}
