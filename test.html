@@ -3,93 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIMC Vehicles - Contact Portal</title>
+    <title>CIMC Contact Portal - Hyper-Modern</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <div class="logo">CIMC Vehicles <span class="logo-glow">| Portal</span></div>
-            <nav>
-                <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">About Us</a>
-                <a href="#" class="nav-link">Products</a>
-                <a href="#" class="nav-link">Careers</a>
-            </nav>
-            <button class="cta-button glowing-border">Request Quote</button>
-        </div>
+        <div class="logo">CIMC Vehicles</div>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">PRODUCTS</a>
+            <a href="#">CAREERS</a>
+            <a href="#" class="active">CONTACT US</a>
+        </nav>
+        <button class="cta-button">REQUEST QUITE</button>
     </header>
 
     <main class="contact-main">
-        <div class="network-grid"></div> <section id="contact-header-3" class="contact-header">
-            <h1>SECURE COMMUNICATION PORTAL</h1>
-            <p>Initiate contact with our global intelligence hubs for advanced inquiry processing.</p>
+        <div class="background-network"></div>
+
+        <section class="hero-section">
+            <div class="text-container">
+                <p class="section-indicator">home-1</p>
+                <h1>SECURE COMMUNICATION <br> PORTAL</h1>
+                <p class="subtitle">Intitise Your Encrypted Message Relay</p>
+            </div>
+            <div class="wireframe-truck-container">
+                <div class="wireframe-truck"></div>
+            </div>
         </section>
 
-        <section id="contact-form-3" class="contact-portal">
-            
-            <div class="form-container">
-                <h2>Encrypted Message Relay</h2>
-                <form class="glassmorphic-card">
-                    <div class="input-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" required class="input-glow">
+        <section class="form-section">
+            <p class="section-indicator">contact Form-3</p>
+            <div class="form-card">
+                <form>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" required class="input-glow">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="city">City/State</label>
+                            <input type="text" id="city">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="type">Inquiry Type:</label>
-                        <select id="type" class="input-glow">
-                            <option>Sales Matrix</option>
-                            <option>Support Interface</option>
-                            <option>Media Link</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="inquiry">Inquiry Type</label>
+                            <input type="text" id="inquiry">
+                        </div>
+                        <div class="input-group">
+                            <label for="code">Code</label>
+                            <input type="text" id="code">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" rows="4" required class="input-glow"></textarea>
+                    <div class="input-group full-width">
+                        <label for="message">Message</label>
+                        <textarea id="message"></textarea>
                     </div>
-                    <button type="submit" class="cta-button submit-button glowing-border">
-                        <span class="button-text">SEND MESSAGE</span>
-                        <i class="fas fa-paper-plane send-icon"></i>
-                    </button>
+                    <button type="submit" class="submit-button">SUBMIT</button>
                 </form>
             </div>
-            
-            <div id="contact-global-3" class="global-hub">
-                <h2>CIMC Global Hubs</h2>
-                <div class="holographic-map-placeholder">
-                    <p>Interactive Holographic Map Simulation</p>
-                    <i class="fas fa-globe-europe map-icon-animation"></i>
+        </section>
+
+        <section class="channels-section">
+            <p class="section-indicator">Direc Access Channels</p>
+            <div class="channel-wrapper">
+                <div class="channel-card card-sales">
+                    <p class="section-indicator">Come-3</p>
+                    <div class="card-content">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h3>SALES MATRIX</h3>
+                        <p>connect with sales representative</p>
+                    </div>
                 </div>
-                
-                <div id="contact-channels-3" class="channels-grid">
-                    <div class="channel-card sales-matrix glowing-border" data-detail="sales@cimc.com">
-                        <i class="fas fa-handshake"></i>
-                        <p>Sales Matrix</p>
-                        <span class="detail-reveal">INITIATE</span>
-                    </div>
-                    <div class="channel-card support-interface glowing-border" data-detail="+1-555-LOGISTICS">
+                <div class="channel-card card-support">
+                    <div class="holographic-globe">
                         <i class="fas fa-headset"></i>
-                        <p>Support Interface</p>
-                        <span class="detail-reveal">INITIATE</span>
                     </div>
-                    <div class="channel-card media-link glowing-border" data-detail="media@cimc.com">
-                        <i class="fas fa-rss"></i>
-                        <p>Media Link</p>
-                        <span class="detail-reveal">INITIATE</span>
+                    <h3>SUPPORT INTERFACE</h3>
+                    <p>Get technical support</p>
+                </div>
+                <div class="channel-card card-media">
+                    <div class="card-content">
+                        <i class="fas fa-rss-square"></i>
+                        <h3>MEDIA LINK</h3>
+                        <p>access press releases and assets</p>
                     </div>
                 </div>
             </div>
         </section>
-        
     </main>
 
     <footer>
-        <p>&copy; 2025 CIMC Vehicles. Adaptive Eco-Protocols. | <span class="data-stream">Processing Data...</span></p>
+        <p class="section-indicator">Fotta-3</p>
+        <div class="footer-icons">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
     </footer>
 
     <script src="script.js"></script>

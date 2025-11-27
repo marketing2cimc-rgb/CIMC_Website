@@ -1,48 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const channelCards = document.querySelectorAll('.channel-card');
-    const dataStreamElement = document.querySelector('.data-stream');
-    const originalFooterText = dataStreamElement.textContent;
+    const cards = document.querySelectorAll('.channel-card');
 
-    // 1. Channel Card Hover Effect (Detail Reveal)
-    channelCards.forEach(card => {
-        const detailReveal = card.querySelector('.detail-reveal');
-        const detailText = card.getAttribute('data-detail');
-        
-        // Use JS for the detail text content
-        if (detailReveal && detailText) {
-            card.addEventListener('mouseenter', () => {
-                detailReveal.textContent = detailText;
-            });
-            card.addEventListener('mouseleave', () => {
-                detailReveal.textContent = 'INITIATE'; // Reset text
-            });
-        }
+    cards.forEach(card => {
+        const h3 = card.querySelector('h3');
+        const originalText = h3.textContent;
+        const originalColor = h3.style.color;
+
+        card.addEventListener('mouseenter', () => {
+            // Start the "data stream" effect
+            h3.textContent = '';
+            h3.style.color = 'var(--color-accent-secondary)';
+
+            let charIndex = 0;
+            const interval = setInterval(() => {
+                if (charIndex < originalText.length) {
+                    // Append characters one by one
+                    h3.textContent += originalText.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(interval);
+                    h3.style.color = 'var(--color-text-light)'; // Reset color after animation
+                }
+            }, 50); // Speed of typing
+
+            // Add a temporary glow on hover
+            card.style.boxShadow = '0 0 30px var(--color-accent-secondary)';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Restore original text and style quickly
+            h3.textContent = originalText;
+            h3.style.color = originalColor;
+            card.style.boxShadow = 'none';
+        });
     });
-
-    // 2. Footer Text Decoding/Scanning Animation Placeholder
-    const messages = ["ACCESS GRANTED", "SECURE CHANNEL ESTABLISHED", "PROCESSING DATA..."];
-    let messageIndex = 0;
-
-    function animateFooterText() {
-        const currentMessage = messages[messageIndex];
-        let charIndex = 0;
-        dataStreamElement.textContent = ''; // Clear existing text
-
-        const type = setInterval(() => {
-            if (charIndex < currentMessage.length) {
-                dataStreamElement.textContent += currentMessage.charAt(charIndex);
-                charIndex++;
-            } else {
-                clearInterval(type);
-                // Wait 2 seconds, then switch to the next message
-                setTimeout(() => {
-                    messageIndex = (messageIndex + 1) % messages.length;
-                    animateFooterText();
-                }, 2000); 
-            }
-        }, 80); // Typing speed
-
-    }
-
-    animateFooterText();
 });
